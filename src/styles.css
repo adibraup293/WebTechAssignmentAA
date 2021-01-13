@@ -1,6 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: lightskyblue;
+}
+
+.mat-toolbar {
+  background-color: blue;
+  color: #ffffff;
+}
+
+.toolbar{
+  margin: auto;
+  padding: 5px;
+}
+
+.toolbar-btn{
+  color:white;
+  margin: 5px;
+  background-color: blue;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.main-title{
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
+.page-content{
+  margin: auto;
+  text-align: center;
+  height: 200px;
+  padding: 100px 0;
+}
+
+html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
