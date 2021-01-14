@@ -7,6 +7,13 @@ import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from "@angular/material/card";
+import { RouterModule, Routes } from "@angular/router";
+
+import { LoginComponent } from "./login/login.component";
+
+const appRoutes:Routes = [
+  {path: 'login', component: LoginComponent},
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +25,8 @@ import { MatCardModule } from "@angular/material/card";
     MatInputModule,
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

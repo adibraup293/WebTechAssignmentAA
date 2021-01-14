@@ -1,0 +1,36 @@
+<mat-card>
+  <h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1>
+  <form (submit) = "onLogin(loginForm)" #loginForm = "ngForm">
+    <div class=page-content>
+      <h2 class="main-title">Login</h2><br>
+      <mat-form-field>
+        <input
+          matInput
+          name="username"
+          placeholder="Enter your username here..."
+          ngModel
+          #emailInput="ngModel"
+          required
+          ><br><br>
+          <mat-error *ngIf="emailInput.invalid">Please enter your username</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          name="password"
+          type="password"
+          placeholder="Enter your password here..."
+          ngModel
+          #passwordInput="ngModel"
+          required
+          ><br><br>
+          <mat-error *ngIf="emailInput.invalid">Please enter your password</mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        class="login-btn"
+        type="submit"> Log In </button>
+    </div>
+  </form>
+</mat-card>
