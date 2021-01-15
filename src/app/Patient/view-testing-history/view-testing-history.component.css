@@ -1,0 +1,70 @@
+.viewTestHistoryDiv {
+  position: relative;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.main-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
+.no-entry-text{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.enter-test-id-page-content{
+  margin: auto;
+  text-align: center;
+  height: 300px;
+  padding: 50px 0;
+}
+
+.test-id-list{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  border-collapse: collapse;
+  color: black;
+  font-weight: normal;
+}
+
+.row-border{
+  border: 5px solid lightskyblue;
+}
+
+.cell-padding, .symptomps-cell{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.symptomps-cell{
+  width: 800px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.back-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.page-content{
+  margin: auto;
+  text-align: center;
+}
+
+.page-footer{
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}

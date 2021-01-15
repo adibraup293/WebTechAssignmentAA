@@ -11,12 +11,13 @@ import { MatCardModule } from "@angular/material/card";
 import { RouterModule, Routes } from "@angular/router";
 
 import { LoginComponent } from "./login/login.component";
+//Routing for manager pages
 import { ManagerHomeComponent} from "./TestCentreManager/manager-home.component";
-//add routing for other test center manager pages here
+//Routing for tester pages
 import { TesterHomeComponent} from "./Tester/tester-home.component";
-//add routing for other tester pages here
+//Routing for patient pages
 import { PatientHomeComponent} from "./Patient/patient-home.component";
-//add routing for other patient pages here
+import { ViewTestingHistoryComponent } from './Patient/view-testing-history/view-testing-history.component';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faSquare, faCheckSquare, faGlobe } from '@fortawesome/free-solid-svg-icons';
@@ -24,24 +25,26 @@ import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawe
 
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
+  //Routing for manager pages
   {path: 'manager-home', component: ManagerHomeComponent},
-  //add routing for other test center manager pages here
+  //Routing for tester pages
   {path: 'tester-home', component: TesterHomeComponent},
-  //add routing for other tester pages here
-  {path: 'patient-home', component: PatientHomeComponent}
-  //add routing for other patient pages here
+  //Routing for patient pages
+  {path: 'patient-home', component: PatientHomeComponent},
+  {path: 'view-testing-history', component: ViewTestingHistoryComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    //Routing for manager pages
     ManagerHomeComponent,
-    //add routing for other test center manager pages here
+    //Routing for tester pages
     TesterHomeComponent,
-    //add routing for other tester pages here
-    PatientHomeComponent
-    //add routing for other patient pages here
+    //Routing for patient pages
+    PatientHomeComponent,
+    ViewTestingHistoryComponent
   ],
   imports: [
     BrowserModule,
