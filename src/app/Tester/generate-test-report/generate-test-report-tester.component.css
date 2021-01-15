@@ -1,0 +1,71 @@
+.testerGenTestReportDiv {
+  position: relative;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.main-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
+.no-entry-text{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.enter-test-id-page-content{
+  margin: auto;
+  text-align: center;
+  height: 300px;
+  padding: 50px 0;
+}
+
+.test-id-list{
+  text-align: left;
+  border-collapse: collapse;
+  color: black;
+  background-color: #98ff98;
+  font-weight: normal;
+  width: 125%;
+  margin-left: -150px;
+}
+
+.row-border{
+  border: 5px solid lightskyblue;
+}
+
+.cell-padding, .symptomps-cell{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.symptomps-cell{
+  width: 1000px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.back-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.page-content{
+  margin: auto;
+  text-align: center;
+}
+
+.page-footer{
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+}

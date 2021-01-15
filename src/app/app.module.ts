@@ -17,6 +17,7 @@ import { ManagerHomeComponent} from "./TestCentreManager/manager-home.component"
 import { RegisterKitComponent} from "./TestCentreManager/ManageTestKit/RegisterTestKit/register-testkit.component";
 //Routing for tester pages
 import { TesterHomeComponent} from "./Tester/tester-home.component";
+import { GenerateTestReportTesterComponent } from "./Tester/generate-test-report/generate-test-report-tester.component";
 //Routing for patient pages
 import { PatientHomeComponent} from "./Patient/patient-home.component";
 import { ViewTestingHistoryComponent } from './Patient/view-testing-history/view-testing-history.component';
@@ -33,6 +34,7 @@ const appRoutes:Routes = [
   {path: 'manager-home', component: ManagerHomeComponent},
   //Routing for tester pages
   {path: 'tester-home', component: TesterHomeComponent},
+  {path: 'tester-generate-test-report', component: GenerateTestReportTesterComponent},
   //Routing for patient pages
   {path: 'patient-home', component: PatientHomeComponent},
   {path: 'view-testing-history', component: ViewTestingHistoryComponent}
@@ -48,6 +50,7 @@ const appRoutes:Routes = [
     RegisterKitComponent,
     //Routing for tester pages
     TesterHomeComponent,
+    GenerateTestReportTesterComponent,
     //Routing for patient pages
     PatientHomeComponent,
     ViewTestingHistoryComponent
