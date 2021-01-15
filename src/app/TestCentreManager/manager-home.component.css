@@ -1,0 +1,17 @@
+.manager-home-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 500px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.logout-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
