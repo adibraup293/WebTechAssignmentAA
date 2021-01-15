@@ -13,6 +13,10 @@ import { ManagerHomeComponent} from "./TestCentreManager/manager-home.component"
 
 import { LoginComponent } from "./login/login.component";
 
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faSquare, faCheckSquare, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawesome/free-regular-svg-icons';
+
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'manager-home', component: ManagerHomeComponent}
@@ -26,6 +30,7 @@ const appRoutes:Routes = [
   ],
   imports: [
     BrowserModule,
+    FontAwesomeModule,
     BrowserAnimationsModule,
     MatInputModule,
     FormsModule,
@@ -37,4 +42,8 @@ const appRoutes:Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private library: FaIconLibrary) {
+    library.addIcons(faSquare, faCheckSquare, farSquare, farCheckSquare, faGlobe);
+  }
+}

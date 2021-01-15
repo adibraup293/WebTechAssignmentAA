@@ -14,9 +14,8 @@ body {
 
 .toolbar-btn{
   color:black;
-  margin: 10px;
   background-color: lightskyblue;
-  width: 250px;
+  width: 200px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
 }

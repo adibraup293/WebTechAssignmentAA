@@ -1,16 +1,16 @@
-<div class="toolbar">
+<mat-toolbar>
   <main>
-    <a routerLink="/"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">Home</button></a>
-    <a routerLink="/login"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">Login</button></a>
-    <a routerLink="/manager-home"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">Test Center Manager</button></a>
-      <!--
-    <a routerLink="/tester-home"><button mat-raised-button class="toolbar-btn" style="margin: 5px; float: right;">
-      Tester</button></a>
-    <a routerLink="/patient-home"><button mat-raised-button class="toolbar-btn" style="margin: 5px;float: right;">
-      Patient</button></a> -->
+    <!--<i class="fas fa-globe" style="margin: 5px; margin-left: -130px; float: left;"></i>-->
+    <fa-icon [icon]="faGlobe" size="lg" style="margin: 5px; margin-left: -140px; float: left;"></fa-icon>
+    <span style="margin: 5px; margin-left: -100px; float: left;">COVID Testing Information System</span>
+    <div class="button-holder">
+      <a routerLink="/"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">Home</button></a>
+      <a routerLink="/login"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">Login</button></a>
+      <a routerLink="/manager-home"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">
+        Test Center Manager</button></a>
+      <a routerLink="/tester-home"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">Tester</button></a>
+      <a routerLink="/patient-home"><button mat-raised-button class="toolbar-btn" style="margin: 5px;">Patient</button></a>
+    </div>
     <router-outlet></router-outlet>
   </main>
-</div>
-<!-- <mat-toolbar>
-
-</mat-toolbar> -->
+</mat-toolbar>

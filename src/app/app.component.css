@@ -7,3 +7,8 @@ main{
 .info-text{
   text-align:center;
 }
+
+.button-holder{
+  float: right;
+  margin-right: -130px;
+}
