@@ -11,8 +11,10 @@ import { MatCardModule } from "@angular/material/card";
 import { RouterModule, Routes } from "@angular/router";
 
 import { LoginComponent } from "./login/login.component";
+import { MTHomeComponent} from "./TestCentreManager/ManageTestKit/MTHome.component";
 //Routing for manager pages
 import { ManagerHomeComponent} from "./TestCentreManager/manager-home.component";
+import { RegisterKitComponent} from "./TestCentreManager/ManageTestKit/RegisterTestKit/register-testkit.component";
 //Routing for tester pages
 import { TesterHomeComponent} from "./Tester/tester-home.component";
 //Routing for patient pages
@@ -25,6 +27,8 @@ import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawe
 
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'manage-kit', component: MTHomeComponent},
+  {path: 'register-kit', component: RegisterKitComponent},
   //Routing for manager pages
   {path: 'manager-home', component: ManagerHomeComponent},
   //Routing for tester pages
@@ -38,8 +42,10 @@ const appRoutes:Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
+    MTHomeComponent,
     //Routing for manager pages
     ManagerHomeComponent,
+    RegisterKitComponent,
     //Routing for tester pages
     TesterHomeComponent,
     //Routing for patient pages

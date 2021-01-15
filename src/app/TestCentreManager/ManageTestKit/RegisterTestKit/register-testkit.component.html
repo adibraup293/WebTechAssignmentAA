@@ -1,0 +1,36 @@
+<mat-card>
+  <h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1>
+  <form (submit)="onSaveTestKit(testkitForm)" #testkitForm="ngForm">
+    <div class=page-content>
+      <h2 class="main-title">Register Test Kit</h2><br>
+      <mat-form-field>
+        <input
+          matInput
+          name="testkitname"
+          type="text"
+          placeholder="Enter Test Kit name here..."
+          [ngModel]="testKit?.testkitname"
+          #testkitname="ngModel"
+          required><br><br>
+          <mat-error *ngIf="testkitname.invalid">Please enter the test kit name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          name="testkitstock"
+          type="number"
+          placeholder="Enter Test Kit stock here..."
+          [ngModel]="testKit?.testkitstock"
+          #testkitstock="ngModel"
+          required><br><br>
+          <mat-error *ngIf="testkitstock.invalid">Please enter the test kit stock</mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        class="create-btn"
+        type="submit"> Register Test Kit </button>
+    </div>
+  </form>
+</mat-card>

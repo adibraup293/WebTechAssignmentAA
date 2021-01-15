@@ -1,0 +1,39 @@
+.manager-home-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 300px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.create-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.entryfield-input{
+  margin: auto;
+  width: 300px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.stock-entryfield-input{
+  margin: auto;
+  width: 150px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-card{
+  width: 80%;
+  margin:auto;
+}
+
+mat-form-field,
+textarea{
+  width: 100%;
+}
