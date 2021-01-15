@@ -1,11 +1,16 @@
-<h1 class="main-title" >Welcome back Test Center Manager!</h1><br>
-<div class=page-content>
-  <h2 class="main-title" >What do you want to do?</h2><br>
-  <a routerLink="/create-test-center"><button mat-raised-button class="manager-home-btn">Create Test Center Profile</button></a><br><br>
-  <a routerLink="/record-test-officer"><button mat-raised-button class="manager-home-btn">Record Test Center Officer</button></a><br><br>
-  <a routerLink="/manage-kit"><button mat-raised-button class="manager-home-btn">Manage Test Kit Stock</button></a><br><br>
-  <a routerLink="/generate-report"><button mat-raised-button class="manager-home-btn">Generate Test Report</button></a><br><br><br><br>
-  <a routerLink="/login"><button mat-raised-button class="logout-btn">Logout</button></a>
-  <router-outlet></router-outlet>
+<div class="managerHomeDiv">
+  <h1 class="main-title" >Welcome back Test Center Manager!</h1><br>
+  <div class="page-content">
+    <h2 class="main-title" >What do you want to do?</h2><br>
+    <a routerLink="/create-test-center"><button mat-raised-button class="manager-home-btn">Create Test Center Profile
+    </button></a><br><br>
+    <a routerLink="/record-test-officer"><button mat-raised-button class="manager-home-btn">Record Test Center Officer
+    </button></a><br><br>
+    <a routerLink="/manage-kit"><button mat-raised-button class="manager-home-btn">Manage Test Kit Stock
+    </button></a><br><br>
+    <a routerLink="/generate-report"><button mat-raised-button class="manager-home-btn">Generate Test Report
+    </button></a><br><br>
+    <a routerLink="/login"><button mat-raised-button class="logout-btn">Logout</button></a>
+    <router-outlet></router-outlet>
+  </div>
 </div>
-

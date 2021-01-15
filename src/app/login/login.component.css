@@ -5,6 +5,20 @@
 }
 */
 
+.loginDiv {
+  position: relative;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.main-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
 .login-btn{
   color:white;
   margin: 5px;
@@ -15,9 +29,11 @@
 }
 
 mat-card{
-  background-color: #ff9306;
-  width: 50%;
+  background-color: lightskyblue;
+  width: 80%;
   margin: auto;
+  transition: none !important;
+  box-shadow: none !important;
 }
 
 mat-form-field,

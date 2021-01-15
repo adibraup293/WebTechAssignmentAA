@@ -1,3 +1,17 @@
+.managerHomeDiv {
+  position: relative;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.main-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
 .manager-home-btn{
   color:white;
   margin: 5px;
