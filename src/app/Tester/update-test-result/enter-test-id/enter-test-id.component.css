@@ -1,0 +1,82 @@
+.enterIDDiv {
+  position: relative;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.main-title, .sub-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
+.sub-title{
+  font-size: 1.5em;
+}
+
+.enter-test-id-page-content{
+  margin: auto;
+  text-align: center;
+  height: 300px;
+  padding: 50px 0;
+}
+
+.id-input{
+  margin: auto;
+  width: 300px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.test-id-list{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  width: 100%;
+  border: 5px solid lightskyblue;
+  border-radius: 20px;
+  background-color: #98ff98;
+  color: black;
+  border-collapse: collapse;
+  font-weight: normal;
+}
+
+.back-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.select-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.page-footer{
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.row-border{
+  border: 5px solid lightskyblue;
+}
+
+.cell-padding, .symptomps-cell{
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.symptomps-cell{
+  width: 500px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

@@ -1,0 +1,32 @@
+<div class="selectPatientDiv">
+  <h1 class="main-title">Are you recording a new test for a new patient or an existing one?</h1>
+  <div class="select-patient-page-content">
+    <a routerLink="/record-test-new"><button mat-raised-button class="new-patient-btn">New patient</button></a><br><br>
+    <h2 class="sub-title">Existing patient</h2><br>
+    <h3 class="sub-title">Enter patient ID: </h3>
+    <input type="text" class="id-input" placeholder="Copy patient ID and paste it here">
+    <a routerLink="/record-test-existing"><button mat-raised-button class="select-btn">Select the patient</button></a>
+    <br><br>
+    <h3 class="sub-title">List of existing patients:</h3>
+    <table class="test-id-list">
+      <tr class="row-border">
+        <th class="cell-padding">Patient ID</th>
+        <th class="cell-padding">Patient Username</th>
+        <th class="cell-padding">Patient Name</th>
+      </tr>
+      <tr class="row-border">
+        <td class="cell-padding">PAT-001</td>
+        <td class="cell-padding">danieltoh708</td>
+        <td class="cell-padding">Daniel Nicholas Figueras Toh</td>
+      </tr>
+      <tr class="row-border">
+        <td class="cell-padding">PAT-002</td>
+        <td class="cell-padding">adibraup336</td>
+        <td class="cell-padding">Muhd Adib Awg Raup</td>
+      </tr>
+    </table>
+  </div>
+  <div class=page-footer>
+    <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>
+  </div>
+</div>

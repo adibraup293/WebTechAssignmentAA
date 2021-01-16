@@ -18,6 +18,11 @@ import { RegisterKitComponent} from "./TestCentreManager/ManageTestKit/RegisterT
 //Routing for tester pages
 import { TesterHomeComponent} from "./Tester/tester-home.component";
 import { GenerateTestReportTesterComponent } from "./Tester/generate-test-report/generate-test-report-tester.component";
+import { EnterTestIDComponent } from "./Tester/update-test-result/enter-test-id/enter-test-id.component";
+import { UpdateTestResultComponent } from "./Tester/update-test-result/update-test-result.component";
+import { SelectPatientComponent } from "./Tester/record-new-test/select-patient/select-patient.component";
+import { RecordTestExistingComponent } from "./Tester/record-new-test/existing-patient/record-test-existing.component";
+import { RecordTestNewComponent } from "./Tester/record-new-test/new-patient/record-test-new.component";
 //Routing for patient pages
 import { PatientHomeComponent} from "./Patient/patient-home.component";
 import { ViewTestingHistoryComponent } from './Patient/view-testing-history/view-testing-history.component';
@@ -35,6 +40,11 @@ const appRoutes:Routes = [
   //Routing for tester pages
   {path: 'tester-home', component: TesterHomeComponent},
   {path: 'tester-generate-test-report', component: GenerateTestReportTesterComponent},
+  {path: 'enter-test-id', component: EnterTestIDComponent},
+  {path: 'update-test-result', component: UpdateTestResultComponent},
+  {path: 'select-patient', component: SelectPatientComponent},
+  {path: 'record-test-existing', component: RecordTestExistingComponent},
+  {path: 'record-test-new', component: RecordTestNewComponent},
   //Routing for patient pages
   {path: 'patient-home', component: PatientHomeComponent},
   {path: 'view-testing-history', component: ViewTestingHistoryComponent}
@@ -51,6 +61,11 @@ const appRoutes:Routes = [
     //Routing for tester pages
     TesterHomeComponent,
     GenerateTestReportTesterComponent,
+    EnterTestIDComponent,
+    UpdateTestResultComponent,
+    SelectPatientComponent,
+    RecordTestExistingComponent,
+    RecordTestNewComponent,
     //Routing for patient pages
     PatientHomeComponent,
     ViewTestingHistoryComponent

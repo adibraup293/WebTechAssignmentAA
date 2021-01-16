@@ -30,9 +30,10 @@
   border-collapse: collapse;
   color: black;
   background-color: #98ff98;
+  border-radius: 20px;
   font-weight: normal;
-  width: 125%;
-  margin-left: -150px;
+  width: 120%;
+  margin-left: -120px;
 }
 
 .row-border{

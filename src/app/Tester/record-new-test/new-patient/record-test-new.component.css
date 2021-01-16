@@ -1,0 +1,103 @@
+.recordNewDiv {
+  position: relative;
+  margin: auto;
+  margin-top: 120px;
+}
+
+.main-title, .sub-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
+.sub-title{
+  font-size: 1.5em;
+}
+
+mat-card {
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.record-test-page-content{
+  margin: auto;
+  text-align: left;
+  height: 300px;
+  width: 800px;
+  padding: 50px;
+}
+
+.page-footer{
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.record-btn-container{
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+}
+
+.record-test-title{
+  color: black;
+  margin: 15px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.test-details-list, .cell-padding, .results-textarea{
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: left;
+  color: black;
+}
+
+.results-input{
+  margin-top: 20px;
+  height: 180px;
+  resize: none;
+  font-size: 1em;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.back-btn, .record-btn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 200px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+}
+
+.record-btn{
+  width: 300px;
+}
+
+.results-textarea{
+  position: relative;
+  left: 15px;
+}
+
+textarea { white-space: pre-wrap !important; }
+
+.symptomps-cell{
+  height: 200px;
+  width: 800px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.patient-type-dropdown{
+  color: black;
+  margin: 15px;
+  margin-left: 0px;
+  text-align: left;
+  white-space: nowrap;
+  width: 505px;
+  height: 30px;
+  font-size: 1em;
+}

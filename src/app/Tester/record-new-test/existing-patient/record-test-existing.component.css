@@ -1,10 +1,10 @@
-.updateResultDiv {
+.recordExistingDiv {
   position: relative;
   margin: auto;
   margin-top: 120px;
 }
 
-.main-title{
+.main-title, .sub-title{
   font-size: 2em;
   font-weight: bolder;
   color: black;
@@ -12,10 +12,20 @@
   text-align: center;
 }
 
-.update-test-result-page-content{
+.sub-title{
+  font-size: 1.5em;
+}
+
+mat-card {
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+.record-test-page-content{
   margin: auto;
   text-align: left;
-  height: 400px;
+  height: 300px;
   width: 800px;
   padding: 50px 0;
   /*background-color: wheat;*/
@@ -23,21 +33,18 @@
 
 .page-footer{
   margin: auto;
-  margin-bottom: 50px;
   text-align: center;
-  height: 60px;
-  padding: 50px;
+  padding: 30px;
 }
 
-.update-btn-container{
+.record-btn-container{
   margin: auto;
-  margin-top: 100px;
   text-align: center;
   height: 10px;
   padding: 50px 0;
 }
 
-.update-test-title{
+.record-test-title{
   color: black;
   margin: 15px;
   text-align: left;
@@ -50,21 +57,17 @@
   text-align: left;
 }
 
-.resultsField{
-  height:180px;
-}
-
 .results-input{
   margin: auto;
-  width: 600px;
-  height: 150px;
+  margin-top: 20px;
+  height: 180px;
+  width: 500px;
   resize: none;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-weight: normal;
   font-size: 1em;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.back-btn{
+.back-btn, .record-btn{
   color:white;
   margin: 5px;
   background-color: black;
@@ -73,8 +76,28 @@
   font-size: medium;
 }
 
+.record-btn{
+  width: 300px;
+}
+
 .results-textarea{
   position: relative;
   left: 15px;
-  height: 60px;
+}
+
+.symptomps-cell{
+  height: 200px;
+  width: 500px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.patient-type-dropdown{
+  color: black;
+  margin: 15px;
+  text-align: left;
+  white-space: nowrap;
+  width: 505px;
+  height: 30px;
+  font-size: 1em;
 }
