@@ -7,6 +7,14 @@
   font-size: medium;
 }
 
+.main-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
 .test-kit-create-btn{
   color:white;
   margin: 5px;

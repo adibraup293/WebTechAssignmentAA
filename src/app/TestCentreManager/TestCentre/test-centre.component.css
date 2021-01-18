@@ -4,6 +4,14 @@
   margin-top: 120px;
 }
 
+.main-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
 .manager-home-btn{
   color:white;
   margin: 5px;
@@ -36,7 +44,10 @@
 
 mat-card{
   width: 80%;
-  margin:auto;
+  margin-left: 100px;
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
 }
 
 mat-form-field,

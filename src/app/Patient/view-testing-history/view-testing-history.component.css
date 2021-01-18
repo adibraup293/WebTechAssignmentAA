@@ -30,6 +30,7 @@
   margin-right: auto;
   text-align: left;
   border-collapse: collapse;
+  background-color: #98ff98;
   color: black;
   font-weight: normal;
 }
@@ -67,4 +68,5 @@
   margin: auto;
   text-align: center;
   padding: 20px;
+  margin-bottom: 50px;
 }

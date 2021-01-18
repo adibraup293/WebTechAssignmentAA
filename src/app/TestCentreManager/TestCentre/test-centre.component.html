@@ -1,4 +1,5 @@
 <div class="TestCentreDiv">
+  <h1 class="main-title" >Create a new test centre</h1><br><br>
   <mat-card>
     <form (submit)="onSaveTestCentre(testcentreForm)" #testcentreForm="ngForm">
       <mat-form-field>
@@ -19,5 +20,8 @@
       class="create-btn"
       type="submit">Create</button>
     </form>
-  </mat-card>
+  </mat-card><br><br><br><br>
+  <div class=page-content>
+    <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
+  </div>
 </div>

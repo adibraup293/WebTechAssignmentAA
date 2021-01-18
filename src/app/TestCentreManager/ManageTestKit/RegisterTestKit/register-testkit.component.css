@@ -7,6 +7,15 @@
   font-size: medium;
 }
 
+.main-title{
+  font-size: 2em;
+  font-weight: bolder;
+  color: black;
+  margin: 15px;
+  text-align: center;
+}
+
+
 .RegKitDiv{
   position: relative;
   margin: auto;
@@ -17,7 +26,7 @@
   color:white;
   margin: 5px;
   background-color: black;
-  width: 200px;
+  width: 300px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
 }
@@ -35,8 +44,9 @@
 }
 
 mat-card{
-  width: 80%;
-  margin:auto;
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
 }
 
 mat-form-field,

@@ -1,10 +1,8 @@
 <div class="RegKitDiv">
   <mat-card>
-    <h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1>
     <!-- <form (submit)="onSaveTestKit(testkitForm)" #testkitForm="ngForm"> -->
       <form>
-      <div class=page-content>
-        <h2 class="main-title">Register Test Kit</h2><br>
+        <h2 class="main-title">Register New Test Kit</h2><br>
         <mat-form-field>
           <input
             matInput
@@ -33,7 +31,9 @@
           mat-raised-button
           class="create-btn"
           type="submit"> Register Test Kit </button>
-      </div>
     </form>
-  </mat-card>
+  </mat-card><br><br>
+  <div class=page-content>
+    <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
+  </div>
 </div>

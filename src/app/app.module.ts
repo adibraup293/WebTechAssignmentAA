@@ -19,7 +19,7 @@ import { ManagerCreateTestCentre} from "./TestCentreManager/TestCentre/test-cent
 import { ManagerRecordTestOfficerComponent} from "./TestCentreManager/RecordOfficer/record-officer.component";
 //Routing for tester pages
 import { TesterHomeComponent} from "./Tester/tester-home.component";
-import { GenerateTestReportTesterComponent } from "./Tester/generate-test-report/generate-test-report-tester.component";
+import { GenerateTestReportComponent } from "./Tester/generate-test-report/generate-test-report.component";
 import { EnterTestIDComponent } from "./Tester/update-test-result/enter-test-id/enter-test-id.component";
 import { UpdateTestResultComponent } from "./Tester/update-test-result/update-test-result.component";
 import { SelectPatientComponent } from "./Tester/record-new-test/select-patient/select-patient.component";
@@ -45,7 +45,7 @@ const appRoutes:Routes = [
   {path: 'update-kit', component: UpdateTestKitComponent},
   //Routing for tester pages
   {path: 'tester-home', component: TesterHomeComponent},
-  {path: 'tester-generate-test-report', component: GenerateTestReportTesterComponent},
+  {path: 'generate-test-report', component: GenerateTestReportComponent},
   {path: 'enter-test-id', component: EnterTestIDComponent},
   {path: 'update-test-result', component: UpdateTestResultComponent},
   {path: 'select-patient', component: SelectPatientComponent},
@@ -69,7 +69,7 @@ const appRoutes:Routes = [
     UpdateTestKitComponent,
     //Routing for tester pages
     TesterHomeComponent,
-    GenerateTestReportTesterComponent,
+    GenerateTestReportComponent,
     EnterTestIDComponent,
     UpdateTestResultComponent,
     SelectPatientComponent,
