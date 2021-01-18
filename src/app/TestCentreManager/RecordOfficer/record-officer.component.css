@@ -1,3 +1,9 @@
+.RecordOfficerDiv{
+  position: relative;
+  margin: auto;
+  margin-top: 120px;
+}
+
 .manager-home-btn{
   color:white;
   margin: 5px;
@@ -5,12 +11,6 @@
   width: 300px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
-}
-
-.RegKitDiv{
-  position: relative;
-  margin: auto;
-  margin-top: 120px;
 }
 
 .create-btn{

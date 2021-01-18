@@ -1,0 +1,55 @@
+<div class='RecordOfficerDiv'>
+<mat-card>
+  <h1 class="main-title" >Record a Test Center Officer profile!</h1>
+  <form (submit) = "onCreateTCOProfile(testCOForm)" #testCOForm = "ngForm">
+    <div class=page-content>
+      <!-- <h6 class="main-title">Enter the Test Centre Officer username below</h6><br> -->
+      <mat-form-field>
+        <input
+          matInput
+          name="username"
+          type="text"
+          placeholder="Enter test centre officer username here..."
+          ngModel
+          #testCentreProfileNameInput="ngModel"
+          required><br><br>
+          <mat-error *ngIf="testCentreProfileNameInput.invalid">Please enter a valid username</mat-error>
+      </mat-form-field>
+      <br>
+      <!-- <h6 class="main-title">Enter the Test Centre Officer password below</h6><br> -->
+      <mat-form-field>
+        <input
+          matInput
+          name="password"
+          type="password"
+          placeholder="Enter test centre officer password here..."
+          ngModel
+          #testCentreProfilePasswordInput="ngModel"
+          required><br><br>
+          <mat-error *ngIf="testCentreProfilePasswordInput.invalid">Please enter a password</mat-error>
+      </mat-form-field>
+      <br>
+      <!-- <h3 class="main-title">Enter the Test Centre name below</h3><br> -->
+      <mat-form-field>
+        <input
+          matInput
+          name="name"
+          type="text"
+          placeholder="Enter test centre officer name here..."
+          ngModel
+          minlength="3"
+          #testCentreProfileNameInput="ngModel"
+          required><br><br>
+          <mat-error *ngIf="testCentreProfileNameInput.invalid">Please enter a name</mat-error>
+      </mat-form-field>
+      <br><br>
+
+
+    <button
+    mat-raised-button
+    class="create-btn"
+    type="submit">Create</button>
+    </div>
+  </form>
+</mat-card>
+</div>
