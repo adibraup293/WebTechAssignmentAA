@@ -2,7 +2,14 @@
   <h1 class="main-title">Select the test result you wish to update</h1>
   <div class=enter-test-id-page-content>
     <h2 class="sub-title" >Enter test ID</h2>
-    <input type="text" class="id-input" placeholder="Copy test ID and paste it here">
+    <mat-form-field class="id-input-field">
+      <input matInput type="text"
+             class="id-input"
+             ngModel
+             #idInput="ngModel"
+             placeholder="Copy test ID and paste it here"
+             required>
+    </mat-form-field>
     <a routerLink="/update-test-result"><button mat-raised-button class="select-btn">Select the test</button></a><br><br>
     <h2 class="sub-title" >List of tests conducted by Tester</h2>
     <table class="test-id-list">

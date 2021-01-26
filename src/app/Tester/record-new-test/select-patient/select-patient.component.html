@@ -4,7 +4,15 @@
     <a routerLink="/record-test-new"><button mat-raised-button class="new-patient-btn">New patient</button></a><br><br>
     <h2 class="sub-title">Existing patient</h2><br>
     <h3 class="sub-title">Enter patient ID: </h3>
-    <input type="text" class="id-input" placeholder="Copy patient ID and paste it here">
+    <mat-form-field class="id-input-field">
+      <input matInput type="text"
+             class="id-input"
+             ngModel
+             #idInput="ngModel"
+             placeholder="Copy patient ID and paste it here"
+             required>
+      <mat-error *ngIf="idInput.invalid">Please enter the patient ID</mat-error>
+    </mat-form-field>
     <a routerLink="/record-test-existing"><button mat-raised-button class="select-btn">Select the patient</button></a>
     <br><br>
     <h3 class="sub-title">List of existing patients:</h3>

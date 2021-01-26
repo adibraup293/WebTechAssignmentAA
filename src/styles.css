@@ -20,6 +20,10 @@ body {
   font-size: medium;
 }
 
+.toolbar-btn:hover{
+  background-color:	#ffd47f;
+}
+
 .main-title{
   color: black;
   margin: 15px;

@@ -35,7 +35,7 @@
   margin-left: 20px;
 }
 
-.showPSBtn:hover{
+.login-btn:hover, .showPSBtn:hover{
   color: black;
   background-color: white;
 }

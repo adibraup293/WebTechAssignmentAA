@@ -67,8 +67,15 @@
         <tr>
           <td class="results-textarea" valign="bottom">
             <mat-form-field style="margin-left: -15px; width: 800px;">
-              <textarea style="color: black;" matInput name="symptoms" type="text" class="results-input"
-              placeholder="Type the symptoms patient is suffering from here..." required></textarea>
+              <textarea style="color: black;"
+              matInput name="symptoms"
+              ngModel
+              #resultsInput="ngModel"
+              type="text"
+              class="results-input"
+              placeholder="Type the symptoms patient is suffering from here..."
+              required></textarea>
+              <mat-error *ngIf="resultsInput.invalid">Please enter the symptoms</mat-error>
             </mat-form-field>
           </td>
         </tr>

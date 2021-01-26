@@ -10,7 +10,13 @@
           </tr>
           <tr>
             <td class="cell-padding" valign="top"><h3 class="record-test-title">Password:</h3></td>
-            <td class="cell-padding" valign="top"><p class="record-test-title">****************</p></td>
+            <td class="cell-padding" valign="top">
+              <p class="record-test-title">****************</p>
+              <!--<button mat-raised-button class="showPSBtn" id="showPSBtn" type="button">
+                <fa-icon [icon]="faEyeSlash" id="faEyeSlash" size="lg"></fa-icon>
+                <fa-icon [icon]="faEye" id="faEye" size="lg" style="display: hidden;"></fa-icon>
+              </button>-->
+            </td>
           </tr>
           <tr>
             <td class="cell-padding" valign="top"><h3 class="record-test-title">Full name:</h3></td>
@@ -28,12 +34,23 @@
             </select></td>
           </tr>
           <tr class="symptomps-cell">
-            <td class="cell-padding" valign="top"><h3 class="record-test-title">Symptoms:</h3></td>
-            <td class="results-textarea" valign="bottom"><textarea type="text" class="results-input"
-              placeholder="Type the symptoms patient is suffering from here..."></textarea></td>
+            <!--<td class="cell-padding" valign="top"><h3 class="record-test-title">Symptoms:</h3></td>-->
+            <td class="results-textarea" colspan="2">
+              <mat-form-field class="results-input-field">
+                <textarea style="color: black;"
+                  matInput name="symptoms"
+                  ngModel
+                  #resultsInput="ngModel"
+                  type="text"
+                  class="results-input"
+                  placeholder="Type the symptoms patient is suffering from here..."
+                  required></textarea>
+                <mat-error *ngIf="resultsInput.invalid">Please enter the symptoms</mat-error>
+              </mat-form-field>
+            </td>
           </tr>
         </table>
-      </div><br><br><br><br>
+      </div><br><br><br><br><br><br>
       <div class=record-btn-container>
         <button mat-raised-button class="record-btn">Record new test</button>
       </div>

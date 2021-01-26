@@ -80,9 +80,23 @@ mat-card {
   width: 300px;
 }
 
+.record-btn:hover{
+  background-color: blue;
+}
+
+.back-btn:hover{
+  color: black;
+  background-color: white;
+}
+
 .results-textarea{
   position: relative;
   left: 15px;
+}
+
+.results-input-field{
+  width: 670px;
+  color: black;
 }
 
 .symptomps-cell{
@@ -100,4 +114,17 @@ mat-card {
   width: 505px;
   height: 30px;
   font-size: 1em;
+}
+
+.showPSBtn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 250px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  margin-left: 20px;
 }

@@ -27,14 +27,25 @@
         </dl></td>
       </tr>
       <tr class="resultsField">
-        <td class="cell-padding" valign="top"><h3 class="update-test-title">Results:</h3></td>
-        <td class="results-textarea" valign="bottom"><textarea type="text" class="results-input"
-          placeholder="Type the results of the test here..."></textarea></td>
+        <!--<td class="cell-padding" valign="top"><h3 class="update-test-title">Results:</h3></td>-->
+        <td class="results-textarea" valign="bottom" colspan="2">
+          <mat-form-field class="results-input-field">
+            <textarea style="color: black;"
+              matInput name="symptoms"
+              ngModel
+              #resultsInput="ngModel"
+              type="text"
+              class="results-input"
+              placeholder="Type the results of the test here..."
+              required></textarea>
+            <mat-error *ngIf="resultsInput.invalid">Please enter the results of the test</mat-error>
+          </mat-form-field>
+        </td>
       </tr>
     </table>
   </div>
   <div class=update-btn-container>
-    <br><br><button mat-raised-button class="back-btn">Update results</button>
+    <br><br><button mat-raised-button class="update-btn">Update results</button>
   </div>
   <div class=page-footer>
     <br><br><a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>

@@ -25,11 +25,25 @@
   font-size: medium;
 }
 
+.select-btn {
+  margin-left: 50px;
+}
+
 .new-patient-btn{
   width: 600px;
   height: 80px;
   font-size: 1.5em;
   background-color: blue;
+  border-radius: 60px;
+}
+
+.new-patient-btn:hover{
+  background-color: maroon;
+}
+
+.select-btn:hover, .back-btn:hover{
+  background-color: white;
+  color: black;
 }
 
 .select-patient-page-content{
@@ -39,9 +53,15 @@
   padding: 50px 0;
 }
 
+.id-input-field{
+  width: 400px;
+  color: black;
+}
+
 .id-input{
+  color: black;
   margin: auto;
-  width: 300px;
+  width: 400px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 

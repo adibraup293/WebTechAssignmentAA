@@ -59,6 +59,11 @@
   font-size: medium;
 }
 
+.back-btn:hover{
+  color: black;
+  background-color: white;
+}
+
 .page-content{
   margin: auto;
   text-align: center;

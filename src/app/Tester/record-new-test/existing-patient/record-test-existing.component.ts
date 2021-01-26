@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-record-test-existing',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
 })
 
 export class RecordTestExistingComponent {
-
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
 }

@@ -21,6 +21,11 @@
   font-size: medium;
 }
 
+.manager-home-btn:hover{
+  color: black;
+  background-color: #7851a9;
+}
+
 .logout-btn{
   color:white;
   margin: 5px;
@@ -28,4 +33,9 @@
   width: 200px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
+}
+
+.logout-btn:hover{
+  color: black;
+  background-color: white;
 }

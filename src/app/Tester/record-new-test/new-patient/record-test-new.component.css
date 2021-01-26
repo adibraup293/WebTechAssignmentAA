@@ -77,6 +77,15 @@ mat-card {
   width: 300px;
 }
 
+.record-btn:hover{
+  background-color: blue;
+}
+
+.back-btn:hover{
+  color: black;
+  background-color: white;
+}
+
 .results-textarea{
   position: relative;
   left: 15px;
