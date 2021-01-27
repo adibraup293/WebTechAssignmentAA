@@ -21,6 +21,11 @@
   font-size: medium;
 }
 
+.manager-home-btn:hover{
+  color: black;
+  background-color: white;
+}
+
 .create-btn{
   color:white;
   margin: 5px;
@@ -28,6 +33,10 @@
   width: 200px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
+}
+
+.create-btn:hover{
+  background-color: blue;
 }
 
 .entryfield-input{
