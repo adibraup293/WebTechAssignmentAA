@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import { faAt, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../auth.services';
@@ -10,15 +10,22 @@ import { AuthService } from '../auth.services';
 })
 
 export class LoginComponent {
+
   faAt = faAt;
   faEye = faEye;
   faEyeSlash = faEyeSlash;
+
+  fieldTextType: boolean;
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
 
   constructor(public authService: AuthService){}
 
   onLogin(form: NgForm) {
     if (form.invalid){
       return;
-    }this.authService.login(form.value.email, form.value.password);
+    }this.authService.login(form.value.username, form.value.password);
   }
 }

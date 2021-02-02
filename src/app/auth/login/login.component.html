@@ -15,16 +15,16 @@
             id="username"
             placeholder="Enter your username here..."
             ngModel
-            #emailInput="ngModel"
+            #usernameInput="ngModel"
             required><br><br>
-            <mat-error *ngIf="emailInput.invalid">Please enter your username</mat-error>
+            <mat-error *ngIf="usernameInput.invalid">Please enter your username</mat-error>
         </mat-form-field>
           <br>
         <mat-form-field style="width: 96.5%;">
           <input
             matInput
             name="password"
-            type="password"
+            [type]="fieldTextType ? 'text' : 'password'"
             id="password"
             placeholder="Enter your password here..."
             ngModel
@@ -33,8 +33,15 @@
             <mat-error *ngIf="passwordInput.invalid">Please enter your password</mat-error>
         </mat-form-field>
         <button mat-raised-button class="showPSBtn" id="showPSBtn" type="button">
-          <fa-icon [icon]="faEyeSlash" id="faEyeSlash" size="lg"></fa-icon>
-          <fa-icon [icon]="faEye" id="faEye" size="lg" style="display: none;"></fa-icon>
+          <i
+          class="fa"
+          [ngClass]="{
+            'fa-eye-slash': !fieldTextType,
+            'fa-eye': fieldTextType
+          }"
+          (click)="toggleFieldTextType()"
+          size="2x"
+          ></i>
         </button>
         <br><br>
         <button
