@@ -34,6 +34,7 @@
   width: 300px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
+  text-align: center;
 }
 
 .create-btn:hover{
@@ -61,4 +62,13 @@ mat-card{
 mat-form-field,
 textarea{
   width: 100%;
+}
+
+:host{
+  display:block;
+  margin-top: 1rem;
+}
+
+.info-text{
+  text-align: center;
 }

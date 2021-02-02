@@ -1,7 +1,6 @@
 <div class="RegKitDiv">
   <mat-card>
-    <!-- <form (submit)="onSaveTestKit(testkitForm)" #testkitForm="ngForm"> -->
-      <form>
+    <form (submit)="onSaveTestKit(testkitForm)" #testkitForm="ngForm">
         <h2 class="main-title">Register New Test Kit</h2><br>
         <mat-form-field>
           <input
@@ -9,7 +8,7 @@
             name="testkitname"
             type="text"
             placeholder="Enter Test Kit name here..."
-            [ngModel]
+            [ngModel]="testkit?.testkitname"
             #testkitname="ngModel"
             required><br><br>
             <mat-error *ngIf="testkitname.invalid">Please enter the test kit name</mat-error>
@@ -21,19 +20,22 @@
             name="testkitstock"
             type="number"
             placeholder="Enter Test Kit stock here..."
-            [ngModel]
+            [ngModel]="testkit?.testkitstock"
             #testkitstock="ngModel"
             required><br><br>
             <mat-error *ngIf="testkitstock.invalid">Please enter the test kit stock</mat-error>
         </mat-form-field>
         <br><br>
-        <button
-          mat-raised-button
-          class="create-btn"
-          type="submit"> Register Test Kit </button>
+
+        <div class=page-content>
+          <button
+                mat-raised-button
+                class="create-btn"
+                type="submit"> Register Test Kit </button> <br><br>
+          <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
+        </div>
+
     </form>
-  </mat-card><br><br>
-  <div class=page-content>
-    <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
-  </div>
+  </mat-card>
+
 </div>

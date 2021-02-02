@@ -1,20 +1,18 @@
-<!-- <mat-accordion multi="true" *ngIf="testkits.length>0">
-  <mat-expansion-panel *ngFor="let testKit of testkits">
-    <mat-expansion-panel-header>
-      {{testKit.testkitname}}
-    </mat-expansion-panel-header>
-    <p>{{testKit.testkitstock}}</p>
-
-    <mat-action-row>
-      <a mat-button color="primary" [routerLink]="['/edit',testKit.id]">EDIT</a>
-      <button mat-button color="warn" (click)="onDelete(testKit.id)">DELETE</button>
-    </mat-action-row>
-  </mat-expansion-panel>
-</mat-accordion> -->
 <div class='updateKitDiv'>
-  <p class="info-text mat-body-1">No test kit added yet</p>
+  <mat-accordion multi="true" *ngIf="testkits.length>0">
+    <mat-expansion-panel *ngFor="let testkit of testkits">
+      <mat-expansion-panel-header>
+        {{testkit.testkitname}}
+      </mat-expansion-panel-header>
+      <p>{{testkit.testkitstock}}</p>
 
-  <div class="page-footer">
-    <a routerLink="/manager-home"><button mat-raised-button class="back-btn">Back to Manager Home</button></a>
-  </div>
+      <mat-action-row>
+        <a mat-button color="primary" [routerLink]="['/edit', testkit.id]">EDIT</a>
+        <button mat-button color="warn" (click)="onDelete(testkit.id)">DELETE</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <p class="info-text mat-body-1" *ngIf="testkits.length == 0">No Testkit available</p>
+
 </div>

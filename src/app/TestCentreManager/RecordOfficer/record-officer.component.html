@@ -42,13 +42,16 @@
           <mat-error *ngIf="testCentreProfileNameInput.invalid">Please enter a name</mat-error>
       </mat-form-field>
       <br><br>
-    <button
-    mat-raised-button
-    class="create-btn"
-    type="submit">Create</button>
+      <div class=page-content>
+        <button
+          mat-raised-button
+          class="create-btn"
+          type="submit">Create</button>
+        <br><br>
+        <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
+      </div>
+
   </form>
 </mat-card><br><br>
-<div class=page-content>
-  <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
-</div>
+
 </div>

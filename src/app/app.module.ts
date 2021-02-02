@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule } from "@angular/material/card";
 import { RouterModule, Routes } from "@angular/router";
@@ -91,6 +92,7 @@ const appRoutes:Routes = [
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatExpansionModule,
     MatCardModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
