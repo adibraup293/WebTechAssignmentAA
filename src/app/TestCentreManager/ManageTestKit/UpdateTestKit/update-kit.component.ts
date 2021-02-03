@@ -10,7 +10,7 @@ import {TestKitsService} from '../testKit.service';
 })
 
 export class UpdateTestKitComponent implements OnInit, OnDestroy{
-  testkits: TestKit[]=[];
+  testkits: TestKit[] = [];
   private testkitsSub: Subscription;
 
   constructor(public testkitsService: TestKitsService){}

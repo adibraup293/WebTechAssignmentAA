@@ -2,11 +2,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const TestKit = require('./models/testKit');
-// const TestCentre = require('./models/testCentre');
+const TestCentre = require('./models/testCentre');
 const mongoose = require("mongoose");
-// const bcrypt = require ("bcrypt");
+const bcrypt = require ("bcrypt");
 // const User = require("./models/user");
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 // const checkAuth = require('./middleware/check-auth');
 
 //Add one route
@@ -66,8 +66,8 @@ app.put("/api/testkits/:id", (req,res,next) => {
 app.get('/api/testkits', (req,res,next) => {
   TestKit.find().then(documents => {
     res.status(200).json({
-      message: 'Testkit fetched successfully'
-      //testkits: documents
+      message: 'Testkit fetched successfully',
+      testkits: documents
     });
   });
 });
