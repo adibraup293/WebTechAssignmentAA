@@ -9,7 +9,7 @@ import {TestKitsService} from '../testKit.service';
   styleUrls: ['./update-kit.component.css']
 })
 
-export class UpdateTestKitComponent implements OnInit, OnDestroy{
+export class UpdateTestKitComponent implements OnInit{
   testkits: TestKit[] = [];
   private testkitsSub: Subscription;
 
@@ -25,9 +25,5 @@ export class UpdateTestKitComponent implements OnInit, OnDestroy{
 
   onDelete(testkitId: string){
     this.testkitsService.deleteTestkit(testkitId);
-  }
-
-  ngOnDestroy(){
-    this.testkitsSub.unsubscribe();
   }
 }

@@ -45,6 +45,7 @@ const appRoutes:Routes = [
   {path: 'manager-home', component: ManagerHomeComponent},
   {path: 'manage-kit', component: MTHomeComponent},
   {path: 'register-kit', component: RegisterKitComponent},
+  {path: 'edit/:testkitId', component: RegisterKitComponent},
   {path: 'create-test-centre', component: ManagerCreateTestCentre},
   {path: 'create-officer-profile', component: ManagerRecordTestOfficerComponent},
   {path: 'update-kit', component: UpdateTestKitComponent},

@@ -11,11 +11,13 @@ import {TestKitsService} from '../testKit.service';
 })
 
 export class RegisterKitComponent implements OnInit{
+
   testkit: TestKit;
   private mode = 'create';
   private testkitId: string;
 
   constructor(public testKitsService: TestKitsService, public route: ActivatedRoute) {}
+
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if(paramMap.has('testkitId')) {

@@ -7,8 +7,8 @@
       <p>Testkit stock: {{testkit.testkitstock}}</p>
 
       <mat-action-row>
-        <a mat-button color="primary" [routerLink]="['/edit', testkit.id]">EDIT</a>
-        <button mat-button color="warn" (click)="onDelete(testkit.id)">DELETE</button>
+        <a mat-button color="primary" [routerLink]="['/edit', testkit.id]">EDIT TESTKIT</a>
+        <button mat-button color="warn" (click) = "onDelete(testkit.id)">DELETE TESTKIT</button>
       </mat-action-row>
     </mat-expansion-panel>
   </mat-accordion>

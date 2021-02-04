@@ -69,7 +69,8 @@ export class TestKitsService {
       const updatedTestkits = this.testkits.filter(testkit => testkit.id !== testkitId);
       this.testkits = updatedTestkits;
       this.testkitsUpdated.next([...this.testkits]);
-      console.log('Deleted');
+      console.log('Successfully delete Testkit');
+      this.router.navigate(['/manager-home']);
     });
   }
 }
