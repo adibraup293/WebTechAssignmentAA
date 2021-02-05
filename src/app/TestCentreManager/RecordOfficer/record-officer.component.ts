@@ -22,7 +22,6 @@ export class ManagerRecordTestOfficerComponent implements OnInit{
     .subscribe((testCentres: TestCentre[]) => {
       this.testcentres = testCentres;
     });
-
   }
 
   onCreateTCOProfile(form: NgForm){

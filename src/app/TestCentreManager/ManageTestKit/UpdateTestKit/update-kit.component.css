@@ -4,6 +4,16 @@
   margin-top: 120px;
 }
 
+.mat-expansion-panel{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 300px;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+}
+
 .back-btn{
   color:white;
   margin: 5px;

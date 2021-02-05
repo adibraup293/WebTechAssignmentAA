@@ -6,60 +6,52 @@
       <mat-form-field>
         <input
           matInput
-          name="username"
+          name="testCentreProfileName"
           type="text"
-          placeholder="Enter test centre officer username here..."
+          placeholder="Enter Test Centre Officer name here..."
           ngModel
-          #testCentreProfileNameInput="ngModel"
+          minlength="3"
+          #testCentreProfileName="ngModel"
           required><br><br>
-          <mat-error *ngIf="testCentreProfileNameInput.invalid">Please enter a valid username</mat-error>
+          <mat-error *ngIf="testCentreProfileName.invalid">Please enter a name</mat-error>
       </mat-form-field>
-      <br>
+
+      <br><br>
+
+      <mat-form-field>
+        <input
+          matInput
+          name="testCentreProfileUsernameInput"
+          type="text"
+          placeholder="Enter Test Centre Officer username here..."
+          ngModel
+          #testCentreProfileUsernameInput="ngModel"
+          required><br><br>
+          <mat-error *ngIf="testCentreProfileUsernameInput.invalid">Please enter a valid username</mat-error>
+      </mat-form-field>
+
+      <br><br>
+
       <!-- <h6 class="main-title">Enter the Test Centre Officer password below</h6><br> -->
       <mat-form-field>
         <input
           matInput
-          name="password"
+          name="testCentreProfilePasswordInput"
           type="password"
-          placeholder="Enter test centre officer password here..."
+          placeholder="Enter Test Centre Officer password here..."
           ngModel
           #testCentreProfilePasswordInput="ngModel"
           required><br><br>
           <mat-error *ngIf="testCentreProfilePasswordInput.invalid">Please enter a password</mat-error>
       </mat-form-field>
-      <br>
       <!-- <h3 class="main-title">Enter the Test Centre name below</h3><br> -->
-      <!-- <mat-form-field>
-        <input
-          matInput
-          name="name"
-          type="text"
-          placeholder="Enter test centre officer name here..."
-          ngModel
-          minlength="3"
-          #testCentreProfileNameInput="ngModel"
-          required><br><br>
-          <mat-error *ngIf="testCentreProfileNameInput.invalid">Please enter a name</mat-error>
-      </mat-form-field> -->
-
-      <!-- <select [(ngModel)]="testcentres">
-        <option *ngFor="let testCentre of testcentres">{{testCentre.testcentrename}}</option>
-      </select> -->
-      <mat-accordion multi="true" *ngIf="testcentres.length>0">
-        <mat-expansion-panel *ngFor="let testCentre of testcentres">
-          <mat-expansion-panel-header>
-            {{testCentre.testcentrename}}
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
-      </mat-accordion>
-
 
       <br><br>
       <div class=page-content>
         <button
           mat-raised-button
-          class="create-btn"
-          type="submit">Create</button>
+          class="create-TCO-btn"
+          type="submit">Create Test Centre Officer profile</button>
         <br><br>
         <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
       </div>

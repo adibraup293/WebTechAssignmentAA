@@ -102,35 +102,18 @@ app.post("/api/testcentres", (req, res, next) => {
   });
 });
 
-//  app.post("/api/testcentres", (req, res, next) => {
-//    const testcentres = new TestCentre({
-//      testcentrename : req.body.testcentrename,
-//      testcentreaddress: req.body.testcentreaddress,
-//      testcentrecontact: req.body.testcentrecontact
-//   })
+app.get('/api/testcentres',(req, res, next)=>{
+  TestCentre.find().then(documents => {
+    res.status(200).json({
+      message: 'Test Centre fetched successfully',
+      testcentres: documents
+    });
+    console.log(documents);
+  })
+});
 
-//   testcentres.save().then(createdTestcentre => {
-//     console.log(testcentres)
-//     res.status(200).json({
-//       message: 'Test Centre added successfully',
-//       testcentreId: createdTestcentre._id
-//     });
-//   });
+//-----------------------------------------Test Centre Officer------------------------------------------------
 
-//   console.log(testcentres);
-//   res.status(201).json({
-//     message: 'Test Centre added successfully'
-//   });
-//  });
 
-// app.get('/api/testcentres',(req, res, next)=>{
-//   TestCentre.find().then(documents => {
-//     res.status(200).json({
-//       message: 'Test Centre fetched successfully',
-//       testcentres: documents
-//     });
-//     console.log(documents);
-//   });
-// });
 
 module.exports = app;
