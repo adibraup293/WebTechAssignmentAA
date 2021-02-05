@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const TestKit = require('./models/testKit');
-// const TestCentre = require('./models/testCentre');
+const TestCentre = require('./models/testCentre');
 const mongoose = require("mongoose");
 //const bcrypt = require ("bcrypt");
 // const User = require("./models/user");
@@ -11,7 +11,8 @@ const mongoose = require("mongoose");
 
 //Add one route
 //Use express function and save as an app constant
-const app = express()
+const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect("mongodb+srv://max:8bGPGq0OT0DOPaVo@cluster0.xihgz.mongodb.net/node-angular?retryWrites=true&w=majority")
   .then(() => {
@@ -30,7 +31,7 @@ mongoose.connect("mongodb+srv://max:8bGPGq0OT0DOPaVo@cluster0.xihgz.mongodb.net/
    next();
  });
 
- //------------------------------------------------------Testkit
+ //------------------------------------------------------Testkit-------------------------------------------------
 app.post("/api/testkits", (req, res, next) => {
   const testKit = new TestKit({
     testkitname: req.body.testkitname,
@@ -79,10 +80,33 @@ app.delete('/api/testkits/:id', (req,res,next) => {
   })
 });
 
-//-----------------------------------------Test Centre
-// app.post("/api/testcentres", (req, res, next) => {
-//   const testcentres = new TestCentre({
-//     testcentrename : req.body.testcentrename
+//-----------------------------------------Test Centre------------------------------------------------
+app.post("/api/testcentres", (req, res, next) => {
+  const testCentre = new TestCentre({
+    testcentrename: req.body.testcentrename,
+    testcentreaddress: req.body.testcentreaddress,
+    testcentrecontact: req.body.testcentrecontact
+  })
+
+  testCentre.save().then(createdTestCentre => {
+    console.log(testCentre)
+    res.status(200).json({
+      message: 'Test Centre added successfully',
+      testCentreId: createdTestCentre._id
+    });
+  });
+
+  console.log(testCentre);
+  res.status(201).json({
+    message: 'Test Centre added successfully'
+  });
+});
+
+//  app.post("/api/testcentres", (req, res, next) => {
+//    const testcentres = new TestCentre({
+//      testcentrename : req.body.testcentrename,
+//      testcentreaddress: req.body.testcentreaddress,
+//      testcentrecontact: req.body.testcentrecontact
 //   })
 
 //   testcentres.save().then(createdTestcentre => {
@@ -97,7 +121,7 @@ app.delete('/api/testkits/:id', (req,res,next) => {
 //   res.status(201).json({
 //     message: 'Test Centre added successfully'
 //   });
-// });
+//  });
 
 // app.get('/api/testcentres',(req, res, next)=>{
 //   TestCentre.find().then(documents => {

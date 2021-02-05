@@ -14,13 +14,41 @@
         #testcentrename="ngModel">
         <mat-error *ngIf="testcentrename.invalid">Please enter a test centre name</mat-error>
       </mat-form-field>
+
+      <br><br>
+
+      <mat-form-field>
+        <input
+        matInput
+        type = "text"
+        name = "testcentreaddress"
+        [ngModel]
+        required
+        placeholder="Input Test Centre address here"
+        #testcentreaddress="ngModel">
+        <mat-error *ngIf="testcentreaddress.invalid">Please enter a test centre address</mat-error>
+      </mat-form-field>
+
+      <br><br>
+
+      <mat-form-field>
+        <input
+        matInput
+        type = "number"
+        name = "testcentrecontact"
+        [ngModel]
+        required
+        placeholder="Input Test Centre address here"
+        #testcentrecontact="ngModel">
+        <mat-error *ngIf="testcentrecontact.invalid">Please enter a test centre contact</mat-error>
+      </mat-form-field>
       <br><br>
 
       <div class=page-content>
         <button
       mat-raised-button
       class="create-btn"
-      type="submit">Create</button>
+      type="submit">Register Test Centre</button>
       <br><br>
         <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
       </div>

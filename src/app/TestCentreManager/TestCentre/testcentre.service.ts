@@ -23,8 +23,8 @@ export class TestCentreService {
   }
 
   // add test centre profile
-  addTestCentre(testcentrename: string){
-    const testCentre: TestCentre = {id: null, testcentrename: testcentrename};
+  addTestCentre(testcentrename: string, testcentreaddress: string, testcentrecontact:number){
+    const testCentre: TestCentre = {id: null, testcentrename: testcentrename, testcentreaddress:testcentreaddress, testcentrecontact:testcentrecontact};
     this.http
     .post<{message:string, testCentreId: string}> ('http://localhost:3000/api/testcentres', testCentre)
     .subscribe((responseData) => {
