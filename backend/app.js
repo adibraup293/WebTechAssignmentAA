@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const TestKit = require('./models/testKit');
-const TestCentre = require('./models/testCentre');
+// const TestCentre = require('./models/testCentre');
 const mongoose = require("mongoose");
 //const bcrypt = require ("bcrypt");
 // const User = require("./models/user");
@@ -25,7 +25,7 @@ mongoose.connect("mongodb+srv://max:8bGPGq0OT0DOPaVo@cluster0.xihgz.mongodb.net/
 
  app.use((req, res, next) => {
    res.setHeader("Access-Control-Allow-Origin", "*");
-   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept ");
+   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
    next();
  });
@@ -72,7 +72,7 @@ app.get('/api/testkits', (req,res,next) => {
   });
 });
 
-app.delete('api/testkits/:id', (req,res,next) => {
+app.delete('/api/testkits/:id', (req,res,next) => {
   TestKit.deleteOne({_id: req.params.id}).then(result => {
     console.log(result);
     res.status(200).json({message: "Testkit deleted"});
@@ -80,33 +80,33 @@ app.delete('api/testkits/:id', (req,res,next) => {
 });
 
 //-----------------------------------------Test Centre
-app.post("/api/testcentres", (req, res, next) => {
-  const testcentres = new TestCentre({
-    testcentrename : req.body.testcentrename
-  })
+// app.post("/api/testcentres", (req, res, next) => {
+//   const testcentres = new TestCentre({
+//     testcentrename : req.body.testcentrename
+//   })
 
-  testcentres.save().then(createdTestcentre => {
-    console.log(testcentres)
-    res.status(200).json({
-      message: 'Test Centre added successfully',
-      testcentreId: createdTestcentre._id
-    });
-  });
+//   testcentres.save().then(createdTestcentre => {
+//     console.log(testcentres)
+//     res.status(200).json({
+//       message: 'Test Centre added successfully',
+//       testcentreId: createdTestcentre._id
+//     });
+//   });
 
-  console.log(testcentres);
-  res.status(201).json({
-    message: 'Test Centre added successfully'
-  });
-});
+//   console.log(testcentres);
+//   res.status(201).json({
+//     message: 'Test Centre added successfully'
+//   });
+// });
 
-app.get('/api/testcentres',(req, res, next)=>{
-  TestCentre.find().then(documents => {
-    res.status(200).json({
-      message: 'Test Centre fetched successfully',
-      testcentres: documents
-    });
-    console.log(documents);
-  });
-});
+// app.get('/api/testcentres',(req, res, next)=>{
+//   TestCentre.find().then(documents => {
+//     res.status(200).json({
+//       message: 'Test Centre fetched successfully',
+//       testcentres: documents
+//     });
+//     console.log(documents);
+//   });
+// });
 
 module.exports = app;

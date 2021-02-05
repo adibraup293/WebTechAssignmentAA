@@ -26,4 +26,8 @@ export class UpdateTestKitComponent implements OnInit{
   onDelete(testkitId: string){
     this.testkitsService.deleteTestkit(testkitId);
   }
+
+  ngOnDestroy(){
+    this.testkitsSub.unsubscribe();
+  }
 }

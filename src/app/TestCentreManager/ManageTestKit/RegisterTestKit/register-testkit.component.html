@@ -24,6 +24,7 @@
             #testkitstock="ngModel"
             required><br><br>
             <mat-error *ngIf="testkitstock.invalid">Please enter the test kit stock</mat-error>
+            <mat-error *ngIf="testkitstock.value<1">Please enter atleast 1 stock quantity</mat-error>
         </mat-form-field>
         <br><br>
 

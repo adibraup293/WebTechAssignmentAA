@@ -70,7 +70,6 @@ export class TestKitsService {
       this.testkits = updatedTestkits;
       this.testkitsUpdated.next([...this.testkits]);
       console.log('Successfully delete Testkit');
-      this.router.navigate(['/manager-home']);
     });
   }
 }
