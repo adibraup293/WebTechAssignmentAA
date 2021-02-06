@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const TestKit = require('./models/testKit');
 const TestCentre = require('./models/testCentre');
+const TestCentreOfficer = require('./models/testCentreOfficer');
 const mongoose = require("mongoose");
 //const bcrypt = require ("bcrypt");
 // const User = require("./models/user");
@@ -102,7 +103,7 @@ app.post("/api/testcentres", (req, res, next) => {
   });
 });
 
-app.get('/api/testcentres',(req, res, next)=>{
+app.get("/api/testcentres",(req, res, next)=>{
   TestCentre.find().then(documents => {
     res.status(200).json({
       message: 'Test Centre fetched successfully',
@@ -112,8 +113,53 @@ app.get('/api/testcentres',(req, res, next)=>{
   })
 });
 
-//-----------------------------------------Test Centre Officer------------------------------------------------
+// app.get('/api/testkits', (req,res,next) => {
+//   TestKit.find().then(documents => {
+//     res.status(200).json({
+//       message: 'Testkit fetched successfully',
+//       testkits: documents
+//     });
+//   });
+// });
 
+//-----------------------------------------Test Centre Officer------------------------------------------------
+app.post("/api/testcentreofficers", (req, res, next) => {
+  const testCentreOfficer = new TestCentreOfficer({
+    testCentreOfficerName: req.body.testCentreOfficerName,
+    testCentreOfficerUsername: req.body.testCentreOfficerUsername,
+    testCentreOfficerPassword: req.body.testCentreOfficerPassword,
+    testCentreId: req.body.testCentreId
+  })
+
+  testCentreOfficer.save().then(createdTestCentreOfficer => {
+    console.log(testCentreOfficer)
+    res.status(200).json({
+      message: 'test Centre Officer added successfully',
+      testCentreOfficerId: createdTestCentreOfficer._id
+    });
+  });
+});
+
+  // app.post("/api/testcentres", (req, res, next) => {
+  //   const testCentre = new TestCentre({
+  //     testcentrename: req.body.testcentrename,
+  //     testcentreaddress: req.body.testcentreaddress,
+  //     testcentrecontact: req.body.testcentrecontact
+  //   })
+
+  //   testCentre.save().then(createdTestCentre => {
+  //     console.log(testCentre)
+  //     res.status(200).json({
+  //       message: 'Test Centre added successfully',
+  //       testCentreId: createdTestCentre._id
+  //     });
+  //   });
+
+  //   console.log(testCentre);
+  //   res.status(201).json({
+  //     message: 'Test Centre added successfully'
+  //   });
+  // });
 
 
 module.exports = app;

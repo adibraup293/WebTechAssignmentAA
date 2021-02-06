@@ -39,22 +39,24 @@ export class TestCentreService {
 
   // to retrieve the testCentre
   getTestCentres() {
-    this.http.get<{message: string, testCentre: any}>('http://localhost:3000/api/testcentres/')
-      .pipe(map((testCentreData) => {
-        return testCentreData.testCentre.map(testCentre => {
-          return {
-            testcentrename: testCentre.testcentrename,
-            id: testCentre._id
-          };
-        });
-      }))
-      .subscribe(transformedTestCentres => {
-        this.testCentres = transformedTestCentres;
-        this.testCentresUpdate.next([...this.testCentres]);
-      })
+    this.http.get<{message: string, testcentres: any}>('http://localhost:3000/api/testcentres')
+    .pipe(map((testCentreData) => {
+      return testCentreData.testcentres.map(testCentre => {
+        return {
+          testcentrename: testCentre.testcentrename,
+          id: testCentre._id
+        };
+      });
+    }))
+    .subscribe(transformedTestCentres => {
+      this.testCentres = transformedTestCentres;
+      this.testCentresUpdate.next([...this.testCentres]);
+    })
   }
 
   getTestCentresUpdateListener(){
     return this.testCentresUpdate.asObservable();
   }
+
+
 }

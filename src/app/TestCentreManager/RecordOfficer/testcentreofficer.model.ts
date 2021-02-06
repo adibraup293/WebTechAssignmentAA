@@ -1,6 +1,7 @@
 export interface TestCentreOfficer{
   id: string;
   testCentreOfficerName: string;
-  testCentrerUsername: string;
-  testCentrerPassword: string
+  testCentreUsername: string;
+  testCentrePassword: string;
+  testCentreId: string;
 }

@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { TestCentre } from '../TestCentre/testcentre.model';
 import { TestCentreService} from '../TestCentre/testcentre.service';
+import { TestCentreOfficerService} from './testcentreofficer.service';
+
+import {TestKit} from '../ManageTestKit/testKit.model'
+import {TestKitsService} from '../ManageTestKit/testKit.service';
 
 @Component({
   selector: 'app-manager-registerTestOfficer',
@@ -11,16 +15,16 @@ import { TestCentreService} from '../TestCentre/testcentre.service';
 })
 
 export class ManagerRecordTestOfficerComponent implements OnInit{
+  testcentres: TestCentre[] = [];
+  private testcentresSub: Subscription;
 
-  testcentres:  TestCentre[]=[];
-  private testCentresSub: Subscription;
-  constructor(public testCentreService: TestCentreService){}
+  constructor(public testcentresService: TestCentreService){}
 
   ngOnInit(){
-    this.testCentreService.getTestCentres
-    this.testCentresSub = this.testCentreService.getTestCentresUpdateListener()
-    .subscribe((testCentres: TestCentre[]) => {
-      this.testcentres = testCentres;
+    this.testcentresService.getTestCentres();
+    this.testcentresSub = this.testcentresService.getTestCentresUpdateListener()
+    .subscribe((testcentres: TestCentre[]) => {
+      this.testcentres = testcentres;
     });
   }
 
@@ -28,5 +32,10 @@ export class ManagerRecordTestOfficerComponent implements OnInit{
     if (form.invalid){
       return;
     }
+    //this.
+  }
+
+  ngOnDestroy(){
+    this.testcentresSub.unsubscribe();
   }
 }
