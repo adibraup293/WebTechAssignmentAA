@@ -9,6 +9,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonModule} from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from "@angular/material/card";
 import { RouterModule, Routes } from "@angular/router";
 
@@ -93,6 +94,7 @@ const appRoutes:Routes = [
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatSelectModule,
     MatExpansionModule,
     MatCardModule,
     HttpClientModule,

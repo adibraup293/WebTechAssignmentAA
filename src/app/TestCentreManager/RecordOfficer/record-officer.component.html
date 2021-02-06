@@ -45,6 +45,20 @@
 
       <br><br>
 
+      <h6>Click to select position</h6> <br>
+      <mat-select
+        name="testCentreOfficerPosition"
+        required>
+        <mat-option
+          *ngFor="let position of officerPositions"
+          [value]="position"
+          >
+          {{ position }}
+        </mat-option>
+      </mat-select>
+
+      <br><br>
+
       <mat-form-field>
         <input
           matInput

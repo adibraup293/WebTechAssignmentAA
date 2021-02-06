@@ -109,7 +109,6 @@ app.get("/api/testcentres",(req, res, next)=>{
       message: 'Test Centre fetched successfully',
       testcentres: documents
     });
-    console.log(documents);
   })
 });
 
@@ -128,13 +127,14 @@ app.post("/api/testcentreofficers", (req, res, next) => {
     testCentreOfficerName: req.body.testCentreOfficerName,
     testCentreOfficerUsername: req.body.testCentreOfficerUsername,
     testCentreOfficerPassword: req.body.testCentreOfficerPassword,
+    testCentreOfficerPosition: req.body.testCentreOfficerPosition,
     testCentreId: req.body.testCentreId
   })
 
   testCentreOfficer.save().then(createdTestCentreOfficer => {
     console.log(testCentreOfficer)
     res.status(200).json({
-      message: 'test Centre Officer added successfully',
+      message: 'Test Centre Officer added successfully',
       testCentreOfficerId: createdTestCentreOfficer._id
     });
   });

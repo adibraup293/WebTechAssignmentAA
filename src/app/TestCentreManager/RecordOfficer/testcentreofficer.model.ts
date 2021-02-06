@@ -3,5 +3,6 @@ export interface TestCentreOfficer{
   testCentreOfficerName: string;
   testCentreUsername: string;
   testCentrePassword: string;
+  testCentrePosition: string;
   testCentreId: string;
 }

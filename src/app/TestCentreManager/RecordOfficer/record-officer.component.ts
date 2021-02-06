@@ -2,11 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { TestCentre } from '../TestCentre/testcentre.model';
+import { TestCentreOfficer } from './testcentreofficer.model';
+
 import { TestCentreService} from '../TestCentre/testcentre.service';
 import { TestCentreOfficerService} from './testcentreofficer.service';
-
-import {TestKit} from '../ManageTestKit/testKit.model'
-import {TestKitsService} from '../ManageTestKit/testKit.service';
 
 @Component({
   selector: 'app-manager-registerTestOfficer',
@@ -16,9 +15,11 @@ import {TestKitsService} from '../ManageTestKit/testKit.service';
 
 export class ManagerRecordTestOfficerComponent implements OnInit{
   testcentres: TestCentre[] = [];
+  testCentreOfficer: TestCentreOfficer;
+  officerPositions: string[] = ['Tester','Manager'];
   private testcentresSub: Subscription;
 
-  constructor(public testcentresService: TestCentreService){}
+  constructor(public testcentresService: TestCentreService, public testcentreOfficerService: TestCentreOfficerService){}
 
   ngOnInit(){
     this.testcentresService.getTestCentres();
@@ -32,7 +33,10 @@ export class ManagerRecordTestOfficerComponent implements OnInit{
     if (form.invalid){
       return;
     }
-    //this.
+    this.testcentreOfficerService.addTestCentreOfficer(form.value.testCentreOfficerName,
+      form.value.testCentreOfficerUsername, form.value.testCentreOfficerPassword,
+      form.value.testCentreOfficerPosition, form.value.testCentreId);
+    form.resetForm();
   }
 
   ngOnDestroy(){
