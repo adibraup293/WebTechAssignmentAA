@@ -127,7 +127,7 @@ app.post("/api/testcentreofficers", (req, res, next) => {
     testCentreOfficerName: req.body.testCentreOfficerName,
     testCentreOfficerUsername: req.body.testCentreOfficerUsername,
     testCentreOfficerPassword: req.body.testCentreOfficerPassword,
-    testCentreOfficerPosition: req.body.testCentreOfficerPosition,
+    testCentreOfficerPosition: "Tester",
     testCentreId: req.body.testCentreId
   })
 

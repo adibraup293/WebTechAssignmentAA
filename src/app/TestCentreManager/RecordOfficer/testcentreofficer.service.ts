@@ -26,9 +26,9 @@ export class TestCentreOfficerService{
     testCentreOfficerPosition: string, testCentreId: string
     ){
     const testCentreOfficer: TestCentreOfficer = {id:null, testCentreOfficerName: testCentreOfficerName,
-    testCentreUsername: testCentreOfficerUsername,
-    testCentrePassword: testCentreOfficerPassword,
-    testCentrePosition: testCentreOfficerPosition,
+    testCentreOfficerUsername: testCentreOfficerUsername,
+    testCentreOfficerPassword: testCentreOfficerPassword,
+    testCentreOfficerPosition: testCentreOfficerPosition,
     testCentreId: testCentreId};
     this.http.post<{message:string, testCentreOfficerId: string}> ('http://localhost:3000/api/testcentreofficers', testCentreOfficer)
     .subscribe((responseData) => {
