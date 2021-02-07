@@ -7,9 +7,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Connect to MongoDB database
-First, access the database at `https://account.mongodb.com/account/login`. The credentials for the MongoDB database are as follows: 
-Username: adibdibzie@gmail.com
-Password: adibraup293
+First, access the database at `https://account.mongodb.com/account/login`. The credentials for the MongoDB database are as follows:
+<br> Username: adibdibzie@gmail.com
+<br> Password: adibraup293
 
 Next, run `node server.js` for checking the connection to database. The command prompt should show 'Connected to database' as the output message.
 
