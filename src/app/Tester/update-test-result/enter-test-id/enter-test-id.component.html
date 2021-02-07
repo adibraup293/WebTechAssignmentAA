@@ -12,32 +12,37 @@
     </mat-form-field>
     <a routerLink="/update-test-result"><button mat-raised-button class="select-btn">Select the test</button></a><br><br>
     <h2 class="sub-title" >List of tests conducted by Tester</h2>
-    <table class="test-id-list">
-      <tr class="row-border">
-        <th class="cell-padding">Test ID</th>
-        <th class="cell-padding">Date</th>
-        <th class="cell-padding">Patient Username</th>
-        <th class="cell-padding">Patient Name</th>
-        <th class="cell-padding">Patient Type</th>
-        <th class="cell-padding">Symptomps</th>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-001</td>
-        <td class="cell-padding">4/10/2020</td>
-        <td class="cell-padding">danieltoh708</td>
-        <td class="cell-padding">Daniel Nicholas Figueras Toh</td>
-        <td class="cell-padding">Close Contact</td>
-        <td class="symptomps-cell">Fever, Cold, Sore muscles</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-002</td>
-        <td class="cell-padding">1/10/2020</td>
-        <td class="cell-padding">adibraup336</td>
-        <td class="cell-padding">Muhd Adib Awg Raup</td>
-        <td class="cell-padding">Quarantined</td>
-        <td class="symptomps-cell">-</td>
-      </tr>
-    </table>
+    <div class="table-content">
+      <table class="test-id-list">
+        <tr class="row-border">
+          <th class="cell-padding">Test ID</th>
+          <th class="cell-padding">Date</th>
+          <th class="cell-padding">Patient Name</th>
+          <th class="cell-padding">Patient Type</th>
+          <th class="cell-padding">Symptomps</th>
+          <th class="cell-padding">Test Status</th>
+          <th class="cell-padding">Test Result</th>
+        </tr>
+        <tr class="row-border">
+          <td class="cell-padding">TEST-001</td>
+          <td class="cell-padding">4/10/2020</td>
+          <td class="cell-padding">Daniel Nicholas Figueras Toh</td>
+          <td class="cell-padding">Close Contact</td>
+          <td class="symptomps-cell">Fever, Cold, Sore muscles</td>
+          <td class="cell-padding">Complete</td>
+          <td class="cell-padding">Negative</td>
+        </tr>
+        <tr class="row-border">
+          <td class="cell-padding">TEST-002</td>
+          <td class="cell-padding">1/10/2020</td>
+          <td class="cell-padding">Muhd Adib Awg Raup</td>
+          <td class="cell-padding">Quarantined</td>
+          <td class="symptomps-cell">-</td>
+          <td class="cell-padding">Pending</td>
+          <td class="cell-padding">-</td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class="page-footer">
     <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>

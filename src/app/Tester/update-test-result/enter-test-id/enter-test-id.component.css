@@ -19,7 +19,7 @@
 .enter-test-id-page-content{
   margin: auto;
   text-align: center;
-  height: 300px;
+  height: auto;
   padding: 50px 0;
 }
 
@@ -35,10 +35,9 @@
 }
 
 .test-id-list{
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -70px;
   text-align: left;
-  width: 100%;
+  width: 110%;
   border: 5px solid lightskyblue;
   border-radius: 20px;
   background-color: #98ff98;
@@ -78,7 +77,9 @@
 .page-footer{
   margin: auto;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
+  margin-bottom: 50px;
+  height: 100px;
 }
 
 .row-border{
@@ -88,6 +89,11 @@
 .cell-padding, .symptomps-cell{
   padding-right: 10px;
   padding-left: 10px;
+}
+
+.table-content{
+  margin: auto;
+  text-align: center;
 }
 
 .symptomps-cell{

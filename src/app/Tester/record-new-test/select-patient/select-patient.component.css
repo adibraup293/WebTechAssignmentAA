@@ -49,7 +49,7 @@
 .select-patient-page-content{
   margin: auto;
   text-align: center;
-  height: 350px;
+  height: auto;
   padding: 50px 0;
 }
 
@@ -68,13 +68,13 @@
 .page-footer{
   margin: auto;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
+  margin-bottom: 50px;
 }
 
 .back-btn{
   color:white;
   margin: 5px;
-  margin-top: 200px;
   background-color: black;
   width: 200px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
