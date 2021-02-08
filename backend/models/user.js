@@ -6,4 +6,4 @@ const postSchema = mongoose.Schema({
   password: {type: String, required:true}
 });
 
-module.exports = mongoose.model('TestKit',postSchema);
+module.exports = mongoose.model('User',postSchema);
