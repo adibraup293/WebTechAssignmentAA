@@ -1,5 +1,5 @@
 # BIT 306 Web Technologies Assignment
-#### COVID Testing Information System (CTIS)
+### COVID Testing Information System (CTIS)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
 
