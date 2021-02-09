@@ -1,4 +1,5 @@
-# Webtechassignment
+# BIT 306 Web Technologies Assignment
+### COVID Testing Information System (CTIS)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
 
@@ -11,7 +12,9 @@ First, access the database at `https://account.mongodb.com/account/login`. The c
 <br> Username: adibdibzie@gmail.com
 <br> Password: adibraup293
 
-Next, run `node server.js` for checking the connection to database. The command prompt should show 'Connected to database' as the output message.
+Next, go to **Network Access** and select **Add IP Address** (the green button on the right). Then, click the **Add Current IP Address** button and click the **Confirm** button. Your current IP address will be added to the IP access list.
+
+After that, run `node server.js` for checking the connection to database. The command prompt should show 'Connected to database' as the output message.
 
 ## Code scaffolding
 
