@@ -1,0 +1,100 @@
+<div class="signupDiv">
+  <mat-card>
+    <h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1><br><br>
+    <form (submit) = "onSignup(signupForm)" #signupForm = "ngForm">
+      <div class=page-content>
+        <h2 class="main-title">Sign Up</h2><br>
+        <div style="float:left; margin-top: 35px;">
+          <fa-icon [icon]="faAt" size="2x" style="padding-right: 15px;"></fa-icon>
+        </div>
+        <mat-form-field>
+          <input
+            matInput
+            name="name"
+            type="text"
+            id="name"
+            placeholder="Enter your name here..."
+            ngModel
+            #nameInput="ngModel"
+            required><br><br>
+            <mat-error *ngIf="nameInput.invalid">Please enter your name</mat-error>
+        </mat-form-field>
+          <br>
+        <mat-form-field>
+          <input
+            matInput
+            name="username"
+            type="text"
+            id="username"
+            placeholder="Enter your username here..."
+            ngModel
+            #usernameInput="ngModel"
+            required><br><br>
+            <mat-error *ngIf="usernameInput.invalid">Please enter your username</mat-error>
+        </mat-form-field>
+          <br>
+        <mat-form-field style="width: 96.5%;">
+          <input
+            matInput
+            name="password"
+            [type]="fieldTextType ? 'text' : 'password'"
+            id="password"
+            placeholder="Enter your password here..."
+            ngModel
+            #passwordInput="ngModel"
+            required><br><br>
+            <mat-error *ngIf="passwordInput.invalid">Please enter your password</mat-error>
+        </mat-form-field>
+        <button mat-raised-button class="showPSBtn" id="showPSBtn" type="button">
+          <i
+          class="fa"
+          [ngClass]="{
+            'fa-eye-slash': !fieldTextType,
+            'fa-eye': fieldTextType
+          }"
+          (click)="toggleFieldTextType()"
+          ></i>
+        </button>
+        <br><br>
+        <button
+          mat-raised-button
+          class="login-btn"
+          type="submit"> Sign Up </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+<!-- <mat-card>
+  <form (submit) = "onSignup(signupForm)" #signupForm = "ngForm">
+  <mat-form-field>
+    <input
+      matInput
+      name="email"
+      type="email"
+      placeholder="E-mail"
+      ngModel
+      #emailInput="ngModel"
+      required
+      email>
+      <mat-error *ngIf="emailInput.invalid">Please enter valid email</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+    name="password"
+    matInput
+    type="password"
+    placeholder="Password"
+    ngModel
+    #passwordInput="ngModel"
+    required>
+    <mat-error *ngIf="passwordInput">Please enter a valid password</mat-error>
+  </mat-form-field>
+
+  <button
+    mat-raised-button
+    color="accent"
+    type="submit">Login</button>
+  </form>
+</mat-card> -->

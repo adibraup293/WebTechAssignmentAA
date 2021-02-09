@@ -1,22 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from "@angular/material/input";
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatExpansionModule} from '@angular/material/expansion';
-import { MatButtonModule} from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCardModule } from "@angular/material/card";
-import { RouterModule, Routes } from "@angular/router";
-
-import { AuthInterceptor } from "./auth/auth-interceptor";
+import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from "./auth/login/login.component";
-import { SignupComponent} from "./auth/signup/signup.component";
 import { MTHomeComponent} from "./TestCentreManager/ManageTestKit/MTHome.component";
 //Routing for manager pages
 import { ManagerHomeComponent} from "./TestCentreManager/manager-home.component";
@@ -36,14 +21,9 @@ import { UpdateTestKitComponent} from "./TestCentreManager/ManageTestKit/UpdateT
 import { PatientHomeComponent} from "./Patient/patient-home.component";
 import { ViewTestingHistoryComponent } from './Patient/view-testing-history/view-testing-history.component';
 
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-//Add Font Awesome icons here
-import { faSquare, faCheckSquare, faGlobe, faAt, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawesome/free-regular-svg-icons';
 
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
   //Routing for manager pages
   {path: 'manager-home', component: ManagerHomeComponent},
   {path: 'manage-kit', component: MTHomeComponent},
@@ -66,49 +46,8 @@ const appRoutes:Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent,
-    MTHomeComponent,
-    //Routing for manager pages
-    ManagerHomeComponent,
-    RegisterKitComponent,
-    ManagerCreateTestCentre,
-    ManagerRecordTestOfficerComponent,
-    UpdateTestKitComponent,
-    //Routing for tester pages
-    TesterHomeComponent,
-    GenerateTestReportComponent,
-    EnterTestIDComponent,
-    UpdateTestResultComponent,
-    SelectPatientComponent,
-    RecordTestExistingComponent,
-    RecordTestNewComponent,
-    //Routing for patient pages
-    PatientHomeComponent,
-    ViewTestingHistoryComponent
-  ],
-  imports: [
-    BrowserModule,
-    FontAwesomeModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    FormsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatExpansionModule,
-    MatCardModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
-  bootstrap: [AppComponent]
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
 })
-export class AppModule {
-  constructor(private library: FaIconLibrary) {
-    //Add Font Awesome icons here
-    library.addIcons(faSquare, faCheckSquare, farSquare, farCheckSquare, faGlobe, faAt, faEye, faEyeSlash);
-  }
-}
+
+export class AppRoutingModule{}

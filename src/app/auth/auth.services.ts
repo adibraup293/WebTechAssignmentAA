@@ -2,13 +2,14 @@ import { Injectable} from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthData } from './auth-data.model';
 import { Subject } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Injectable ({providedIn: 'root' })
 export class AuthService {
   public token: string;
   private authStatusListener = new Subject<boolean>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   getToken(){
     return this.token;
@@ -18,8 +19,8 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
-  createUser(username: string, password: string){
-    const authData: AuthData = {username:username, password:password};
+  createUser(name: string, username: string, password: string){
+    const authData: AuthData = {name: name, username:username, password:password};
     this.http.post ('http://localhost:3000/api/user/signup', authData)
       .subscribe(response => {
         console.log(response);
@@ -34,5 +35,11 @@ export class AuthService {
         this.token = token;
         this.authStatusListener.next(true);
       });
+  }
+
+  logout(){
+    this.token = null;
+    this.authStatusListener.next(false);
+    this.router.navigate(['/']);
   }
 }
