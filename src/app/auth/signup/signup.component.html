@@ -10,35 +10,21 @@
         <mat-form-field>
           <input
             matInput
-            name="name"
-            type="text"
-            id="name"
-            placeholder="Enter your name here..."
+            name="email"
+            type="email"
+            placeholder="Enter your email here..."
             ngModel
-            #nameInput="ngModel"
-            required><br><br>
-            <mat-error *ngIf="nameInput.invalid">Please enter your name</mat-error>
-        </mat-form-field>
-          <br>
-        <mat-form-field>
-          <input
-            matInput
-            name="username"
-            type="text"
-            id="username"
-            placeholder="Enter your username here..."
-            ngModel
-            #usernameInput="ngModel"
-            required><br><br>
-            <mat-error *ngIf="usernameInput.invalid">Please enter your username</mat-error>
+            #emailInput="ngModel"
+            required
+            email><br><br>
+            <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
         </mat-form-field>
           <br>
         <mat-form-field style="width: 96.5%;">
           <input
             matInput
             name="password"
-            [type]="fieldTextType ? 'text' : 'password'"
-            id="password"
+            type="password"
             placeholder="Enter your password here..."
             ngModel
             #passwordInput="ngModel"

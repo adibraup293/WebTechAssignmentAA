@@ -139,50 +139,17 @@ app.post("/api/testcentreofficers", (req, res, next) => {
   });
 });
 
-//-----------------------------------------User Login/Signup------------------------------------------------
-app.post('/api/user/signup', (req,res,next) => {
-  bcrypt.hash(req.body.password, 10)
-  .then(hash =>{
-    const user = new User({
-      name: req.body.name,
-      username: req.body.username,
-      password: hash
-    });
-    user.save()
-    .then(result => {
-      res.status(201).json({
-        message: 'User successfully registered',
-        result: result
-      });
-    })
-    .catch(err => {
-      res.status(500).json({
-        error:err
-      });
-    });
-  });
-});
-
-app.get("/api/user",(req, res, next)=>{
-  User.find().then(documents => {
-    res.status(200).json({
-      message: 'User fetched successfully',
-      users: documents
-    });
-  })
-});
-
-app.post('/api/user/login', (req,res,next) => {
+app.post('/api/testcentreofficers/login', (req,res,next) => {
   let fetchedUser;
-  User.findOne({username: req.body.username})
-  .then(user => {
-    if (!user){
+  TestCentreOfficer.findOne({username: req.body.username})
+  .then(testcentreofficer => {
+    if (!testcentreofficer){
       return res.status(401).json({
         message: 'Auth failed'
       });
     }
-    fetchedUser = user
-    return bcrypt.compare(req.body.password, user.password)
+    fetchedUser = testcentreofficer
+    return bcrypt.compare(req.body.password, testcentreofficer.password)
   })
   .then(result => {
     if (!result){
@@ -191,7 +158,7 @@ app.post('/api/user/login', (req,res,next) => {
       });
     }
     const token = jwt.sign(
-      {username: fetchedUser.username, userId: fetchedUser._id},
+      {username: fetchedUser.username, testcentreId: fetchedUser._id},
       'secret_this_should_be_longer',
       {expiresIn: '1h'}
     );
@@ -205,5 +172,64 @@ app.post('/api/user/login', (req,res,next) => {
     });
   })
  })
+
+//-----------------------------------------User Login/Signup------------------------------------------------
+app.post('/api/user/signup', (req,res,next) => {
+  bcrypt.hash(req.body.password, 10)
+  .then(hash =>{
+    const user = new User({
+      email: req.body.email,
+      password: hash
+    });
+    user.save()
+    .then(result => {
+      res.status(201).json({
+        message: 'User created',
+        result: result
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        error:err
+      });
+    });
+  });
+});
+
+ app.post('/api/user/login', (req,res,next) => {
+   let fetchedUser;
+   User.findOne({email: req.body.email})
+   .then(user => {
+     if (!user){
+       return res.status(401).json({
+         message: 'Auth failed'
+       });
+     }
+     fetchedUser = user
+     return bcrypt.compare(req.body.password, user.password)
+   })
+   .then(result => {
+     if (!result){
+       return res.status(401).json({
+         message: 'Auth failed'
+       });
+     }
+     const token = jwt.sign(
+       {email: fetchedUser.email, userId: fetchedUser._id},
+       'secret_this_should_be_longer',
+       {expiresIn: '1h'}
+     );
+     res.status(200).json({
+       token: token
+     })
+   })
+   .catch (err=> {
+     return res.status(401).json({
+       message: 'Auth failed'
+     });
+   })
+ })
+
+
 
 module.exports = app;
