@@ -205,7 +205,6 @@ app.post('/api/user/signup', (req,res,next) => {
   });
 });
 
-<<<<<<< HEAD
  app.post('/api/user/login', (req,res,next) => {
    let fetchedUser;
    User.findOne({email: req.body.email})
@@ -243,7 +242,6 @@ app.post('/api/user/signup', (req,res,next) => {
  //-----------------------------------------Tester------------------------------------------------
 
 
-=======
 //login user
 app.post('/api/user/login', (req,res,next) => {
   let fetchedUser;
@@ -278,7 +276,6 @@ app.post('/api/user/login', (req,res,next) => {
     });
   })
  })
->>>>>>> 2fe4b77da82aad0c1e07b994baf56e3f8f49ce1e
 
  //-----------------------------------------Patient------------------------------------------------
 
