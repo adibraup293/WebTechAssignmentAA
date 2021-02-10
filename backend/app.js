@@ -33,7 +33,8 @@ mongoose.connect("mongodb+srv://max:8bGPGq0OT0DOPaVo@cluster0.xihgz.mongodb.net/
  });
 
  //------------------------------------------------------Testkit-------------------------------------------------
-app.post("/api/testkits", (req, res, next) => {
+//add testkit
+ app.post("/api/testkits", (req, res, next) => {
   const testKit = new TestKit({
     testkitname: req.body.testkitname,
     testkitstock: req.body.testkitstock
@@ -53,6 +54,7 @@ app.post("/api/testkits", (req, res, next) => {
   });
 });
 
+//edit testkit
 app.put("/api/testkits/:id", (req,res,next) => {
   const testKit = new TestKit({
     _id: req.body.id,
@@ -65,6 +67,7 @@ app.put("/api/testkits/:id", (req,res,next) => {
   });
 });
 
+//get testkit
 app.get('/api/testkits', (req,res,next) => {
   TestKit.find().then(documents => {
     res.status(200).json({
@@ -74,6 +77,7 @@ app.get('/api/testkits', (req,res,next) => {
   });
 });
 
+//delete testkit
 app.delete('/api/testkits/:id', (req,res,next) => {
   TestKit.deleteOne({_id: req.params.id}).then(result => {
     console.log(result);
@@ -82,6 +86,7 @@ app.delete('/api/testkits/:id', (req,res,next) => {
 });
 
 //-----------------------------------------Test Centre------------------------------------------------
+//add testcentre
 app.post("/api/testcentres", (req, res, next) => {
   const testCentre = new TestCentre({
     testcentrename: req.body.testcentrename,
@@ -103,6 +108,7 @@ app.post("/api/testcentres", (req, res, next) => {
   });
 });
 
+//get testcentre
 app.get("/api/testcentres",(req, res, next)=>{
   TestCentre.find().then(documents => {
     res.status(200).json({
@@ -114,6 +120,7 @@ app.get("/api/testcentres",(req, res, next)=>{
 
 
 //-----------------------------------------Test Centre Officer------------------------------------------------
+//add tester
 app.post("/api/testcentreofficers", (req, res, next) => {
   bcrypt.hash(req.body.testCentreOfficerPassword, 10)
   .then(hash => {
@@ -139,6 +146,7 @@ app.post("/api/testcentreofficers", (req, res, next) => {
   });
 });
 
+//login tester
 app.post('/api/testcentreofficers/login', (req,res,next) => {
   let fetchedUser;
   TestCentreOfficer.findOne({username: req.body.username})
@@ -174,6 +182,7 @@ app.post('/api/testcentreofficers/login', (req,res,next) => {
  })
 
 //-----------------------------------------User Login/Signup------------------------------------------------
+//sign up user
 app.post('/api/user/signup', (req,res,next) => {
   bcrypt.hash(req.body.password, 10)
   .then(hash =>{
@@ -196,6 +205,7 @@ app.post('/api/user/signup', (req,res,next) => {
   });
 });
 
+<<<<<<< HEAD
  app.post('/api/user/login', (req,res,next) => {
    let fetchedUser;
    User.findOne({email: req.body.email})
@@ -233,6 +243,42 @@ app.post('/api/user/signup', (req,res,next) => {
  //-----------------------------------------Tester------------------------------------------------
 
 
+=======
+//login user
+app.post('/api/user/login', (req,res,next) => {
+  let fetchedUser;
+  User.findOne({email: req.body.email})
+  .then(user => {
+    if (!user){
+      return res.status(401).json({
+        message: 'Auth failed'
+      });
+    }
+    fetchedUser = user
+    return bcrypt.compare(req.body.password, user.password)
+  })
+  .then(result => {
+    if (!result){
+      return res.status(401).json({
+        message: 'Auth failed'
+      });
+    }
+    const token = jwt.sign(
+      {email: fetchedUser.email, userId: fetchedUser._id},
+      'secret_this_should_be_longer',
+      {expiresIn: '1h'}
+    );
+    res.status(200).json({
+      token: token
+    })
+  })
+  .catch (err=> {
+    return res.status(401).json({
+      message: 'Auth failed'
+    });
+  })
+ })
+>>>>>>> 2fe4b77da82aad0c1e07b994baf56e3f8f49ce1e
 
  //-----------------------------------------Patient------------------------------------------------
 
