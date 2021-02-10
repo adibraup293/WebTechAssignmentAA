@@ -6,7 +6,7 @@ const postSchema = mongoose.Schema({
   patientUsername: {type: String, required:true},
   symptoms: {type: String, required:true},
   testStatus: {type: String, required:true},
-  testResults: {type: String, required:true}
+  testResults: {type: String, required:false}
 });
 
 module.exports = mongoose.model('TestCentre',postSchema);
