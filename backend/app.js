@@ -147,7 +147,7 @@ app.post("/api/testcentreofficers", (req, res, next) => {
 });
 
 //login tester
-app.post('/api/testcentreofficers/login', (req,res,next) => {
+app.post('/api/testcentreofficers', (req,res,next) => {
   let fetchedUser;
   TestCentreOfficer.findOne({username: req.body.username})
   .then(testcentreofficer => {

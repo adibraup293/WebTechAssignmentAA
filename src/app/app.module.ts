@@ -24,6 +24,7 @@ import { RegisterKitComponent} from "./TestCentreManager/ManageTestKit/RegisterT
 import { ManagerCreateTestCentre} from "./TestCentreManager/TestCentre/test-centre.component";
 import { ManagerRecordTestOfficerComponent} from "./TestCentreManager/RecordOfficer/record-officer.component";
 //Routing for tester pages
+import { LoginTesterComponent} from "../app/auth/loginTester/loginTester.component";
 import { TesterHomeComponent} from "./Tester/tester-home.component";
 import { GenerateTestReportComponent } from "./Tester/generate-test-report/generate-test-report.component";
 import { EnterTestIDComponent } from "./Tester/update-test-result/enter-test-id/enter-test-id.component";
@@ -43,6 +44,7 @@ import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawe
 
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'tester-login', component: LoginTesterComponent},
   {path: 'signup', component: SignupComponent},
   //Routing for manager pages
   {path: 'manager-home', component: ManagerHomeComponent},
@@ -69,6 +71,7 @@ const appRoutes:Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
+    LoginTesterComponent,
     SignupComponent,
     MTHomeComponent,
     //Routing for manager pages

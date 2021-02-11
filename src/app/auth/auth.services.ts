@@ -1,6 +1,7 @@
 import { Injectable} from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthData } from './auth-data.model';
+import { TestCentreOfficer } from '../TestCentreManager/RecordOfficer/testcentreofficer.model';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -44,14 +45,14 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  // loginTester(username:string, password:string){
-  //   const authData: AuthData = {username:username, password:password};
-  //   this.http.post <{token: string}> ('http://localhost:3000/api/testcentreofficers/login', authData)
-  //     .subscribe(response => {
-  //       const token = response.token;
-  //       this.token = token;
-  //       this.authStatusListener.next(true);
-  //       this.router.navigate(['/tester-home']);
-  //     });
-  // }
+  loginTester(username:string, password:string){
+    const testcentreOfficer: TestCentreOfficer = {testCentreOfficerUsername:username, testCentreOfficerPassword:password};
+    this.http.post <{token: string}> ('http://localhost:3000/api/testcentreofficers', testcentreOfficer)
+      .subscribe(response => {
+        const token = response.token;
+        this.token = token;
+        this.authStatusListener.next(true);
+        this.router.navigate(['/tester-home']);
+      });
+  }
 }
