@@ -181,6 +181,16 @@ app.post('/api/testcentreofficers', (req,res,next) => {
   })
  })
 
+ //get tester
+app.get('/api/testcentreofficers', (req,res,next) => {
+  TestCentreOfficer.find().then(documents => {
+    res.status(200).json({
+      message: 'Tester fetched successfully',
+      testkits: documents
+    });
+  });
+});
+
 //-----------------------------------------User Login/Signup------------------------------------------------
 //sign up user
 app.post('/api/user/signup', (req,res,next) => {

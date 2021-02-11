@@ -53,6 +53,7 @@ const appRoutes:Routes = [
   {path: 'edit/:testkitId', component: RegisterKitComponent},
   {path: 'create-test-centre', component: ManagerCreateTestCentre},
   {path: 'create-officer-profile', component: ManagerRecordTestOfficerComponent},
+  {path: 'edit-tester/:testcentreofficerId', component: ManagerRecordTestOfficerComponent},
   {path: 'update-kit', component: UpdateTestKitComponent},
   //Routing for tester pages
   {path: 'tester-home', component: TesterHomeComponent},
