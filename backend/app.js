@@ -270,6 +270,7 @@ app.post('/api/user/login', (req,res,next) => {
     testId: req.body.testId,
     testDate: req.body.testDate,
     patientUsername: req.body.patientUsername,
+    patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
     testResults: req.body.testResults
@@ -295,6 +296,7 @@ app.post('/api/user/login', (req,res,next) => {
     _id: req.body.id,
     testDate: req.body.testDate,
     patientUsername: req.body.patientUsername,
+    patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
     testResults: req.body.testResults

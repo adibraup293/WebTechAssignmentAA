@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
+import {Test} from 'src/app/Tester/test.model'
+import {TestService} from 'src/app/Tester/test.service';
 
 @Component({
   selector: 'app-view-testing-history',
@@ -6,6 +9,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./view-testing-history.component.css']
 })
 
-export class ViewTestingHistoryComponent {
+export class ViewTestingHistoryComponent implements OnInit{
+  tests: Test[] = [];
+  private testSub: Subscription;
 
+  constructor(public testService: TestService){}
+
+  ngOnInit(){
+    this.testService.getTests();
+    this.testSub = this.testService.getTestsUpdateListener()
+    .subscribe((tests: Test[]) => {
+      this.tests = tests;
+    });
+  }
+
+  ngOnDestroy(){
+    this.testSub.unsubscribe();
+  }
 }

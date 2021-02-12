@@ -13,42 +13,26 @@
   text-align: center;
 }
 
-.no-entry-text{
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-weight: bold;
-  font-size: 20px;
+.mat-expansion-panel{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
-.enter-test-id-page-content{
-  margin: auto;
-  text-align: center;
-  height: 300px;
-  padding: 50px 0;
-}
-
-.test-id-list{
-  margin-left: -70px;
-  text-align: left;
-  border-collapse: collapse;
-  background-color: #98ff98;
-  color: black;
-  font-weight: normal;
-  width: 110%;
-}
-
-.row-border{
-  border: 5px solid lightskyblue;
-}
-
-.cell-padding, .symptomps-cell{
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.symptomps-cell{
-  width: 800px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.mat-select{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
 .back-btn{
@@ -75,4 +59,15 @@
   text-align: center;
   padding: 20px;
   margin-bottom: 50px;
+}
+
+mat-card{
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+mat-form-field,
+textarea{
+  width: 100%;
 }

@@ -1,59 +1,24 @@
 <div class="viewTestHistoryDiv">
   <h1 class="main-title">Testing history for Patient</h1><br>
   <div class="page-content">
-    <table class="test-id-list">
-      <tr class="row-border">
-        <th class="cell-padding">Test ID</th>
-        <th class="cell-padding">Date</th>
-        <th class="cell-padding">Patient Type</th>
-        <th class="cell-padding">Symptomps</th>
-        <th class="cell-padding">Test Status</th>
-        <th class="cell-padding">Test Results</th>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-001</td>
-        <td class="cell-padding">4/10/2020</td>
-        <td class="cell-padding">Returnee</td>
-        <td class="symptomps-cell">-</td>
-        <td class="cell-padding">Pending</td>
-        <td class="cell-padding">-</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-002</td>
-        <td class="cell-padding">15/10/2020</td>
-        <td class="cell-padding">Quarantined</td>
-        <td class="symptomps-cell">Runny nose, High fever, Sore throat, Respiratory pain, Sharp pain in abdomen, Severe headaches,
-          Difficulty in breathing, Accelerated heart rate, Cold perspiration, Shallow breathing</td>
-        <td class="cell-padding">Complete</td>
-        <td class="cell-padding">Positive</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-011</td>
-        <td class="cell-padding">30/1/2021</td>
-        <td class="cell-padding">Close contact</td>
-        <td class="symptomps-cell">Runny nose</td>
-        <td class="cell-padding">Pending</td>
-        <td class="cell-padding">-</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-101</td>
-        <td class="cell-padding">4/3/2021</td>
-        <td class="cell-padding">Infected</td>
-        <td class="symptomps-cell">Severe headaches, Difficulty in breathing, Shallow breathing, Lung infection, Constant coughing fits,
-          Coughing out blood, Blurred vision, Stroke, Anaemia, Accelerated heart rate, Rupture in pulmonary vein, Respiratory pain,
-          Kidney stone, Lung cancer stage 2</td>
-          <td class="cell-padding">Complete</td>
-         <td class="cell-padding">Negative</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-225</td>
-        <td class="cell-padding">12/12/2020</td>
-        <td class="cell-padding">Suspected</td>
-        <td class="symptomps-cell">-</td>
-        <td class="cell-padding">Pending</td>
-        <td class="cell-padding">-</td>
-      </tr>
-    </table>
+    <mat-card>
+
+      <mat-accordion multi="true" *ngIf="tests.length>0">
+        <mat-expansion-panel *ngFor="let test of tests">
+          <mat-expansion-panel-header>
+            Test Date : {{test.testDate}}
+          </mat-expansion-panel-header>
+            Test ID: {{test.id}}
+            Patient Type: {{test.patientType}}
+            Symptoms: {{test.symptoms}}
+            Test Status: {{test.testStatus}}
+            Test Results: {{test.testResults}}
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <p class="info-text mat-body-1" *ngIf="tests.length == 0">No Test Centres available</p>
+
+    </mat-card>
   </div>
   <div class="page-footer">
     <a routerLink="/patient-home"><button mat-raised-button class="back-btn">Back to patient home</button></a>
