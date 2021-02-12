@@ -1,12 +1,16 @@
 //import the Express package
 const express = require('express');
 const bodyParser = require('body-parser');
+
 const TestKit = require('./models/testKit');
 const TestCentre = require('./models/testCentre');
 const TestCentreOfficer = require('./models/testCentreOfficer');
+const Test = require('./models/test');
+const Patient = require('./models/patient');
+const User = require("./models/user");
+
 const mongoose = require("mongoose");
 const bcrypt = require ("bcrypt");
-const User = require("./models/user");
 const jwt = require('jsonwebtoken');
 const checkAuth = require('./middleware/check-auth');
 
@@ -32,7 +36,7 @@ mongoose.connect("mongodb+srv://max:8bGPGq0OT0DOPaVo@cluster0.xihgz.mongodb.net/
    next();
  });
 
- //------------------------------------------------------Testkit-------------------------------------------------
+//------------------------------------------------------Testkit-------------------------------------------------
 //add testkit
  app.post("/api/testkits", (req, res, next) => {
   const testKit = new TestKit({
@@ -118,7 +122,6 @@ app.get("/api/testcentres",(req, res, next)=>{
   })
 });
 
-
 //-----------------------------------------Test Centre Officer------------------------------------------------
 //add tester
 app.post("/api/testcentreofficers", (req, res, next) => {
@@ -181,7 +184,7 @@ app.post('/api/testcentreofficers', (req,res,next) => {
   })
  })
 
- //get tester
+//get tester
 app.get('/api/testcentreofficers', (req,res,next) => {
   TestCentreOfficer.find().then(documents => {
     res.status(200).json({
@@ -250,11 +253,136 @@ app.post('/api/user/login', (req,res,next) => {
   })
  })
 
- //-----------------------------------------Tester------------------------------------------------
+ //-----------------------------------------Test------------------------------------------------
+ //get test
+ app.get("/api/tests",(req, res, next)=>{
+  Test.find().then(documents => {
+    res.status(200).json({
+      message: 'Test fetched successfully',
+      tests: documents
+    });
+  })
+});
 
+ //add test
+ app.post("/api/tests", (req, res, next) => {
+  const test = new Test({
+    testId: req.body.testId,
+    testDate: req.body.testDate,
+    patientUsername: req.body.patientUsername,
+    symptoms: req.body.symptoms,
+    testStatus: req.body.testStatus,
+    testResults: req.body.testResults
+  })
 
+  test.save().then(createdTest => {
+    console.log(test)
+    res.status(200).json({
+      message: 'Test added successfully',
+      testId: createdTest._id
+    });
+  });
+
+  console.log(test);
+  res.status(201).json({
+    message: 'Test added successfully'
+  });
+});
+
+ //update test
+ app.put("/api/tests/:id", (req,res,next) => {
+  const test = new Test({
+    _id: req.body.id,
+    testDate: req.body.testDate,
+    patientUsername: req.body.patientUsername,
+    symptoms: req.body.symptoms,
+    testStatus: req.body.testStatus,
+    testResults: req.body.testResults
+  });
+  Test.updateOne({ _id: req.params.id}, test).then(result => {
+    console.log(result);
+    res.status(200).json({message: "Update Test Successful!"});
+  });
+});
+
+ //delete test
+ app.delete('/api/tests/:id', (req,res,next) => {
+  Test.deleteOne({_id: req.params.id}).then(result => {
+    console.log(result);
+    res.status(200).json({message: "Test deleted"});
+  })
+});
 
  //-----------------------------------------Patient------------------------------------------------
+ //get patient
+ app.get("/api/patients",(req, res, next)=>{
+  Patient.find().then(documents => {
+    res.status(200).json({
+      message: 'Patient fetched successfully',
+      patients: documents
+    });
+  })
+});
 
+ //create patient
+ app.post("/api/patients", (req, res, next) => {
+  bcrypt.hash(req.body.patientPassword, 10)
+  .then(hash => {
+    const patient = new Patient({
+      patientId: req.body.patientId,
+      patientUsername: req.body.patientUsername,
+      patientPassword: hash,
+      patientFullname: req.body.patientFullname,
+      patientPosition: "Patient"
+  });
+    patient.save().then(createdPatient => {
+      console.log(patient)
+      res.status(200).json({
+        message: 'Patient added successfully',
+        patientId: createdPatient._id
+      });
+    })
+    .catch(err => {
+      res.status(500).json({
+        error:err
+      });
+    });
+  });
+});
+
+ //login patient
+ app.post('/api/patients', (req,res,next) => {
+  let fetchedUser;
+  Patient.findOne({username: req.body.username})
+  .then(patient => {
+    if (!patient){
+      return res.status(401).json({
+        message: 'Auth failed'
+      });
+    }
+    fetchedUser = patient
+    return bcrypt.compare(req.body.password,patient.password)
+  })
+  .then(result => {
+    if (!result){
+      return res.status(401).json({
+        message: 'Auth failed'
+      });
+    }
+    const token = jwt.sign(
+      {username: fetchedUser.username, patientId: fetchedUser._id},
+      'secret_this_should_be_longer',
+      {expiresIn: '1h'}
+    );
+    res.status(200).json({
+      token: token
+    })
+  })
+  .catch (err=> {
+    return res.status(401).json({
+      message: 'Auth failed'
+    });
+  })
+ })
 
 module.exports = app;
