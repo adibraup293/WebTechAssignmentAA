@@ -10,4 +10,4 @@ const postSchema = mongoose.Schema({
   testResults: {type: String, required:false}
 });
 
-module.exports = mongoose.model('TestCentre',postSchema);
+module.exports = mongoose.model('Test',postSchema);
