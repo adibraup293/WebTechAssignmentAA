@@ -3,10 +3,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Connect to MongoDB database
 First, access the database at `https://account.mongodb.com/account/login`. The credentials for the MongoDB database are as follows:
 <br> Username: adibdibzie@gmail.com
@@ -15,6 +11,10 @@ First, access the database at `https://account.mongodb.com/account/login`. The c
 Next, go to **Network Access** and select **Add IP Address** (the green button on the right). Then, click the **Add Current IP Address** button and click the **Confirm** button. Your current IP address will be added to the IP access list.
 
 After that, run `node server.js` for checking the connection to database. The command prompt should show 'Connected to database' as the output message.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

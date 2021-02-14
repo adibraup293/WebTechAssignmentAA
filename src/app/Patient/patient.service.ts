@@ -55,9 +55,9 @@ export class PatientService {
   }
 
   //adding a patient object into collection
-  addPatient(id: string, patientUsername: string, patientPassword: string, patientFullName: string,
+  addPatient(patientUsername: string, patientPassword: string, patientFullName: string,
     patientPosition: string){
-    const patient: Patient = {id: id, patientUsername: patientUsername, patientPassword: patientPassword,
+    const patient: Patient = {id: null, patientUsername: patientUsername, patientPassword: patientPassword,
       patientFullName: patientFullName, patientPosition: patientPosition};
     this.http
     .post<{message:string, testId: string}> ('http://localhost:3000/api/patients', patient)

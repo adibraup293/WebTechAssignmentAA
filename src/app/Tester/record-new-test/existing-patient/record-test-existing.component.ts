@@ -10,4 +10,10 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 export class RecordTestExistingComponent {
   faEye = faEye;
   faEyeSlash = faEyeSlash;
+
+  fieldTextType: boolean;
+
+  togglePassword() {
+    this.fieldTextType = !this.fieldTextType;
+  }
 }

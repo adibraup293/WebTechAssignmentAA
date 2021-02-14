@@ -25,7 +25,7 @@ mat-card {
 .record-test-page-content{
   margin: auto;
   text-align: left;
-  height: 300px;
+  height: auto;
   width: 800px;
   padding: 50px;
 }
@@ -54,6 +54,10 @@ mat-card {
   padding-left: 10px;
   text-align: left;
   color: black;
+}
+
+.cell-padding{
+  padding-top: 20px;
 }
 
 .results-input{
@@ -106,7 +110,24 @@ textarea { white-space: pre-wrap !important; }
   margin-left: 0px;
   text-align: left;
   white-space: nowrap;
-  width: 505px;
-  height: 30px;
+  width: 800px;
   font-size: 1em;
+}
+
+.showPSBtn{
+  color:white;
+  margin: 5px;
+  background-color: black;
+  width: 250px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: medium;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.showPSBtn:hover{
+  color: black;
+  background-color: white;
 }

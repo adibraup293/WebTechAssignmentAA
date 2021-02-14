@@ -1,58 +1,101 @@
 <div class="recordExistingDiv">
   <mat-card>
-    <h1 class="main-title">Record a new test for Daniel Toh</h1>
+    <h1 class="main-title">Record a new test for Daniel Nicholas Figueras Toh</h1>
     <form>
       <div class="record-test-page-content">
         <table class="test-details-list">
           <tr>
-            <td class="cell-padding" valign="top"><h3 class="record-test-title">Username:</h3></td>
-            <td class="cell-padding" valign="top"><p class="record-test-title">danieltoh16</p></td>
-          </tr>
-          <tr>
-            <td class="cell-padding" valign="top"><h3 class="record-test-title">Password:</h3></td>
-            <td class="cell-padding" valign="top">
-              <p class="record-test-title">****************</p>
-              <!--<button mat-raised-button class="showPSBtn" id="showPSBtn" type="button">
-                <fa-icon [icon]="faEyeSlash" id="faEyeSlash" size="lg"></fa-icon>
-                <fa-icon [icon]="faEye" id="faEye" size="lg" style="display: hidden;"></fa-icon>
-              </button>-->
+            <td class="cell-padding" colspan="2" valign="bottom">
+              <mat-form-field class="fixedTF">
+                <mat-label>Username: </mat-label>
+                <input
+                  matInput
+                  name="username"
+                  value="danieltoh16"
+                  id="username"
+                  disabled style="color: #5a5a5a;">
+                  <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
+              </mat-form-field>
             </td>
           </tr>
           <tr>
-            <td class="cell-padding" valign="top"><h3 class="record-test-title">Full name:</h3></td>
-            <td class="cell-padding" valign="top"><p class="record-test-title">Daniel Nicholas Figueras Toh</p></td>
+            <td class="cell-padding" colspan="2" valign="bottom">
+              <mat-form-field class="fixedTF" style="width: 88%;">
+                <mat-label>Password: </mat-label>
+                <input
+                  matInput
+                  name="password"
+                  value="danieltoh16"
+                  [type]="fieldTextType ? 'text' : 'password'"
+                  id="password"
+                  disabled style="color: #5a5a5a;">
+                  <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
+              </mat-form-field>
+              <button mat-raised-button class="showPSBtn" id="showPSBtn" type="button">
+                <i
+                class="fa"
+                [ngClass]="{
+                  'fa-eye-slash': !fieldTextType,
+                  'fa-eye': fieldTextType
+                }"
+                (click)="togglePassword()"
+                ></i>
+              </button>
+            </td>
           </tr>
           <tr>
-            <td class="cell-padding" valign="top"><h3 class="record-test-title">Patient type:</h3></td>
-            <td class="cell-padding" valign="bottom"><select class="patient-type-dropdown">
-              <option disabled selected>--Select an option from the dropdown below--</option>
-              <option>Returnee</option>
-              <option>Quarantined</option>
-              <option>Close contact</option>
-              <option>Infected</option>
-              <option>Suspected</option>
-            </select></td>
+            <td class="cell-padding" colspan="2" valign="bottom">
+              <mat-form-field class="fixedTF">
+                <mat-label>Full Name: </mat-label>
+                <input
+                  matInput
+                  name="fullname"
+                  value="Daniel Nicholas Figueras Toh"
+                  id="fullname"
+                  disabled style="color: #5a5a5a;">
+                  <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
+              </mat-form-field>
+            </td>
           </tr>
-          <tr class="symptomps-cell">
-            <!--<td class="cell-padding" valign="top"><h3 class="record-test-title">Symptoms:</h3></td>-->
-            <td class="results-textarea" colspan="2">
-              <mat-form-field class="results-input-field">
-                <textarea style="color: black;"
-                  matInput name="symptoms"
+          <tr>
+            <td class="cell-padding" colspan="2" valign="bottom">
+              <mat-form-field style="width:800px">
+                <mat-label>Patient Type</mat-label>
+                <mat-select matInput name="patientType"
+                  class="patient-type-dropdown"
                   ngModel
-                  #resultsInput="ngModel"
-                  type="text"
-                  class="results-input"
-                  placeholder="Type the symptoms patient is suffering from here..."
-                  required></textarea>
-                <mat-error *ngIf="resultsInput.invalid">Please enter the symptoms</mat-error>
+                  #patientType="ngModel"
+                  required>
+                    <mat-option disabled selected>--Select an option from the dropdown below--</mat-option>
+                    <mat-option value="Returnee">Returnee</mat-option>
+                    <mat-option value="Quarantined">Quarantined</mat-option>
+                    <mat-option value="Close Contact">Close Contact</mat-option>
+                    <mat-option value="Infected">Infected</mat-option>
+                    <mat-option value="Suspected">Suspected</mat-option>
+                </mat-select>
+                <mat-error *ngIf="patientType.invalid">Please select a patient type</mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td class="results-textarea" colspan="2" valign="bottom">
+              <mat-form-field style="margin-left: -15px; width: 800px; margin-top: 20px;">
+                <textarea style="color: black;"
+                matInput name="symptoms"
+                ngModel
+                #symptoms="ngModel"
+                type="text"
+                class="results-input"
+                placeholder="Type the symptoms patient is suffering from here..."
+                required></textarea>
+                <mat-error *ngIf="symptoms.invalid">Please enter the symptoms</mat-error>
               </mat-form-field>
             </td>
           </tr>
         </table>
-      </div><br><br><br><br><br><br>
+      </div>
       <div class=record-btn-container>
-        <button mat-raised-button class="record-btn">Record new test</button>
+        <button mat-raised-button class="record-btn" type="submit">Record new test</button>
       </div>
       <div class=page-footer>
         <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>

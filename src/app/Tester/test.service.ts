@@ -57,9 +57,9 @@ export class TestService {
   }
 
   //adding a test object into collection
-  addTest(id: string, testDate: Date, patientUsername: string, patientType: string, symptoms: string,
+  addTest(testDate: Date, patientUsername: string, patientType: string, symptoms: string,
     testStatus: string, testResults: string){
-    const test: Test = {id: id, testDate: testDate, patientUsername: patientUsername, patientType: patientType,
+    const test: Test = {id: null, testDate: testDate, patientUsername: patientUsername, patientType: patientType,
       symptoms: symptoms, testStatus: testStatus, testResults: testResults};
     this.http
     .post<{message:string, testId: string}> ('http://localhost:3000/api/tests', test)

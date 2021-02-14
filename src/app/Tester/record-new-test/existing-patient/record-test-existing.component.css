@@ -25,10 +25,9 @@ mat-card {
 .record-test-page-content{
   margin: auto;
   text-align: left;
-  height: 300px;
+  height: auto;
   width: 800px;
-  padding: 50px 0;
-  /*background-color: wheat;*/
+  padding: 50px;
 }
 
 .page-footer{
@@ -41,7 +40,6 @@ mat-card {
   margin: auto;
   text-align: center;
   height: 10px;
-  padding: 50px 0;
 }
 
 .record-test-title{
@@ -80,6 +78,12 @@ mat-card {
   width: 300px;
 }
 
+.record-btn-container{
+  margin: auto;
+  text-align: center;
+  padding: 50px;
+}
+
 .record-btn:hover{
   background-color: blue;
 }
@@ -93,6 +97,8 @@ mat-card {
   position: relative;
   left: 15px;
 }
+
+textarea { white-space: pre-wrap !important; }
 
 .results-input-field{
   width: 670px;
@@ -109,12 +115,29 @@ mat-card {
 .patient-type-dropdown{
   color: black;
   margin: 15px;
+  margin-left: 0px;
   text-align: left;
   white-space: nowrap;
-  width: 505px;
-  height: 30px;
+  width: 800px;
   font-size: 1em;
 }
+
+.fixedTF{
+  color: black;
+  margin: 15px;
+  margin-left: 0px;
+  text-align: left;
+  white-space: nowrap;
+  width: 800px;
+  font-size: 1em;
+}
+
+::ng-deep.mat-form-field-disabled .mat-form-field-underline
+    {
+    background-image: linear-gradient( to right, #5a5a5a, #5a5a5a, #5a5a5a 0 ) !important;
+    background-size: 1px 100% !important;
+     background-repeat: repeat-x !important;
+    }
 
 .showPSBtn{
   color:white;
@@ -126,5 +149,14 @@ mat-card {
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  margin-left: 20px;
+}
+
+.showPSBtn:hover{
+  color: black;
+  background-color: white;
+}
+
+mat-form-field,
+textarea{
+  width: 100%;
 }

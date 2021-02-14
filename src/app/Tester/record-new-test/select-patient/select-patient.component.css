@@ -16,6 +16,13 @@
   font-size: 1.5em;
 }
 
+.sub-desc{
+  margin-top: -20px;
+  color: black;
+  font-size: 1em;
+  padding-bottom: 20px;
+}
+
 .select-btn, .new-patient-btn{
   color:white;
   margin: 5px;
@@ -53,18 +60,6 @@
   padding: 50px 0;
 }
 
-.id-input-field{
-  width: 400px;
-  color: black;
-}
-
-.id-input{
-  color: black;
-  margin: auto;
-  width: 400px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
 .page-footer{
   margin: auto;
   text-align: center;
@@ -81,31 +76,36 @@
   font-size: medium;
 }
 
-.cell-padding, .symptomps-cell{
-  padding-right: 10px;
-  padding-left: 10px;
+.mat-expansion-panel{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
-.symptomps-cell{
-  width: 500px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.mat-select{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
-.row-border{
-  border: 5px solid lightskyblue;
+mat-card{
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
 }
 
-.test-id-list{
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
+mat-form-field,
+textarea{
   width: 100%;
-  border: 5px solid lightskyblue;
-  border-radius: 20px;
-  background-color: #98ff98;
-  color: black;
-  border-collapse: collapse;
-  font-weight: normal;
 }
 
