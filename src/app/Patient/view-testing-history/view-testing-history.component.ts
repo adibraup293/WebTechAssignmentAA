@@ -13,10 +13,13 @@ export class ViewTestingHistoryComponent implements OnInit{
   tests: Test[] = [];
   private testSub: Subscription;
 
+  //get patient's username from prev page
+  patientUsername;
+
   constructor(public testService: TestService){}
 
   ngOnInit(){
-    this.testService.getTests();
+    this.testService.getPatientTests(this.patientUsername);
     this.testSub = this.testService.getTestsUpdateListener()
     .subscribe((tests: Test[]) => {
       this.tests = tests;

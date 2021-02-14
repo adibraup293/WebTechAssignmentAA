@@ -145,7 +145,6 @@ textarea { white-space: pre-wrap !important; }
   background-color: black;
   width: 250px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-size: medium;
   width: 65px;
   height: 65px;
   border-radius: 50%;
@@ -154,6 +153,10 @@ textarea { white-space: pre-wrap !important; }
 .showPSBtn:hover{
   color: black;
   background-color: white;
+}
+
+.fa{
+  font-size: 30px;
 }
 
 mat-form-field,

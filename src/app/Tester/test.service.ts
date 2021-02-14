@@ -44,6 +44,29 @@ export class TestService {
      })
   }
 
+  //fetching all tests for only one patient
+  getPatientTests(patientUsername:string){
+    this.http.get<{message: string, tests: any}>('http://localhost:3000/api/tests/')
+    .pipe(map((testData) => {
+      return testData.tests.map(test => {
+        return {
+          id: test._id,
+          testDate : test.testDate,
+          patientUsername : test.patientUsername,
+          patientType : test.patientType,
+          symptoms : test.symptoms,
+          testStatus : test.testStatus,
+          testResults : test.testResults
+        };
+      });
+    }))
+    .subscribe(() => {
+      const fetchedTests = this.tests.filter(test => test.patientUsername !== patientUsername);
+      this.tests = fetchedTests;
+      this.testsUpdate.next([...this.tests]);
+     })
+  }
+
   //editing a test object
   updateTest(id: string, testDate: Date, patientUsername: string, patientType: string, symptoms: string,
     testStatus: string, testResults: string){

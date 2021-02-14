@@ -131,3 +131,7 @@ textarea { white-space: pre-wrap !important; }
   color: black;
   background-color: white;
 }
+
+.fa{
+  font-size: 30px;
+}

@@ -1,9 +1,9 @@
 <div class="recordExistingDiv">
   <mat-card>
-    <h1 class="main-title">Record a new test for Daniel Nicholas Figueras Toh</h1>
+    <h1 class="main-title">Record a new test for existing patient</h1>
     <form>
       <div class="record-test-page-content">
-        <table class="test-details-list">
+        <table class="test-details-list" *ngFor="let patient of patient">
           <tr>
             <td class="cell-padding" colspan="2" valign="bottom">
               <mat-form-field class="fixedTF">
@@ -11,7 +11,7 @@
                 <input
                   matInput
                   name="username"
-                  value="danieltoh16"
+                  value = {{patient.patientUsername}}
                   id="username"
                   disabled style="color: #5a5a5a;">
                   <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
@@ -25,7 +25,7 @@
                 <input
                   matInput
                   name="password"
-                  value="danieltoh16"
+                  value = {{patient.patientPassword}}
                   [type]="fieldTextType ? 'text' : 'password'"
                   id="password"
                   disabled style="color: #5a5a5a;">
@@ -50,7 +50,7 @@
                 <input
                   matInput
                   name="fullname"
-                  value="Daniel Nicholas Figueras Toh"
+                  value={{patient.patientFullName}}
                   id="fullname"
                   disabled style="color: #5a5a5a;">
                   <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
