@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Test } from 'src/app/Tester/test.model';
+import { TestService } from "src/app/Tester/test.service";
 
 @Component({
   selector: 'app-update-test-result',
@@ -6,6 +10,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./update-test-result.component.css']
 })
 
-export class UpdateTestResultComponent {
+export class UpdateTestResultComponent implements OnInit{
+
+  test: Test;
+  private testId: string;
+  currentDate = new Date();
+
+  constructor(public testsService: TestService, public route: ActivatedRoute){}
+
+  ngOnInit(){
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.test.id = paramMap.get('patientId');
+      this.test = this.testsService.getTest(this.testId);
+    });
+  }
+
+  onSaveTest(form: NgForm){
+    if (form.invalid){
+      return;
+    }
+    this.testsService.updateTest(this.test.id, this.currentDate, this.test.patientUsername, this.test.patientType,
+      form.value.symptoms, "Complete", form.value.testResults);
+    form.resetForm();
+  }
 
 }

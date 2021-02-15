@@ -23,27 +23,37 @@
   padding: 50px 0;
 }
 
-.id-input-field{
-  width: 400px;
-  color: black;
+.mat-expansion-panel{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
-.id-input{
-  margin: auto;
-  width: 300px;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+.mat-select{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
-.test-id-list{
-  margin-left: -70px;
-  text-align: left;
-  width: 110%;
-  border: 5px solid lightskyblue;
-  border-radius: 20px;
-  background-color: #98ff98;
-  color: black;
-  border-collapse: collapse;
-  font-weight: normal;
+mat-card{
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+mat-form-field,
+textarea{
+  width: 100%;
 }
 
 .back-btn{
@@ -80,24 +90,4 @@
   padding: 20px;
   margin-bottom: 50px;
   height: 100px;
-}
-
-.row-border{
-  border: 5px solid lightskyblue;
-}
-
-.cell-padding, .symptomps-cell{
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.table-content{
-  margin: auto;
-  text-align: center;
-}
-
-.symptomps-cell{
-  width: 500px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
 }

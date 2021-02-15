@@ -14,7 +14,7 @@
               type="text"
               placeholder="Enter the patient's username here..."
               #patientUsername="ngModel"
-              ngModel
+              [ngModel]="test?.patientUsername"
               required>
               <mat-error>Please enter the username</mat-error>
             </mat-form-field>
@@ -30,7 +30,7 @@
               [type]="fieldTextType ? 'text' : 'password'"
               placeholder="Enter the patient's password here..."
               #patientPassword="ngModel"
-              ngModel
+              [ngModel]="patient?.patientPassword"
               required>
               <mat-error>Please enter the password</mat-error>
             </mat-form-field>
@@ -56,7 +56,7 @@
               type="text"
               placeholder="Enter the patient's full name here..."
               #patientFullName="ngModel"
-              ngModel
+              [ngModel]="patient?.patientFullName"
               required>
               <mat-error>Please enter the full name</mat-error>
             </mat-form-field>
@@ -68,8 +68,8 @@
               <mat-label>Patient Type</mat-label>
               <mat-select matInput name="patientType"
                 class="patient-type-dropdown"
-                ngModel
                 #patientType="ngModel"
+                [ngModel]="test?.patientType"
                 required>
                   <mat-option disabled selected>--Select an option from the dropdown below--</mat-option>
                   <mat-option value="Returnee">Returnee</mat-option>
@@ -87,8 +87,8 @@
             <mat-form-field style="margin-left: -15px; width: 800px;">
               <textarea style="color: black;"
               matInput name="symptoms"
-              ngModel
               #symptoms="ngModel"
+              [ngModel]="test?.symptoms"
               type="text"
               class="results-input"
               placeholder="Type the symptoms patient is suffering from here..."

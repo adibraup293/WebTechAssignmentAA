@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Test } from 'src/app/Tester/test.model';
+import { TestService } from 'src/app/Tester/test.service';
 
 @Component({
   selector: 'app-enter-test-id',
@@ -6,6 +9,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./enter-test-id.component.css']
 })
 
-export class EnterTestIDComponent {
+export class EnterTestIDComponent implements OnInit{
+  tests: Test[] = [];
+  private testsSub: Subscription;
+
+  constructor(public testService: TestService){}
+
+  ngOnInit(){
+    this.testService.getTests();
+    this.testsSub = this.testService.getTestsUpdateListener()
+    .subscribe((tests: Test[]) => {
+      this.tests = tests;
+    });
+  }
+
+  onDelete(testId: string){
+    this.testService.deleteTest(testId);
+  }
+
+  ngOnDestroy(){
+    this.testsSub.unsubscribe();
+  }
 
 }

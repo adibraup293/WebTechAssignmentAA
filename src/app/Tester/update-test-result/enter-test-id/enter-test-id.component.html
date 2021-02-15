@@ -1,50 +1,28 @@
 <div class="enterIDDiv">
   <h1 class="main-title">Select the test result you wish to update</h1>
-  <div class=enter-test-id-page-content>
-    <h2 class="sub-title" >Enter test ID</h2>
-    <mat-form-field class="id-input-field">
-      <input matInput type="text"
-             class="id-input"
-             ngModel
-             #idInput="ngModel"
-             placeholder="Copy test ID and paste it here"
-             required>
-    </mat-form-field>
-    <a routerLink="/update-test-result"><button mat-raised-button class="select-btn">Select the test</button></a><br><br>
-    <h2 class="sub-title" >List of tests conducted by Tester</h2>
-    <div class="table-content">
-      <table class="test-id-list">
-        <tr class="row-border">
-          <th class="cell-padding">Test ID</th>
-          <th class="cell-padding">Date</th>
-          <th class="cell-padding">Patient Name</th>
-          <th class="cell-padding">Patient Type</th>
-          <th class="cell-padding">Symptomps</th>
-          <th class="cell-padding">Test Status</th>
-          <th class="cell-padding">Test Result</th>
-        </tr>
-        <tr class="row-border">
-          <td class="cell-padding">TEST-001</td>
-          <td class="cell-padding">4/10/2020</td>
-          <td class="cell-padding">Daniel Nicholas Figueras Toh</td>
-          <td class="cell-padding">Close Contact</td>
-          <td class="symptomps-cell">Fever, Cold, Sore muscles</td>
-          <td class="cell-padding">Complete</td>
-          <td class="cell-padding">Negative</td>
-        </tr>
-        <tr class="row-border">
-          <td class="cell-padding">TEST-002</td>
-          <td class="cell-padding">1/10/2020</td>
-          <td class="cell-padding">Muhd Adib Awg Raup</td>
-          <td class="cell-padding">Quarantined</td>
-          <td class="symptomps-cell">-</td>
-          <td class="cell-padding">Pending</td>
-          <td class="cell-padding">-</td>
-        </tr>
-      </table>
+  <mat-card>
+    <div class=enter-test-id-page-content>
+      <mat-accordion multi="true" *ngIf="tests.length>0">
+        <mat-expansion-panel *ngFor="let patient of patients">
+          <mat-expansion-panel-header>
+            Test ID : {{test.id}}
+          </mat-expansion-panel-header>
+            Date: {{test.testDate}}
+            Patient's Username: {{test.patientUsername}}
+            Patient Type: {{test.patientType}}
+            Symptoms: {{test.symptoms}}
+            Test Status: {{test.testStatus}}
+            Test Result: {{test.testResults}}
+          <mat-action-row>
+            <a mat-button color="primary" [routerLink]="['/edit', test.id]">UPDATE TEST</a>
+            <button mat-button color="warn" (click) = "onDelete(patient.id)">DELETE PATIENT</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <p class="info-text mat-body-1" *ngIf="tests.length == 0">No tests found</p>
     </div>
-  </div>
-  <div class="page-footer">
-    <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>
-  </div>
+    <div class="page-footer">
+      <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>
+    </div>
+  </mat-card>
 </div>

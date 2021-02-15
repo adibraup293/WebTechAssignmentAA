@@ -12,13 +12,18 @@
   text-align: center;
 }
 
+mat-card {
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
 .update-test-result-page-content{
   margin: auto;
   text-align: left;
   height: auto;
   width: 800px;
-  padding: 50px 0;
-  /*background-color: wheat;*/
+  padding: 50px;
 }
 
 .page-footer{
@@ -48,6 +53,11 @@
   padding-right: 10px;
   padding-left: 10px;
   text-align: left;
+  color: black;
+}
+
+.cell-padding{
+  padding-top: 20px;
 }
 
 .results-input-field{
@@ -91,8 +101,22 @@
   background-color: white;
 }
 
+.symptomps-cell{
+  height: 200px;
+  width: 800px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 .results-textarea{
   position: relative;
   left: 15px;
   height: 60px;
 }
+
+::ng-deep.mat-form-field-disabled .mat-form-field-underline
+    {
+    background-image: linear-gradient( to right, #5a5a5a, #5a5a5a, #5a5a5a 0 ) !important;
+    background-size: 1px 100% !important;
+     background-repeat: repeat-x !important;
+    }

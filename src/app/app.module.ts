@@ -30,7 +30,6 @@ import { GenerateTestReportComponent } from "./Tester/generate-test-report/gener
 import { EnterTestIDComponent } from "./Tester/update-test-result/enter-test-id/enter-test-id.component";
 import { UpdateTestResultComponent } from "./Tester/update-test-result/update-test-result.component";
 import { SelectPatientComponent } from "./Tester/record-new-test/select-patient/select-patient.component";
-import { RecordTestExistingComponent } from "./Tester/record-new-test/existing-patient/record-test-existing.component";
 import { RecordTestNewComponent } from "./Tester/record-new-test/new-patient/record-test-new.component";
 import { UpdateTestKitComponent} from "./TestCentreManager/ManageTestKit/UpdateTestKit/update-kit.component";
 //Routing for patient pages
@@ -61,7 +60,6 @@ const appRoutes:Routes = [
   {path: 'enter-test-id', component: EnterTestIDComponent},
   {path: 'update-test-result', component: UpdateTestResultComponent},
   {path: 'select-patient', component: SelectPatientComponent},
-  {path: 'record-test-existing', component: RecordTestExistingComponent},
   {path: 'record-test-new', component: RecordTestNewComponent},
   //Routing for patient pages
   {path: 'patient-home', component: PatientHomeComponent},
@@ -87,7 +85,6 @@ const appRoutes:Routes = [
     EnterTestIDComponent,
     UpdateTestResultComponent,
     SelectPatientComponent,
-    RecordTestExistingComponent,
     RecordTestNewComponent,
     //Routing for patient pages
     PatientHomeComponent,

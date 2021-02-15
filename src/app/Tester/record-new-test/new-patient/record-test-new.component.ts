@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Test } from 'src/app/Tester/test.model';
 import { TestService } from "src/app/Tester/test.service";
 import { Patient } from 'src/app/Patient/patient.model';
@@ -11,7 +12,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./record-test-new.component.css']
 })
 
-export class RecordTestNewComponent{
+export class RecordTestNewComponent implements OnInit{
   faEye = faEye;
   faEyeSlash = faEyeSlash;
 
@@ -20,20 +21,41 @@ export class RecordTestNewComponent{
     this.fieldTextType = !this.fieldTextType;
   }
 
-  tests: Test;
-  patients: Patient;
+  test: Test;
+  patient: Patient;
   currentDate = new Date();
+  private mode = 'create';
+  private testId: string;
 
-  constructor(public testService: TestService, public patientService: PatientService) {}
+  constructor(public testService: TestService, public patientService: PatientService, public route: ActivatedRoute) {}
+
+  ngOnInit(){
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if(paramMap.has('testId')) {
+        this.mode = 'edit';
+        this.testId = paramMap.get('testId');
+        this.test = this.testService.getTest(this.testId);
+
+      } else {
+        this.mode = 'create';
+        this.testId = null;
+      }
+    });
+  }
 
   onSaveTest(form: NgForm){
     if (form.invalid){
       return;
     }
-    this.patientService.addPatient(form.value.patientUsername, form.value.patientPassword,
+    if (this.mode === 'create'){
+      this.patientService.addPatient(form.value.patientUsername, form.value.patientPassword,
         form.value.patientFullName, "Patient");
     this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,
         form.value.symptoms, "Pending", "");
+    }else {
+      this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,
+        form.value.symptoms, "Pending", "");
+    }
     form.resetForm();
   }
 }
