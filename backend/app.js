@@ -27,22 +27,22 @@ mongoose.connect("mongodb+srv://max:8bGPGq0OT0DOPaVo@cluster0.xihgz.mongodb.net/
     console.log('Connection failed');
   });
 
- app.use(bodyParser.json());
+app.use(bodyParser.json());
 
- app.use((req, res, next) => {
-   res.setHeader("Access-Control-Allow-Origin", "*");
-   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
-   next();
- });
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
+  next();
+});
 
 //------------------------------------------------------Testkit-------------------------------------------------
 //add testkit
- app.post("/api/testkits", (req, res, next) => {
-  const testKit = new TestKit({
-    testkitname: req.body.testkitname,
-    testkitstock: req.body.testkitstock
-  })
+app.post("/api/testkits", (req, res, next) => {
+ const testKit = new TestKit({
+   testkitname: req.body.testkitname,
+   testkitstock: req.body.testkitstock
+ })
 
   testKit.save().then(createdTestKit => {
     console.log(testKit)
@@ -150,18 +150,18 @@ app.post("/api/testcentreofficers", (req, res, next) => {
 });
 
 //login tester
-app.post('/api/testcentreofficers', (req,res,next) => {
-  let fetchedUser;
-  TestCentreOfficer.findOne({username: req.body.username})
+app.post('/api/testcentreofficers/', (req,res,next) => {
+  let fetchedTester;
+  TestCentreOfficer.findOne({testCentreOfficerUsername: req.body.username})
   .then(testcentreofficer => {
     if (!testcentreofficer){
       return res.status(401).json({
         message: 'Auth failed'
       });
     }
-    fetchedUser = testcentreofficer
-    return bcrypt.compare(req.body.password, testcentreofficer.password)
-  })
+    fetchedTester = testcentreofficer
+    return bcrypt.compare(req.body.password, testcentreofficer.testCentreOfficerPassword)
+   })
   .then(result => {
     if (!result){
       return res.status(401).json({
@@ -169,7 +169,7 @@ app.post('/api/testcentreofficers', (req,res,next) => {
       });
     }
     const token = jwt.sign(
-      {username: fetchedUser.username, testcentreId: fetchedUser._id},
+      {testCentreOfficerUsername: fetchedTester.testCentreOfficerUsername, testcentreId: fetchedTester._id},
       'secret_this_should_be_longer',
       {expiresIn: '1h'}
     );
@@ -182,7 +182,7 @@ app.post('/api/testcentreofficers', (req,res,next) => {
       message: 'Auth failed'
     });
   })
- })
+})
 
 //get tester
 app.get('/api/testcentreofficers', (req,res,next) => {
@@ -253,9 +253,9 @@ app.post('/api/user/login', (req,res,next) => {
   })
  })
 
- //-----------------------------------------Test------------------------------------------------
- //get test
- app.get("/api/tests",(req, res, next)=>{
+//-----------------------------------------Test------------------------------------------------
+//get test
+app.get("/api/tests",(req, res, next)=>{
   Test.find().then(documents => {
     res.status(200).json({
       message: 'Test fetched successfully',
@@ -264,8 +264,8 @@ app.post('/api/user/login', (req,res,next) => {
   })
 });
 
- //add test
- app.post("/api/tests", (req, res, next) => {
+//add test
+app.post("/api/tests", (req, res, next) => {
   const test = new Test({
     testId: req.body.testId,
     testDate: req.body.testDate,
@@ -290,8 +290,8 @@ app.post('/api/user/login', (req,res,next) => {
   });
 });
 
- //update test
- app.put("/api/tests/:id", (req,res,next) => {
+//update test
+app.put("/api/tests/:id", (req,res,next) => {
   const test = new Test({
     _id: req.body.id,
     testDate: req.body.testDate,
