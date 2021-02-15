@@ -1,7 +1,7 @@
 <div class="recordNewDiv">
   <mat-card style="color: aqua;">
     <h1 class="main-title">Record a new patient and test</h1>
-    <form>
+    <form (submit)="onSaveTest(testForm)" #testForm="ngForm">
     <div class="record-test-page-content">
       <table class="test-details-list">
         <tr>
