@@ -25,20 +25,20 @@ export class RecordTestNewComponent implements OnInit{
   patient: Patient;
   currentDate = new Date();
   private mode = 'create';
-  private testId: string;
+  private patientId: string;
 
   constructor(public testService: TestService, public patientService: PatientService, public route: ActivatedRoute) {}
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if(paramMap.has('testId')) {
+      if(paramMap.has('patientId')) {
         this.mode = 'edit';
-        this.testId = paramMap.get('testId');
-        this.test = this.testService.getTest(this.testId);
+        this.patientId = paramMap.get('patientId');
+        this.test = this.testService.getTest(this.patientId);
 
       } else {
         this.mode = 'create';
-        this.testId = null;
+        this.patientId = null;
       }
     });
   }
@@ -50,8 +50,8 @@ export class RecordTestNewComponent implements OnInit{
     if (this.mode === 'create'){
       this.patientService.addPatient(form.value.patientUsername, form.value.patientPassword,
         form.value.patientFullName, "Patient");
-    this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,
-        form.value.symptoms, "Pending", "");
+      this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,
+          form.value.symptoms, "Pending", "");
     }else {
       this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,
         form.value.symptoms, "Pending", "");
