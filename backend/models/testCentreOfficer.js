@@ -9,5 +9,5 @@ const postSchema = mongoose.Schema({
   testCentreOfficerPosition: { type: String}
 });
 
-postSchema.plugin(uniqueValidator);
+//postSchema.plugin(uniqueValidator);
 module.exports = mongoose.model('TestCentreOfficer', postSchema);

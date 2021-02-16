@@ -124,7 +124,7 @@ app.get("/api/testcentres",(req, res, next)=>{
 
 //-----------------------------------------Test Centre Officer------------------------------------------------
 //add tester
-app.post("/api/testcentreofficers", (req, res, next) => {
+app.post("/api/testcentreofficers/signup", (req, res, next) => {
   bcrypt.hash(req.body.testCentreOfficerPassword, 10)
   .then(hash => {
     const testCentreOfficer = new TestCentreOfficer({
@@ -134,11 +134,13 @@ app.post("/api/testcentreofficers", (req, res, next) => {
       testCentreOfficerPosition: "Tester",
       testCentreId: req.body.testCentreId
   });
-    testCentreOfficer.save().then(createdTestCentreOfficer => {
+    testCentreOfficer.save()
+    .then(createdTestCentreOfficer => {
       console.log(testCentreOfficer)
-      res.status(200).json({
+      res.status(201).json({
         message: 'Test Centre Officer added successfully',
-        testCentreOfficerId: createdTestCentreOfficer._id
+        testCentreOfficerId: createdTestCentreOfficer._id,
+        result: createdTestCentreOfficer
       });
     })
     .catch(err => {
@@ -150,17 +152,25 @@ app.post("/api/testcentreofficers", (req, res, next) => {
 });
 
 //login tester
-app.post('/api/testcentreofficers/', (req,res,next) => {
+app.post('/api/testcentreofficers/login', (req,res,next) => {
   let fetchedTester;
-  TestCentreOfficer.findOne({testCentreOfficerUsername: req.body.username})
+
+  const username = req.body.username;
+  const password = req.body.password;
+
+  TestCentreOfficer.findOne({username})
   .then(testcentreofficer => {
     if (!testcentreofficer){
-      return res.status(401).json({
-        message: 'Auth failed'
-      });
+      // return res.status(401).json({
+      // message: 'Auth failed'
+
+      // });
+      errors.username = "Tester not found";
+      res.status(404).json({ errors });
+      return;
     }
     fetchedTester = testcentreofficer
-    return bcrypt.compare(req.body.password, testcentreofficer.testCentreOfficerPassword)
+    return bcrypt.compare(password, testcentreofficer.testCentreOfficerPassword)
    })
   .then(result => {
     if (!result){
@@ -168,13 +178,13 @@ app.post('/api/testcentreofficers/', (req,res,next) => {
         message: 'Auth failed'
       });
     }
-    const token = jwt.sign(
-      {testCentreOfficerUsername: fetchedTester.testCentreOfficerUsername, testcentreId: fetchedTester._id},
+    const token1 = jwt.sign(
+      {testCentreOfficerUsername: fetchedTester.testCentreOfficerUsername, testCentreOfficerId: fetchedTester._id},
       'secret_this_should_be_longer',
       {expiresIn: '1h'}
     );
     res.status(200).json({
-      token: token
+      token: token1
     })
   })
   .catch (err=> {
@@ -193,6 +203,18 @@ app.get('/api/testcentreofficers', (req,res,next) => {
     });
   });
 });
+
+//get tester by id
+app.get('/api/testcentreofficers/:id', (req,res,next) => {
+  TestCentreOfficer.findById(req.params._id)
+  .then(testerFound => {
+    if(!testerFound) {
+      return res.status(404).end();
+    }
+    return res.status(200).json(testerFound);
+  })
+  .catch(err => next(err));
+})
 
 //-----------------------------------------User Login/Signup------------------------------------------------
 //sign up user

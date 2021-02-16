@@ -34,7 +34,7 @@ export class AuthService {
         testCentreOfficerUsername: testCentreOfficerUsername,
         testCentreOfficerPassword: testCentreOfficerPassword,
         testCentreOfficerPosition: testCentreOfficerPosition,
-        testCentreId: testCentreId};this.http.post<{message:string, testCentreOfficerId: string}> ('http://localhost:3000/api/testcentreofficers', testCentreOfficer)
+        testCentreId: testCentreId};this.http.post<{message:string, testCentreOfficerId: string}> ('http://localhost:3000/api/testcentreofficers/signup', testCentreOfficer)
         .subscribe(responseData =>{
           const id = responseData.testCentreOfficerId;
           testCentreOfficer.id = id;
@@ -56,10 +56,10 @@ export class AuthService {
 
   loginTester(username:string, password:string){
     const testcentreOfficer: TestCentreOfficer = {testCentreOfficerUsername:username, testCentreOfficerPassword:password};
-    this.http.post <{token: string}> ('http://localhost:3000/api/testcentreofficers/', testcentreOfficer)
+    this.http.post <{token: string}> ('http://localhost:3000/api/testcentreofficers/login', testcentreOfficer)
       .subscribe(response => {
-        const token = response.token;
-        this.token = token;
+        const token1 = response.token;
+        this.token = token1;
         this.authStatusListener.next(true);
         this.router.navigate(['/tester-home']);
       });
