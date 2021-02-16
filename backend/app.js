@@ -376,7 +376,7 @@ app.put("/api/tests/:id", (req,res,next) => {
  //login patient
  app.post('/api/patients', (req,res,next) => {
   let fetchedUser;
-  Patient.findOne({username: req.body.username})
+  Patient.findOne({patientUsername: req.body.patientUsername})
   .then(patient => {
     if (!patient){
       return res.status(401).json({
@@ -393,7 +393,7 @@ app.put("/api/tests/:id", (req,res,next) => {
       });
     }
     const token = jwt.sign(
-      {username: fetchedUser.username, patientId: fetchedUser._id},
+      {patientUsername: fetchedUser.patientUsername, patientId: fetchedUser._id},
       'secret_this_should_be_longer',
       {expiresIn: '1h'}
     );

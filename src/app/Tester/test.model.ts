@@ -1,9 +1,9 @@
 export interface Test{
-  id?: string;
+  id: string;
   testDate: Date;
   patientUsername: string;
   patientType: string;
   symptoms: string;
-  testStatus?: string;
+  testStatus: string;
   testResults?: string;
 }
