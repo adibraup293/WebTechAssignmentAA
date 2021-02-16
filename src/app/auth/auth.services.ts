@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthData } from './auth-data.model';
 import { TestCentreOfficer } from '../TestCentreManager/RecordOfficer/testcentreofficer.model';
+import { Patient } from "../Patient/patient.model";
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -20,8 +21,8 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
-  createUser(email: string, password: string){
-    const authData: AuthData = {email: email, password: password};
+  createUser(username: string, password: string){
+    const authData: AuthData = {username:username, password: password};
     this.http.post ('http://localhost:3000/api/user/signup', authData)
     .subscribe(response =>{
       console.log(response);
@@ -39,12 +40,12 @@ export class AuthService {
           const id = responseData.testCentreOfficerId;
           testCentreOfficer.id = id;
           console.log(responseData.message);
-          this.router.navigate(['/manager-home']);
+          this.router.navigate(['/login']);
         });
   }
 
-  login(email: string, password: string){
-    const authData: AuthData = {email:email, password:password};
+  login(username: string, password: string){
+    const authData: AuthData = {username:username, password:password};
     this.http.post <{token: string}> ('http://localhost:3000/api/user/login', authData)
     .subscribe(response => {
       const token = response.token;
@@ -62,6 +63,17 @@ export class AuthService {
         this.token = token1;
         this.authStatusListener.next(true);
         this.router.navigate(['/tester-home']);
+      });
+  }
+
+  loginPatient(username:string, password:string){
+    const patient: Patient = {patientUsername:username, patientPassword:password};
+    this.http.post <{token: string}> ('http://localhost:3000/api/patient/', patient)
+      .subscribe(response => {
+        const token = response.token;
+        this.token = token;
+        this.authStatusListener.next(true);
+        this.router.navigate(['/patient-home']);
       });
   }
 

@@ -67,7 +67,6 @@ export class PatientService {
       console.log(responseData.message);
       this.patients.push(patient);
       this.patientsUpdate.next([...this.patients]);
-      this.router.navigate(['/patient-home']);
     });
   }
 

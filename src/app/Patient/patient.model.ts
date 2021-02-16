@@ -1,7 +1,7 @@
 export interface Patient{
-  id: string;
+  id?: string;
   patientUsername: string;
   patientPassword: string;
-  patientFullName: string;
-  patientPosition: string;
+  patientFullName?: string;
+  patientPosition?: string;
 }

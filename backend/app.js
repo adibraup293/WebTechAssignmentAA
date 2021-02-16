@@ -289,7 +289,6 @@ app.get("/api/tests",(req, res, next)=>{
 //add test
 app.post("/api/tests", (req, res, next) => {
   const test = new Test({
-    testId: req.body.testId,
     testDate: req.body.testDate,
     patientUsername: req.body.patientUsername,
     patientType: req.body.patientType,
