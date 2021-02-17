@@ -34,7 +34,8 @@ export class TestService {
           patientType : test.patientType,
           symptoms : test.symptoms,
           testStatus : test.testStatus,
-          testResults : test.testResults
+          testResults : test.testResults,
+          testCentreOfficerUsername: test.testCentreOfficerUsername
         };
       });
     }))
@@ -56,7 +57,8 @@ export class TestService {
           patientType : test.patientType,
           symptoms : test.symptoms,
           testStatus : test.testStatus,
-          testResults : test.testResults
+          testResults : test.testResults,
+          testCentreOfficerUsername: test.testCentreOfficerUsername
         };
       });
     }))
@@ -67,11 +69,36 @@ export class TestService {
      })
   }
 
+  //fetching all tests for only one tester
+  getTesterTests(testCentreOfficerUsername:string){
+    this.http.get<{message: string, tests: any}>('http://localhost:3000/api/tests/')
+    .pipe(map((testData) => {
+      return testData.tests.map(test => {
+        return {
+          id: test._id,
+          testDate : test.testDate,
+          patientUsername : test.patientUsername,
+          patientType : test.patientType,
+          symptoms : test.symptoms,
+          testStatus : test.testStatus,
+          testResults : test.testResults,
+          testCentreOfficerUsername: test.testCentreOfficerUsername
+        };
+      });
+    }))
+    .subscribe(() => {
+      const fetchedTests = this.tests.filter(test => test.testCentreOfficerUsername !== testCentreOfficerUsername);
+      this.tests = fetchedTests;
+      this.testsUpdate.next([...this.tests]);
+     })
+  }
+
   //editing a test object
   updateTest(id: string, testDate: Date, patientUsername: string, patientType: string, symptoms: string,
-    testStatus: string, testResults: string){
+    testStatus: string, testResults: string, testCentreOfficerUsername:string){
     const test: Test = {id: id, testDate: testDate, patientUsername: patientUsername, patientType: patientType,
-      symptoms: symptoms, testStatus: testStatus, testResults: testResults};
+      symptoms: symptoms, testStatus: testStatus, testResults: testResults,
+      testCentreOfficerUsername: testCentreOfficerUsername};
     this.http.put('http://localhost:3000/api/tests/' + id, test)
       .subscribe(response => {
         console.log(response);
@@ -81,9 +108,10 @@ export class TestService {
 
   //adding a test object into collection
   addTest(testDate: Date, patientUsername: string, patientType: string, symptoms: string,
-    testStatus: string, testResults: string){
+    testStatus: string, testResults: string, testCentreOfficerUsername:string){
     const test: Test = {id: null, testDate: testDate, patientUsername: patientUsername, patientType: patientType,
-      symptoms: symptoms, testStatus: testStatus, testResults: testResults};
+      symptoms: symptoms, testStatus: testStatus, testResults: testResults,
+      testCentreOfficerUsername: testCentreOfficerUsername};
     this.http
     .post<{message:string, testId: string}> ('http://localhost:3000/api/tests', test)
     .subscribe((responseData) => {

@@ -294,7 +294,8 @@ app.post("/api/tests", (req, res, next) => {
     patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
-    testResults: req.body.testResults
+    testResults: req.body.testResults,
+    testCentreOfficerUsername: req.body.testCentreOfficerUsername
   })
 
   test.save().then(createdTest => {
@@ -320,7 +321,8 @@ app.put("/api/tests/:id", (req,res,next) => {
     patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
-    testResults: req.body.testResults
+    testResults: req.body.testResults,
+    testCentreOfficerUsername: req.body.testCentreOfficerUsername
   });
   Test.updateOne({ _id: req.params.id}, test).then(result => {
     console.log(result);

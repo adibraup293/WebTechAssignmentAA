@@ -6,4 +6,5 @@ export interface Test{
   symptoms: string;
   testStatus: string;
   testResults?: string;
+  testCentreOfficerUsername: string;
 }

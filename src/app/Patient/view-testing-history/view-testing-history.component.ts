@@ -1,8 +1,7 @@
-import { Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import {Test} from 'src/app/Tester/test.model'
 import {TestService} from 'src/app/Tester/test.service';
-
 @Component({
   selector: 'app-view-testing-history',
   templateUrl: './view-testing-history.component.html',
