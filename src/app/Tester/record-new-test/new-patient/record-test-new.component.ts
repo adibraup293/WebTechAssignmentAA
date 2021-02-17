@@ -28,7 +28,7 @@ export class RecordTestNewComponent implements OnInit{
   //this should be taking the patient id from previous page
   private patientId: string;
   //this should be taking the username from tester home
-  private testCentreOfficerUsername: string;
+  private testCentreOfficerUsername = "";
 
   constructor(public testService: TestService, public patientService: PatientService, public route: ActivatedRoute) {}
 
