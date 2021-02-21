@@ -305,11 +305,6 @@ app.post("/api/tests", (req, res, next) => {
       testId: createdTest._id
     });
   });
-
-  console.log(test);
-  res.status(201).json({
-    message: 'Test added successfully'
-  });
 });
 
 //update test
@@ -350,21 +345,21 @@ app.put("/api/tests/:id", (req,res,next) => {
 });
 
  //create patient
- app.post("/api/patients", (req, res, next) => {
+ app.post("/api/patients/signup", (req, res, next) => {
   bcrypt.hash(req.body.patientPassword, 10)
   .then(hash => {
     const patient = new Patient({
-      patientId: req.body.patientId,
       patientUsername: req.body.patientUsername,
       patientPassword: hash,
-      patientFullname: req.body.patientFullname,
+      patientFullName: req.body.patientFullName,
       patientPosition: "Patient"
   });
     patient.save().then(createdPatient => {
       console.log(patient)
-      res.status(200).json({
+      res.status(201).json({
         message: 'Patient added successfully',
-        patientId: createdPatient._id
+        patientId: createdPatient._id,
+        result: createdPatient
       });
     })
     .catch(err => {

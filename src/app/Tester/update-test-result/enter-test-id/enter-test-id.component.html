@@ -3,23 +3,23 @@
   <mat-card>
     <div class=enter-test-id-page-content>
       <mat-accordion multi="true" *ngIf="tests.length>0">
-        <mat-expansion-panel *ngFor="let patient of patients">
+        <mat-expansion-panel *ngFor="let test of tests">
           <mat-expansion-panel-header>
             Test ID : {{test.id}}
           </mat-expansion-panel-header>
-            Date: {{test.testDate}}
-            Patient's Username: {{test.patientUsername}}
-            Patient Type: {{test.patientType}}
-            Symptoms: {{test.symptoms}}
-            Test Status: {{test.testStatus}}
+            Date: {{test.testDate}}<br>
+            Patient's Username: {{test.patientUsername}}<br>
+            Patient Type: {{test.patientType}}<br>
+            Symptoms: {{test.symptoms}}<br>
+            Test Status: {{test.testStatus}}<br>
             Test Result: {{test.testResults}}
           <mat-action-row>
-            <a mat-button color="primary" [routerLink]="['/edit', test.id]">UPDATE TEST</a>
-            <button mat-button color="warn" (click) = "onDelete(patient.id)">DELETE PATIENT</button>
+            <a mat-button color="primary" [routerLink]="['update-test-result', test.id]">UPDATE TEST</a>
+            <button mat-button color="warn" (click) = "onDelete(test.id)">DELETE TEST</button>
           </mat-action-row>
         </mat-expansion-panel>
       </mat-accordion>
-      <p class="info-text mat-body-1" *ngIf="tests.length == 0">No tests found</p>
+      <p class="info-text mat-body-1" *ngIf="tests.length == 0">No Tests Found</p>
     </div>
     <div class="page-footer">
       <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>

@@ -14,7 +14,7 @@ export class GenerateTestReportComponent implements OnInit {
   private testSub: Subscription;
 
   //this should be taking the username from tester home
-  private testCentreOfficerUsername: string;
+  private testCentreOfficerUsername = "TCO";
 
   constructor(public testService: TestService, public route: ActivatedRoute){}
 

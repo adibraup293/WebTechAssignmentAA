@@ -60,11 +60,10 @@ export class TestService {
           testResults : test.testResults,
           testCentreOfficerUsername: test.testCentreOfficerUsername
         };
-      });
+      }).filter(test => test.patientUsername === patientUsername);
     }))
-    .subscribe(() => {
-      const fetchedTests = this.tests.filter(test => test.patientUsername !== patientUsername);
-      this.tests = fetchedTests;
+    .subscribe(transformedTests => {
+      this.tests = transformedTests;
       this.testsUpdate.next([...this.tests]);
      })
   }
@@ -84,11 +83,10 @@ export class TestService {
           testResults : test.testResults,
           testCentreOfficerUsername: test.testCentreOfficerUsername
         };
-      });
+      }).filter(test => test.testCentreOfficerUsername === testCentreOfficerUsername);
     }))
-    .subscribe(() => {
-      const fetchedTests = this.tests.filter(test => test.testCentreOfficerUsername !== testCentreOfficerUsername);
-      this.tests = fetchedTests;
+    .subscribe(transformedTests => {
+      this.tests = transformedTests;
       this.testsUpdate.next([...this.tests]);
      })
   }

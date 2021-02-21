@@ -6,6 +6,7 @@ import { TestService } from 'src/app/Tester/test.service';
 import { Patient } from 'src/app/Patient/patient.model';
 import { PatientService } from 'src/app/Patient/patient.service';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/auth/auth.services';
 @Component({
   selector: 'app-record-test-new',
   templateUrl: './record-test-new.component.html',
@@ -28,9 +29,10 @@ export class RecordTestNewComponent implements OnInit{
   //this should be taking the patient id from previous page
   private patientId: string;
   //this should be taking the username from tester home
-  private testCentreOfficerUsername = "";
+  private testCentreOfficerUsername = "TCO";//Take out TCO and replce with attr. obtained from prev page
 
-  constructor(public testService: TestService, public patientService: PatientService, public route: ActivatedRoute) {}
+  constructor(public authService: AuthService, public testService: TestService, public patientService: PatientService,
+    public route: ActivatedRoute) {}
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -50,7 +52,7 @@ export class RecordTestNewComponent implements OnInit{
       return;
     }
     else if (this.mode === 'create'){
-      this.patientService.addPatient(form.value.patientUsername, form.value.patientPassword,
+      this.authService.createPatient(form.value.patientUsername, form.value.patientPassword,
         form.value.patientFullName, "Patient");
     }
     this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,

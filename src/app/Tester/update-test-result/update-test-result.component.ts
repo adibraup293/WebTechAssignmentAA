@@ -19,7 +19,7 @@ export class UpdateTestResultComponent implements OnInit{
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      this.test.id = paramMap.get('patientId');
+      this.test.id = paramMap.get('testId');
       this.test = this.testsService.getTest(this.testId);
     });
   }

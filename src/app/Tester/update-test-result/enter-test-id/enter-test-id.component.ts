@@ -12,11 +12,13 @@ import { TestService } from 'src/app/Tester/test.service';
 export class EnterTestIDComponent implements OnInit{
   tests: Test[] = [];
   private testsSub: Subscription;
+  //this should be taking the username from tester home
+  private testCentreOfficerUsername = "TCO";//Take out TCO and replce with attr. obtained from prev page
 
   constructor(public testService: TestService){}
 
   ngOnInit(){
-    this.testService.getTests();
+    this.testService.getTesterTests(this.testCentreOfficerUsername);
     this.testsSub = this.testService.getTestsUpdateListener()
     .subscribe((tests: Test[]) => {
       this.tests = tests;
