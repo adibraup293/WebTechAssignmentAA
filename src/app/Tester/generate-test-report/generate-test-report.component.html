@@ -1,71 +1,25 @@
 <div class="testerGenTestReportDiv">
   <h1 class="main-title">History of test reports for Test Centre Officer</h1><br>
   <div class=page-content>
-    <table class="test-id-list">
-      <tr class="row-border">
-        <th class="cell-padding">Test ID</th>
-        <th class="cell-padding">Date</th>
-        <th class="cell-padding">Patient Name</th>
-        <th class="cell-padding">Patient Type</th>
-        <th class="cell-padding">Administered Centre</th>
-        <th class="cell-padding">Symptomps</th>
-        <th class="cell-padding">Test Status</th>
-        <th class="cell-padding">Test Results</th>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-025</td>
-        <td class="cell-padding">4/10/2020</td>
-        <td class="center-cell">Aishath Junana</td>
-        <td class="cell-padding">Returnee</td>
-        <td class="center-cell">Daniel Toh Hospital, Bukit Damansara</td>
-        <td class="symptomps-cell">-</td>
-        <td class="cell-padding">Pending</td>
-        <td class="cell-padding">-</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-032</td>
-        <td class="cell-padding">7/10/2020</td>
-        <td class="center-cell">Abdul Razak</td>
-        <td class="cell-padding">Returnee</td>
-        <td class="center-cell">Daniel Toh Hospital, Bukit Damansara</td>
-        <td class="symptomps-cell">Runny nose, High fever, Sore throat, Respiratory pain, Sharp pain in abdomen, Severe headaches,
-          Difficulty in breathing, Accelerated heart rate, Cold perspiration, Shallow breathing</td>
-        <td class="cell-padding">Complete</td>
-        <td class="cell-padding">Positive</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-035</td>
-        <td class="cell-padding">7/1/2021</td>
-        <td class="center-cell">Ibrahim Affelay</td>
-        <td class="cell-padding">Returnee</td>
-        <td class="center-cell">Daniel Toh Hospital, Bukit Damansara</td>
-        <td class="symptomps-cell">Runny nose</td>
-        <td class="cell-padding">Pending</td>
-        <td class="cell-padding">-</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-050</td>
-        <td class="cell-padding">4/2/2021</td>
-        <td class="center-cell">Amir Latiff</td>
-        <td class="cell-padding">Returnee</td>
-        <td class="center-cell">Daniel Toh Hospital, Bukit Damansara</td>
-        <td class="symptomps-cell">Severe headaches, Difficulty in breathing, Shallow breathing, Lung infection, Constant coughing fits,
-          Coughing out blood, Blurred vision, Stroke, Anaemia, Accelerated heart rate, Rupture in pulmonary vein, Respiratory pain,
-          Kidney stone, Lung cancer stage 2</td>
-        <td class="cell-padding">Complete</td>
-        <td class="cell-padding">Negative</td>
-      </tr>
-      <tr class="row-border">
-        <td class="cell-padding">TEST-130</td>
-        <td class="cell-padding">12/5/2020</td>
-        <td class="center-cell">Nicholas Kelsey Setiadi</td>
-        <td class="cell-padding">Returnee</td>
-        <td class="center-cell">Daniel Toh Hospital, Bukit Damansara</td>
-        <td class="symptomps-cell">-</td>
-        <td class="cell-padding">Pending</td>
-        <td class="cell-padding">-</td>
-      </tr>
-    </table>
+    <mat-card>
+
+      <mat-accordion multi="true" *ngIf="tests.length>0">
+        <mat-expansion-panel *ngFor="let test of tests">
+          <mat-expansion-panel-header>
+            Test Date : {{test.testDate}}
+          </mat-expansion-panel-header>
+            Test ID: {{test.id}}
+            Patient Username: {{test.patientUsername}}
+            Patient Type: {{test.patientType}}
+            Symptoms: {{test.symptoms}}
+            Test Status: {{test.testStatus}}
+            Test Results: {{test.testResults}}
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <p class="info-text mat-body-1" *ngIf="tests.length == 0">No Tests Found</p>
+
+    </mat-card>
   </div>
   <div class="page-footer">
     <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>

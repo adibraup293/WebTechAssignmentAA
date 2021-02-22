@@ -35,12 +35,25 @@ export class AuthService {
         testCentreOfficerUsername: testCentreOfficerUsername,
         testCentreOfficerPassword: testCentreOfficerPassword,
         testCentreOfficerPosition: testCentreOfficerPosition,
-        testCentreId: testCentreId};this.http.post<{message:string, testCentreOfficerId: string}> ('http://localhost:3000/api/testcentreofficers/signup', testCentreOfficer)
+        testCentreId: testCentreId};
+        this.http.post<{message:string, testCentreOfficerId: string}> ('http://localhost:3000/api/testcentreofficers/signup',
+          testCentreOfficer)
         .subscribe(responseData =>{
           const id = responseData.testCentreOfficerId;
           testCentreOfficer.id = id;
           console.log(responseData.message);
           this.router.navigate(['/login']);
+        });
+  }
+
+  createPatient(patientUsername: string, patientPassword: string, patientFullName: string, patientPosition: string){
+    const patient: Patient = {id: null, patientUsername: patientUsername, patientPassword: patientPassword,
+      patientFullName: patientFullName, patientPosition: patientPosition};
+      this.http.post<{message:string, patientId: string}> ('http://localhost:3000/api/patients/signup', patient)
+        .subscribe(responseData =>{
+          const id = responseData.patientId;
+          patient.id = id;
+          console.log(responseData.message);
         });
   }
 
@@ -68,7 +81,7 @@ export class AuthService {
 
   loginPatient(username:string, password:string){
     const patient: Patient = {patientUsername:username, patientPassword:password};
-    this.http.post <{token: string}> ('http://localhost:3000/api/patient/', patient)
+    this.http.post <{token: string}> ('http://localhost:3000/api/patients/login', patient)
       .subscribe(response => {
         const token = response.token;
         this.token = token;

@@ -1,5 +1,5 @@
 <div class="viewTestHistoryDiv">
-  <h1 class="main-title">Testing history for Patient</h1><br>
+  <h1 class="main-title">Testing history for {{this.patientUsername}}</h1><br>
   <div class="page-content">
     <mat-card>
 
@@ -8,15 +8,15 @@
           <mat-expansion-panel-header>
             Test Date : {{test.testDate}}
           </mat-expansion-panel-header>
-            Test ID: {{test.id}}
-            Patient Type: {{test.patientType}}
-            Symptoms: {{test.symptoms}}
-            Test Status: {{test.testStatus}}
+            Test ID: {{test.id}}<br>
+            Patient Type: {{test.patientType}}<br>
+            Symptoms: {{test.symptoms}}<br>
+            Test Status: {{test.testStatus}}<br>
             Test Results: {{test.testResults}}
         </mat-expansion-panel>
       </mat-accordion>
 
-      <p class="info-text mat-body-1" *ngIf="tests.length == 0">No Test Centres available</p>
+      <p class="info-text mat-body-1" *ngIf="tests.length == 0">No Tests Found</p>
 
     </mat-card>
   </div>

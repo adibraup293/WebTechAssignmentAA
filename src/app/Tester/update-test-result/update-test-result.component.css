@@ -114,6 +114,12 @@ mat-card {
   height: 60px;
 }
 
+.hint{
+  color: darkblue;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
 ::ng-deep.mat-form-field-disabled .mat-form-field-underline
     {
     background-image: linear-gradient( to right, #5a5a5a, #5a5a5a, #5a5a5a 0 ) !important;

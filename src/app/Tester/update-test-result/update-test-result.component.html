@@ -1,100 +1,118 @@
 <div class="updateResultDiv">
   <mat-card style="color: aqua;">
-    <h1 class="main-title">Details of {{test.id}}</h1>
-    <div class="update-test-result-page-content">
-      <table class="test-details-list" *ngFor="let test of test">
-        <tr>
-          <td class="cell-padding" colspan="2" valign="bottom">
-            <mat-form-field style="width:800px">
-              <mat-label>Date of test: </mat-label>
-              <input
-              matInput
-              name="username"
-              class="record-test-input"
-              value = {{test.testDate}}
-              disabled>
-              <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td class="cell-padding" colspan="2" valign="bottom">
-            <mat-form-field style="width:800px">
-              <mat-label>Patient's Username: </mat-label>
-              <input
-              matInput
-              name="username"
-              class="record-test-input"
-              value = {{test.patientUsername}}
-              disabled>
-              <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td class="cell-padding" colspan="2" valign="bottom">
-            <mat-form-field style="width:800px">
-              <mat-label>Patient Type: </mat-label>
-              <input
-              matInput
-              name="username"
-              class="record-test-input"
-              value = {{test.patientType}}
-              disabled>
-              <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td class="cell-padding" colspan="2" valign="bottom">
-            <mat-form-field style="width:800px">
-              <mat-label>Symptoms: </mat-label>
-              <input
-              matInput
-              name="username"
-              class="record-test-input"
-              value = {{test.symptoms}}
-              disabled>
-              <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr>
-          <td class="cell-padding" colspan="2" valign="bottom">
-            <mat-form-field style="width:800px">
-              <mat-label>Test Status: </mat-label>
-              <input
-              matInput
-              name="username"
-              class="record-test-input"
-              value = {{test.testStatus}}
-              disabled>
-              <mat-hint style="color: darkblue;">This textfield cannot be edited</mat-hint>
-            </mat-form-field>
-          </td>
-        </tr>
-        <tr class="resultsField">
-          <td class="cell-padding" valign="bottom" colspan="2">
-            <mat-form-field class="results-input-field">
-              <textarea style="color: black;"
-                matInput name="symptoms"
-                ngModel
-                #testResults="ngModel"
-                type="text"
-                class="results-input"
-                placeholder="Type the results of the test here..."
-                required></textarea>
-              <mat-error *ngIf="testResults.invalid">Please enter the results of the test</mat-error>
-            </mat-form-field>
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div class=update-btn-container>
-      <br><br><button mat-raised-button class="update-btn">Update results</button>
-    </div>
-    <div class=page-footer>
-      <br><br><a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>
-    </div>
+    <h1 class="main-title">Details of Test {{testId}}</h1>
+      <form (submit)="onSaveTest(testForm)" #testForm="ngForm">
+        <div class="update-test-result-page-content">
+          <table class="test-details-list">
+            <tr>
+              <td class="cell-padding" valign="top">
+                <mat-form-field style="width:800px">
+                  <mat-label style="font-weight: bold;">Date of test: </mat-label>
+                  <input
+                  matInput
+                  name="username"
+                  class="record-test-input"
+                  type="text"
+                  ngModel
+                  #testDate="ngModel"
+                  [ngModel]="test?.testDate"
+                  disabled>
+                  <mat-hint class="hint">This textfield cannot be edited</mat-hint>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td class="cell-padding" valign="top">
+                <mat-form-field style="width:800px">
+                  <mat-label style="font-weight: bold;">Patient's Username: </mat-label>
+                  <input
+                  matInput
+                  name="username"
+                  class="record-test-input"
+                  type="text"
+                  ngModel
+                  #patientUsername="ngModel"
+                  [ngModel]="test?.patientUsername"
+                  disabled>
+                  <mat-hint class="hint">This textfield cannot be edited</mat-hint>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td class="cell-padding" valign="top">
+                <mat-form-field style="width:800px">
+                  <mat-label style="font-weight: bold;">Patient Type: </mat-label>
+                  <input
+                  matInput
+                  name="username"
+                  class="record-test-input"
+                  type="text"
+                  ngModel
+                  #patientType="ngModel"
+                  [ngModel]="test?.patientType"
+                  disabled>
+                  <mat-hint class="hint">This textfield cannot be edited</mat-hint>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td class="cell-padding" valign="top">
+                <mat-form-field style="width:800px">
+                  <mat-label style="font-weight: bold;">Symptoms: </mat-label>
+                  <input
+                  matInput
+                  name="username"
+                  class="record-test-input"
+                  type="text"
+                  ngModel
+                  #symptoms="ngModel"
+                  [ngModel]="test?.symptoms"
+                  disabled>
+                  <mat-hint class="hint">This textfield cannot be edited</mat-hint>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td class="cell-padding" valign="top">
+                <mat-form-field style="width:800px">
+                  <mat-label style="font-weight: bold;">Test Status: </mat-label>
+                  <input
+                  matInput
+                  name="username"
+                  class="record-test-input"
+                  type="text"
+                  ngModel
+                  #testStatus="ngModel"
+                  [ngModel]="test?.testStatus"
+                  disabled>
+                  <mat-hint class="hint">This textfield cannot be edited</mat-hint>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr class="resultsField">
+              <td class="cell-padding" valign="top">
+                <mat-form-field class="results-input-field">
+                  <textarea style="color: black;"
+                    matInput name="symptoms"
+                    ngModel
+                    #testResults="ngModel"
+                    [ngModel]="test?.testResults"
+                    type="text"
+                    class="results-input"
+                    placeholder="Type the results of the test here..."
+                    required></textarea>
+                  <mat-error *ngIf="testResults.invalid">Please enter the results of the test</mat-error>
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <div class=update-btn-container>
+        <br><br><button mat-raised-button class="update-btn">Update test results</button>
+      </div>
+      <div class=page-footer>
+        <br><br><a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>
+      </div>
+    </form>
   </mat-card>
 </div>

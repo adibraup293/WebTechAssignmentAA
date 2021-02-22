@@ -12,49 +12,26 @@
   text-align: center;
 }
 
-.no-entry-text{
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  font-weight: bold;
-  font-size: 20px;
+.mat-expansion-panel{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
-.enter-test-id-page-content{
-  margin: auto;
-  text-align: center;
-  height: 300px;
-  padding: 50px 0;
-}
-
-.test-id-list{
-  text-align: left;
-  border-collapse: collapse;
-  color: black;
-  background-color: #98ff98;
-  border-radius: 20px;
-  font-weight: normal;
-  width: 125%;
-  margin-left: -145px;
-}
-
-.row-border{
-  border: 5px solid lightskyblue;
-}
-
-.cell-padding, .symptomps-cell, .center-cell{
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.center-cell{
-  width: 200px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-
-.symptomps-cell{
-  width: 1000px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+.mat-select{
+  color: midnightblue;
+  background-color: orange;
+  height: auto;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
 }
 
 .back-btn{
@@ -83,3 +60,15 @@
   padding: 20px;
   margin-bottom: 50px;
 }
+
+mat-card{
+  background-color: lightskyblue;
+  transition: none !important;
+  box-shadow: none !important;
+}
+
+mat-form-field,
+textarea{
+  width: 100%;
+}
+

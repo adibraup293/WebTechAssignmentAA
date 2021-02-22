@@ -294,7 +294,8 @@ app.post("/api/tests", (req, res, next) => {
     patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
-    testResults: req.body.testResults
+    testResults: req.body.testResults,
+    testCentreOfficerUsername: req.body.testCentreOfficerUsername
   })
 
   test.save().then(createdTest => {
@@ -303,11 +304,6 @@ app.post("/api/tests", (req, res, next) => {
       message: 'Test added successfully',
       testId: createdTest._id
     });
-  });
-
-  console.log(test);
-  res.status(201).json({
-    message: 'Test added successfully'
   });
 });
 
@@ -320,7 +316,8 @@ app.put("/api/tests/:id", (req,res,next) => {
     patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
-    testResults: req.body.testResults
+    testResults: req.body.testResults,
+    testCentreOfficerUsername: req.body.testCentreOfficerUsername
   });
   Test.updateOne({ _id: req.params.id}, test).then(result => {
     console.log(result);
@@ -348,35 +345,27 @@ app.put("/api/tests/:id", (req,res,next) => {
 });
 
  //create patient
- app.post("/api/patients", (req, res, next) => {
-  bcrypt.hash(req.body.patientPassword, 10)
-  .then(hash => {
+ app.post("/api/patients/signup", (req, res, next) => {
     const patient = new Patient({
-      patientId: req.body.patientId,
       patientUsername: req.body.patientUsername,
-      patientPassword: hash,
-      patientFullname: req.body.patientFullname,
+      patientPassword: req.body.patientPassword,
+      patientFullName: req.body.patientFullName,
       patientPosition: "Patient"
   });
     patient.save().then(createdPatient => {
       console.log(patient)
-      res.status(200).json({
+      res.status(201).json({
         message: 'Patient added successfully',
-        patientId: createdPatient._id
+        patientId: createdPatient._id,
+        result: createdPatient
       });
     })
-    .catch(err => {
-      res.status(500).json({
-        error:err
-      });
-    });
   });
-});
 
  //login patient
  app.post('/api/patients', (req,res,next) => {
   let fetchedUser;
-  Patient.findOne({username: req.body.username})
+  Patient.findOne({patientUsername: req.body.patientUsername})
   .then(patient => {
     if (!patient){
       return res.status(401).json({
@@ -393,7 +382,7 @@ app.put("/api/tests/:id", (req,res,next) => {
       });
     }
     const token = jwt.sign(
-      {username: fetchedUser.username, patientId: fetchedUser._id},
+      {patientUsername: fetchedUser.patientUsername, patientId: fetchedUser._id},
       'secret_this_should_be_longer',
       {expiresIn: '1h'}
     );

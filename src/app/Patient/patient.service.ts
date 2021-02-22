@@ -60,9 +60,9 @@ export class PatientService {
     const patient: Patient = {id: null, patientUsername: patientUsername, patientPassword: patientPassword,
       patientFullName: patientFullName, patientPosition: patientPosition};
     this.http
-    .post<{message:string, testId: string}> ('http://localhost:3000/api/patients', patient)
+    .post<{message:string, patientId: string}> ('http://localhost:3000/api/patients/signup', patient)
     .subscribe((responseData) => {
-      const id = responseData.testId;
+      const id = responseData.patientId;
       patient.id = id;
       console.log(responseData.message);
       this.patients.push(patient);
