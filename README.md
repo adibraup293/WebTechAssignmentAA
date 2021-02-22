@@ -3,6 +3,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
 
+To run this project, just following the steps under **Connect to MongoDB database** and **Development server** will be sufficient.
+
 ## Connect to MongoDB database
 First, access the database at `https://account.mongodb.com/account/login`. The credentials for the MongoDB database are as follows:
 <br> Username: adibdibzie@gmail.com
@@ -14,7 +16,9 @@ After that, run `node server.js` for checking the connection to database. The co
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files*.
+
+*Changes made to files in the backend folder (check-auth.js, patient.js, test.js, testCentre.js, testCentreOfficer.js, testKit.js, user.js and app.js) will not be reflected automatically. For these changes, you need to immediately restart the project by closing and reopening the cmd windows for both client (ng serve) and server (node server.js).
 
 ## Code scaffolding
 
