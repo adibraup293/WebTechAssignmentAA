@@ -59,6 +59,7 @@ const appRoutes:Routes = [
   {path: 'generate-test-report', component: GenerateTestReportComponent},
   {path: 'enter-test-id', component: EnterTestIDComponent},
   {path: 'update-test-result', component: UpdateTestResultComponent},
+  {path: 'update-test/:testId', component: UpdateTestResultComponent},
   {path: 'select-patient', component: SelectPatientComponent},
   {path: 'record-test-new', component: RecordTestNewComponent},
   {path: 'existing-patient/:patientId', component: RecordTestNewComponent},

@@ -120,6 +120,10 @@ mat-card {
   letter-spacing: 0.5px;
 }
 
+.record-test-input{
+  color: #2F4F4F;
+}
+
 ::ng-deep.mat-form-field-disabled .mat-form-field-underline
     {
     background-image: linear-gradient( to right, #5a5a5a, #5a5a5a, #5a5a5a 0 ) !important;

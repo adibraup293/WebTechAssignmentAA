@@ -12,15 +12,19 @@ import { TestService } from "src/app/Tester/test.service";
 export class UpdateTestResultComponent implements OnInit{
 
   test: Test;
-  testId = "001";
+  private testId = "";
   currentDate = new Date();
 
   constructor(public testsService: TestService, public route: ActivatedRoute){}
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      this.test.id = paramMap.get('testId');
-      this.test = this.testsService.getTest(this.testId);
+      if(paramMap.has('testId')) {
+        this.testId = paramMap.get('testId');
+        this.test = this.testsService.getTest(this.testId);
+      } else {
+        return;
+      }
     });
   }
 
@@ -28,7 +32,7 @@ export class UpdateTestResultComponent implements OnInit{
     if (form.invalid){
       return;
     }
-    this.testsService.updateTest(this.test.id, this.currentDate, this.test.patientUsername, this.test.patientType,
+    this.testsService.updateTest(this.testId, this.currentDate, this.test.patientUsername, this.test.patientType,
       form.value.symptoms, "Complete", form.value.testResults, this.test.testCentreOfficerUsername);
     form.resetForm();
   }
