@@ -81,7 +81,7 @@ export class AuthService {
 
   loginPatient(username:string, password:string){
     const patient: Patient = {patientUsername:username, patientPassword:password};
-    this.http.post <{token: string}> ('http://localhost:3000/api/patient/', patient)
+    this.http.post <{token: string}> ('http://localhost:3000/api/patients/login', patient)
       .subscribe(response => {
         const token = response.token;
         this.token = token;

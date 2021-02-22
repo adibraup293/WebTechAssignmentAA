@@ -23,10 +23,6 @@ export class SelectPatientComponent implements OnInit{
     });
   }
 
-  onDelete(patientId: string){
-    this.patientService.deletePatient(patientId);
-  }
-
   ngOnDestroy(){
     this.patientsSub.unsubscribe();
   }

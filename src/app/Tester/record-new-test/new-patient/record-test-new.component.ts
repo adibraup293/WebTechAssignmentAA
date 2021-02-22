@@ -27,7 +27,7 @@ export class RecordTestNewComponent implements OnInit{
   currentDate = new Date();
   private mode = 'create';
   //this should be taking the patient id from previous page
-  private patientId: string;
+  private patientId = "";
   //this should be taking the username from tester home
   private testCentreOfficerUsername = "TCO";//Take out TCO and replce with attr. obtained from prev page
 
@@ -39,7 +39,7 @@ export class RecordTestNewComponent implements OnInit{
       if(paramMap.has('patientId')) {
         this.mode = 'edit';
         this.patientId = paramMap.get('patientId');
-        this.test = this.testService.getTest(this.patientId);
+        this.patient = this.patientService.getPatient(this.patientId);
       } else {
         this.mode = 'create';
         this.patientId = null;
@@ -52,7 +52,7 @@ export class RecordTestNewComponent implements OnInit{
       return;
     }
     else if (this.mode === 'create'){
-      this.authService.createPatient(form.value.patientUsername, form.value.patientPassword,
+      this.patientService.addPatient(form.value.patientUsername, form.value.patientPassword,
         form.value.patientFullName, "Patient");
     }
     this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,

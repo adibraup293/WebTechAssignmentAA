@@ -59,7 +59,8 @@ export class PatientService {
     patientPosition: string){
     const patient: Patient = {id: null, patientUsername: patientUsername, patientPassword: patientPassword,
       patientFullName: patientFullName, patientPosition: patientPosition};
-    this.http.post<{message:string, patientId: string}> ('http://localhost:3000/api/patients', patient)
+    this.http
+    .post<{message:string, patientId: string}> ('http://localhost:3000/api/patients/signup', patient)
     .subscribe((responseData) => {
       const id = responseData.patientId;
       patient.id = id;

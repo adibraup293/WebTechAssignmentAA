@@ -1,10 +1,12 @@
 const mongoose = require ('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 
 const postSchema = mongoose.Schema({
-  patientUsername: {type: Date, required:true},
+  patientUsername: {type: String, required:true},
   patientPassword: {type: String, required:true},
-  patientFullName: {type: String, required:true},
-  patientPosition: {type: String, required:true}
+  patientFullName: {type: String},
+  patientPosition: {type: String}
  });
 
-module.exports = mongoose.model('Patient',postSchema);
+//postSchema.plugin(uniqueValidator);
+module.exports = mongoose.model('Patient', postSchema);

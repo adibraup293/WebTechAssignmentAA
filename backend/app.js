@@ -346,11 +346,9 @@ app.put("/api/tests/:id", (req,res,next) => {
 
  //create patient
  app.post("/api/patients/signup", (req, res, next) => {
-  bcrypt.hash(req.body.patientPassword, 10)
-  .then(hash => {
     const patient = new Patient({
       patientUsername: req.body.patientUsername,
-      patientPassword: hash,
+      patientPassword: req.body.patientPassword,
       patientFullName: req.body.patientFullName,
       patientPosition: "Patient"
   });
@@ -362,13 +360,7 @@ app.put("/api/tests/:id", (req,res,next) => {
         result: createdPatient
       });
     })
-    .catch(err => {
-      res.status(500).json({
-        error:err
-      });
-    });
   });
-});
 
  //login patient
  app.post('/api/patients', (req,res,next) => {
