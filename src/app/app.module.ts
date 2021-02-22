@@ -57,6 +57,7 @@ const appRoutes:Routes = [
   //Routing for tester pages
   {path: 'tester-home', component: TesterHomeComponent},
   {path: 'generate-test-report', component: GenerateTestReportComponent},
+  {path: 'generate-test-report/:testerUsername', component: GenerateTestReportComponent},
   {path: 'enter-test-id', component: EnterTestIDComponent},
   {path: 'update-test-result', component: UpdateTestResultComponent},
   {path: 'update-test/:testId', component: UpdateTestResultComponent},

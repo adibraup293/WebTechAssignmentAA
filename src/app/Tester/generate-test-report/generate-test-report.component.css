@@ -16,11 +16,12 @@
   color: midnightblue;
   background-color: orange;
   height: auto;
-  width: 350px;
+  width: 500px;
   margin: 0 auto;
   margin-bottom: 10px;
   padding: 10px;
   position: relative;
+  text-align: left;
 }
 
 .mat-select{

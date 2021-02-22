@@ -1,5 +1,5 @@
 <div class="testerGenTestReportDiv">
-  <h1 class="main-title">History of test reports for Test Centre Officer</h1><br>
+  <h1 class="main-title">History of test reports for {{officerUsername}}</h1><br>
   <div class=page-content>
     <mat-card>
 
@@ -8,12 +8,12 @@
           <mat-expansion-panel-header>
             Test Date : {{test.testDate}}
           </mat-expansion-panel-header>
-            Test ID: {{test.id}}
-            Patient Username: {{test.patientUsername}}
-            Patient Type: {{test.patientType}}
-            Symptoms: {{test.symptoms}}
-            Test Status: {{test.testStatus}}
-            Test Results: {{test.testResults}}
+            Test ID: {{test.id}}<br>
+            Patient Username: {{test.patientUsername}}<br>
+            Patient Type: {{test.patientType}}<br>
+            Symptoms: {{test.symptoms}}<br>
+            Test Status: {{test.testStatus}}<br>
+            Test Results: {{test.testResults}}<br>
         </mat-expansion-panel>
       </mat-accordion>
 

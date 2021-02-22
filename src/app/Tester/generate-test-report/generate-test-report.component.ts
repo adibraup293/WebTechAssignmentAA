@@ -14,21 +14,25 @@ export class GenerateTestReportComponent implements OnInit {
   private testSub: Subscription;
 
   //this should be taking the username from tester home
-  private testCentreOfficerUsername = "TCO";
+  officerUsername = "TCO";
 
   constructor(public testService: TestService, public route: ActivatedRoute){}
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if(paramMap.has('testCentreOfficerUsername')) {
-        this.testService.getTesterTests(this.testCentreOfficerUsername);
+      if(paramMap.has('testerUsername')) {
+        this.testService.getTesterTests(this.officerUsername);
+        this.testSub = this.testService.getTestsUpdateListener()
+        .subscribe((tests: Test[]) => {
+          this.tests = tests;
+        });
       } else {
         this.testService.getTests;
+        this.testSub = this.testService.getTestsUpdateListener()
+        .subscribe((tests: Test[]) => {
+          this.tests = tests;
+        });
       }
-    });
-    this.testSub = this.testService.getTestsUpdateListener()
-    .subscribe((tests: Test[]) => {
-      this.tests = tests;
     });
   }
 
