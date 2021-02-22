@@ -10,12 +10,12 @@
       <mat-accordion multi="true" *ngIf="patients.length>0">
         <mat-expansion-panel *ngFor="let patient of patients">
           <mat-expansion-panel-header>
-            Patient's Full Name : <br>{{patient.patientFullName}}
+            Patient's Full Name : {{patient.patientFullName}}
           </mat-expansion-panel-header>
             Patient's ID: {{patient.id}}<br>
             Patient's Username: {{patient.patientUsername}}
           <mat-action-row>
-            <a mat-button color="primary" [routerLink]="['/edit', patient.id]">RECORD A NEW TEST</a>
+            <a mat-button color="primary" [routerLink]="['/existing-patient', patient.id]">RECORD A NEW TEST</a>
           </mat-action-row>
         </mat-expansion-panel>
       </mat-accordion>

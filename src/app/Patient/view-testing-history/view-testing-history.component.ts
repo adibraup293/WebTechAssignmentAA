@@ -13,7 +13,7 @@ export class ViewTestingHistoryComponent implements OnInit{
   private testSub: Subscription;
 
   //get patient's username from prev page
-  public patientUsername = "danieltoh16";
+  patientUsername = "danieltoh16";
 
   constructor(public testService: TestService){}
 

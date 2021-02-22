@@ -5,9 +5,9 @@
       <mat-accordion multi="true" *ngIf="tests.length>0">
         <mat-expansion-panel *ngFor="let test of tests">
           <mat-expansion-panel-header>
-            Test ID : {{test.id}}
+            Test Date: {{test.testDate}}
           </mat-expansion-panel-header>
-            Date: {{test.testDate}}<br>
+            Test ID : {{test.id}}<br>
             Patient's Username: {{test.patientUsername}}<br>
             Patient Type: {{test.patientType}}<br>
             Symptoms: {{test.symptoms}}<br>

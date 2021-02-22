@@ -12,7 +12,7 @@ import { TestService } from "src/app/Tester/test.service";
 export class UpdateTestResultComponent implements OnInit{
 
   test: Test;
-  private testId: string;
+  testId = "001";
   currentDate = new Date();
 
   constructor(public testsService: TestService, public route: ActivatedRoute){}

@@ -61,6 +61,7 @@ const appRoutes:Routes = [
   {path: 'update-test-result', component: UpdateTestResultComponent},
   {path: 'select-patient', component: SelectPatientComponent},
   {path: 'record-test-new', component: RecordTestNewComponent},
+  {path: 'existing-patient/:patientId', component: RecordTestNewComponent},
   //Routing for patient pages
   {path: 'patient-home', component: PatientHomeComponent},
   {path: 'view-testing-history', component: ViewTestingHistoryComponent}
