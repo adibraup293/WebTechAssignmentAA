@@ -26,6 +26,6 @@ export class LoginTesterComponent {
   onLoginTester(form: NgForm) {
     if (form.invalid){
       return;
-    }this.authService.loginM(form.value.email, form.value.password);
+    }this.authService.loginTester(form.value.email, form.value.password);
   }
 }
