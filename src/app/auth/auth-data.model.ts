@@ -1,4 +1,10 @@
 export interface AuthData {
-  username: string;
+  id?: string;
+  email: string;
   password: string;
+  username?: string;
+  name?: string;
+  position?: string;
+  type?:string;
+  centreId?: string;
 }

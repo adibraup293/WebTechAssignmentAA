@@ -37,9 +37,13 @@ export class ManagerRecordTestOfficerComponent implements OnInit{
     if (form.invalid){
       return;
     }
-    this.authService.createTester(form.value.testCentreOfficerName,
-      form.value.testCentreOfficerUsername, form.value.testCentreOfficerPassword,
-      form.value.testCentreOfficerPosition, form.value.testCentreId);
+    this.authService.createTester(form.value.email,
+      form.value.username,
+      form.value.password,
+      form.value.name,
+      "Officer",
+      "Tester",
+      form.value.testCentreId);
     form.resetForm();
   }
 

@@ -2,95 +2,102 @@
   <h1 class="main-title" >Record a Test Center Officer profile!</h1><br>
     <mat-card>
       <form (submit) = "onCreateTCOProfile(testCOForm)" #testCOForm = "ngForm">
-          <mat-form-field>
-            <input
+        <mat-form-field>
+          <input
               matInput
-              name="testCentreOfficerName"
-              type="text"
-              placeholder="Enter Test Centre Officer name here..."
+              name="email"
+              type="email"
+              placeholder="Enter your email here..."
               ngModel
-              minlength="3"
-              #testCentreOfficerName="ngModel"
-              required><br><br>
-              <mat-error *ngIf="testCentreOfficerName.invalid">Please enter a name</mat-error>
-          </mat-form-field>
+              #emailInput="ngModel"
+              required
+              email><br><br>
+            <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+        </mat-form-field>
 
-          <br><br>
+        <br><br>
 
-          <mat-form-field>
-            <input
-              matInput
-              name="testCentreOfficerUsername"
-              type="text"
-              placeholder="Enter Test Centre Officer username here..."
-              ngModel
-              #testCentreOfficerUsername="ngModel"
-              required><br><br>
-              <mat-error *ngIf="testCentreOfficerUsername.invalid">Please enter a valid username</mat-error>
-          </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            name="name"
+            type="text"
+            placeholder="Enter Test Centre Officer name here..."
+            ngModel
+            minlength="3"
+            #name="ngModel"
+            required><br><br>
+            <mat-error *ngIf="name.invalid">Please enter a name</mat-error>
+        </mat-form-field>
 
-          <br><br>
+        <br><br>
 
-          <mat-form-field>
-            <input
-              matInput
-              name="testCentreOfficerPassword"
-              type="password"
-              placeholder="Enter Test Centre Officer password here..."
-              ngModel
-              #testCentreOfficerPassword="ngModel"
-              required><br><br>
-              <mat-error *ngIf="testCentreOfficerPassword.invalid">Please enter a password</mat-error>
-          </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            name="username"
+            type="text"
+            placeholder="Enter Test Centre Officer username here..."
+            ngModel
+            #username="ngModel"
+            required><br><br>
+            <mat-error *ngIf="username.invalid">Please enter a valid username</mat-error>
+        </mat-form-field>
 
-          <br><br>
+        <br><br>
 
-          <!-- <h6>Click to select position</h6> <br>
-          <mat-select
-            name="testCentreOfficerPosition"
-            required>
-            <mat-option
-              *ngFor="let position of officerPositions"
-              [value]="position"
-              >
-              {{ position }}
-            </mat-option>
-          </mat-select>
+        <mat-form-field>
+          <input
+            matInput
+            name="password"
+            type="password"
+            placeholder="Enter Test Centre Officer password here..."
+            ngModel
+            #password="ngModel"
+            required><br><br>
+            <mat-error *ngIf="password.invalid">Please enter a password</mat-error>
+        </mat-form-field>
 
-          <br><br> -->
+        <br><br>
 
-          <mat-form-field>
-            <input
-              matInput
-              name="testCentreId"
-              type="text"
-              placeholder="Enter Test Centre ID, from below, here..."
-              ngModel
-              #testCentreId="ngModel"
-              required><br><br>
-              <mat-error *ngIf="testCentreId.invalid">Please enter a valid ID</mat-error>
-          </mat-form-field>
+        <!-- <h6>Click to select position</h6> <br>
+        <mat-select
+          name="testCentreOfficerPosition"
+          required>
+          <mat-option
+            *ngFor="let position of officerPositions"
+            [value]="position"
+            >
+            {{ position }}
+          </mat-option>
+        </mat-select>
 
-          <br><br>
+        <br><br> -->
 
-          <h4 class="main-title" style="font-size: 20px; color:brown;">
-            Select any of the test centers from the list below, copy the test center's ID and
-            paste into the textfield above
-            <fa-icon [icon]="faArrowUp" size="3x" ></fa-icon>
-          </h4>
+        <mat-form-field>
+          <input
+            matInput
+            name="testCentreId"
+            type="text"
+            placeholder="Enter Test Centre ID, from below, here..."
+            ngModel
+            #testCentreId="ngModel"
+            required><br><br>
+            <mat-error *ngIf="testCentreId.invalid">Please enter a valid ID</mat-error>
+        </mat-form-field>
 
-          <br>
+        <br><br>
 
-          <mat-accordion multi="true" *ngIf="testcentres.length>0">
-            <mat-expansion-panel *ngFor="let testcentre of testcentres">
-              <mat-expansion-panel-header>
-                Test Centre name : {{testcentre.testcentrename}}
-              </mat-expansion-panel-header>
-                Test Centre ID: {{testcentre.id}}
-            </mat-expansion-panel>
-          </mat-accordion>
+        <mat-accordion multi="true" *ngIf="testcentres.length>0">
+          <mat-expansion-panel *ngFor="let testcentre of testcentres">
+            <mat-expansion-panel-header>
+              Test Centre name : {{testcentre.testcentrename}}
+            </mat-expansion-panel-header>
+              Test Centre ID: {{testcentre.id}}
+          </mat-expansion-panel>
+        </mat-accordion>
 
-          <p class="info-text mat-body-1" *ngIf="testcentres.length == 0">No Test Centres available</p>
+        <p class="info-text mat-body-1" *ngIf="testcentres.length == 0">No Test Centres available</p>
 
           <br>
 
