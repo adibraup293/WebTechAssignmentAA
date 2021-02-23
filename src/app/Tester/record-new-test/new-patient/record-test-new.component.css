@@ -135,3 +135,18 @@ textarea { white-space: pre-wrap !important; }
 .fa{
   font-size: 30px;
 }
+
+.hint{
+  color: darkblue;
+}
+
+.record-test-input{
+  color: black;
+}
+
+::ng-deep.mat-form-field-disabled .mat-form-field-underline
+    {
+    background-image: linear-gradient( to right, #5a5a5a, #5a5a5a, #5a5a5a 0 ) !important;
+    background-size: 1px 100% !important;
+     background-repeat: repeat-x !important;
+    }

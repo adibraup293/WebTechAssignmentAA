@@ -14,6 +14,7 @@ export class UpdateTestResultComponent implements OnInit{
   test: Test;
   private testId = "";
   currentDate = new Date();
+  displayedTestID: string;
 
   constructor(public testsService: TestService, public route: ActivatedRoute){}
 
@@ -22,6 +23,7 @@ export class UpdateTestResultComponent implements OnInit{
       if(paramMap.has('testId')) {
         this.testId = paramMap.get('testId');
         this.test = this.testsService.getTest(this.testId);
+        this.displayedTestID = this.test.id;
       } else {
         return;
       }

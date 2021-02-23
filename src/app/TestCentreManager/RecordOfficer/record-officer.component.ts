@@ -7,6 +7,7 @@ import { AuthService } from '../../auth/auth.services';
 
 import { TestCentreService} from '../TestCentre/testcentre.service';
 import { TestCentreOfficerService} from './testcentreofficer.service';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-manager-registerTestOfficer',
@@ -15,6 +16,8 @@ import { TestCentreOfficerService} from './testcentreofficer.service';
 })
 
 export class ManagerRecordTestOfficerComponent implements OnInit{
+  faArrowUp = faArrowUp;
+
   testcentres: TestCentre[] = [];
   testCentreOfficer: TestCentreOfficer;
   officerPositions: string[] = ['Tester','Manager'];

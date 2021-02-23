@@ -38,7 +38,7 @@
   color:white;
   margin: 5px;
   background-color: black;
-  width: 300px;
+  width: 200px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
 }
@@ -52,7 +52,7 @@
   color:white;
   margin: 5px;
   background-color: black;
-  width: 270px;
+  width: 300px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: medium;
 }
@@ -82,4 +82,16 @@ mat-card{
 mat-form-field,
 textarea{
   width: 100%;
+}
+
+.page-footer{
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+}
+
+.record-btn-container{
+  margin: auto;
+  text-align: center;
+  padding: 50px;
 }

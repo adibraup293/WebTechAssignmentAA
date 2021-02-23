@@ -1,5 +1,9 @@
 <div class="testerGenTestReportDiv">
-  <h1 class="main-title">History of test reports for {{officerUsername}}</h1><br>
+  <h1 class="main-title" *ngIf="this.isTesterHomeButtonVisible">
+    History of test reports for {{officerUsername}}</h1>
+  <h1 class="main-title" *ngIf="this.isManagerHomeButtonVisible">
+    History of all test reports recorded</h1>
+  <br>
   <div class=page-content>
     <mat-card>
 
@@ -22,6 +26,11 @@
     </mat-card>
   </div>
   <div class="page-footer">
-    <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>
+    <div *ngIf="this.isTesterHomeButtonVisible">
+      <a routerLink="/tester-home"><button mat-raised-button class="back-btn">Back to tester home</button></a>
+    </div>
+    <div *ngIf="this.isManagerHomeButtonVisible">
+      <a routerLink="/manager-home"><button mat-raised-button class="back-btn">Back to manager home</button></a>
+    </div>
   </div>
 </div>

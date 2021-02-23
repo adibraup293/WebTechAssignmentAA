@@ -1,6 +1,7 @@
 <div class="recordNewDiv">
   <mat-card style="color: aqua;">
-    <h1 class="main-title">Record a new patient and test</h1>
+    <h1 class="main-title" *ngIf="this.showNewTitle">Record a new patient and test</h1>
+    <h1 class="main-title" *ngIf="this.showExistingTitle">Record a new test for {{this.ptUsername}}</h1>
     <form (submit)="onSaveTest(testForm)" #testForm="ngForm">
     <div class="record-test-page-content">
       <table class="test-details-list">
@@ -15,8 +16,10 @@
               placeholder="Enter the patient's username here..."
               #patientUsername="ngModel"
               [ngModel]="patient?.patientUsername"
+              [disabled]="isDisabled"
               required>
               <mat-error>Please enter the username</mat-error>
+              <mat-hint class="hint" *ngIf="this.isDisabled">This textfield cannot be edited</mat-hint>
             </mat-form-field>
           </td>
         </tr>
@@ -31,8 +34,10 @@
               placeholder="Enter the patient's password here..."
               #patientPassword="ngModel"
               [ngModel]="patient?.patientPassword"
+              [disabled]="isDisabled"
               required>
               <mat-error>Please enter the password</mat-error>
+              <mat-hint class="hint" *ngIf="this.isDisabled">This textfield cannot be edited</mat-hint>
             </mat-form-field>
             <button mat-raised-button class="showPSBtn" id="showPSBtn" type="button">
               <i
@@ -57,8 +62,10 @@
               placeholder="Enter the patient's full name here..."
               #patientFullName="ngModel"
               [ngModel]="patient?.patientFullName"
+              [disabled]="isDisabled"
               required>
               <mat-error>Please enter the full name</mat-error>
+              <mat-hint class="hint" *ngIf="this.isDisabled">This textfield cannot be edited</mat-hint>
             </mat-form-field>
           </td>
         </tr>

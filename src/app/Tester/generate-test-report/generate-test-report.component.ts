@@ -12,6 +12,8 @@ import {TestService} from 'src/app/Tester/test.service';
 export class GenerateTestReportComponent implements OnInit {
   tests: Test[] = [];
   private testSub: Subscription;
+  isTesterHomeButtonVisible: boolean;
+  isManagerHomeButtonVisible: boolean;
 
   //this should be taking the username from tester home
   officerUsername = "TCO";
@@ -20,19 +22,19 @@ export class GenerateTestReportComponent implements OnInit {
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if(paramMap.has('testerUsername')) {
+      if (paramMap.has('testerUsername')) {
         this.testService.getTesterTests(this.officerUsername);
-        this.testSub = this.testService.getTestsUpdateListener()
-        .subscribe((tests: Test[]) => {
-          this.tests = tests;
-        });
+        this.isTesterHomeButtonVisible = true;
+        this.isManagerHomeButtonVisible = false;
       } else {
-        this.testService.getTests;
-        this.testSub = this.testService.getTestsUpdateListener()
-        .subscribe((tests: Test[]) => {
-          this.tests = tests;
-        });
+        this.testService.getTests();
+        this.isTesterHomeButtonVisible = false;
+        this.isManagerHomeButtonVisible = true;
       }
+      this.testSub = this.testService.getTestsUpdateListener()
+      .subscribe((tests: Test[]) => {
+        this.tests = tests;
+      });
     });
   }
 

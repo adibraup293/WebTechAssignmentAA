@@ -38,7 +38,7 @@ import { ViewTestingHistoryComponent } from './Patient/view-testing-history/view
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 //Add Font Awesome icons here
-import { faSquare, faCheckSquare, faGlobe, faAt, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faSquare, faCheckSquare, faGlobe, faAt, faEye, faEyeSlash, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawesome/free-regular-svg-icons';
 
 const appRoutes:Routes = [
@@ -113,6 +113,6 @@ const appRoutes:Routes = [
 export class AppModule {
   constructor(private library: FaIconLibrary) {
     //Add Font Awesome icons here
-    library.addIcons(faSquare, faCheckSquare, farSquare, farCheckSquare, faGlobe, faAt, faEye, faEyeSlash);
+    library.addIcons(faSquare, faCheckSquare, farSquare, farCheckSquare, faGlobe, faAt, faEye, faEyeSlash, faArrowUp);
   }
 }

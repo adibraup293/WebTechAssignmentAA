@@ -40,20 +40,16 @@
         required
         placeholder="Input Test Centre contact details here"
         #testcentrecontact="ngModel">
-        <mat-error *ngIf="testcentrecontact.invalid">Please enter a test centre contact</mat-error>
+        <mat-error *ngIf="testcentrecontact.invalid">Please enter a test centre contact detail</mat-error>
       </mat-form-field>
       <br><br>
 
-      <div class=page-content>
-        <button
-      mat-raised-button
-      class="create-btn"
-      type="submit">Register Test Centre</button>
-      <br><br>
+      <div class=record-btn-container>
+        <button mat-raised-button class="create-btn" type="submit">Register Test Centre</button>
+      </div>
+      <div class=page-footer>
         <a routerLink="/manager-home"><button mat-raised-button class="manager-home-btn">Back to Manager Home</button></a>
       </div>
-
     </form>
-  </mat-card><br><br><br><br>
-
+  </mat-card>
 </div>
