@@ -24,7 +24,7 @@
           <input
             matInput
             name="password"
-            type="password"
+            [type]="fieldTextType ? 'text' : 'password'"
             placeholder="Enter your password here..."
             ngModel
             #passwordInput="ngModel"
