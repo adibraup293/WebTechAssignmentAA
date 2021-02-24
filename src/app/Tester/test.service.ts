@@ -30,7 +30,7 @@ export class TestService {
         return {
           id: test._id,
           testDate : test.testDate,
-          patientUsername : test.patientUsername,
+          username : test.username,
           patientType : test.patientType,
           symptoms : test.symptoms,
           testStatus : test.testStatus,
@@ -53,14 +53,14 @@ export class TestService {
         return {
           id: test._id,
           testDate : test.testDate,
-          patientUsername : test.patientUsername,
+          username : test.username,
           patientType : test.patientType,
           symptoms : test.symptoms,
           testStatus : test.testStatus,
           testResults : test.testResults,
           testCentreOfficerUsername: test.testCentreOfficerUsername
         };
-      }).filter(test => test.patientUsername === patientUsername);
+      }).filter(test => test.username === patientUsername);
     }))
     .subscribe(transformedTests => {
       this.tests = transformedTests;
@@ -76,7 +76,7 @@ export class TestService {
         return {
           id: test._id,
           testDate : test.testDate,
-          patientUsername : test.patientUsername,
+          username : test.username,
           patientType : test.patientType,
           symptoms : test.symptoms,
           testStatus : test.testStatus,
@@ -92,9 +92,9 @@ export class TestService {
   }
 
   //editing a test object
-  updateTest(id: string, testDate: Date, patientUsername: string, patientType: string, symptoms: string,
+  updateTest(id: string, testDate: Date, username: string, patientType: string, symptoms: string,
     testStatus: string, testResults: string, testCentreOfficerUsername:string){
-    const test: Test = {id: id, testDate: testDate, patientUsername: patientUsername, patientType: patientType,
+    const test: Test = {id: id, testDate: testDate, username: username, patientType: patientType,
       symptoms: symptoms, testStatus: testStatus, testResults: testResults,
       testCentreOfficerUsername: testCentreOfficerUsername};
     this.http.put('http://localhost:3000/api/tests/' + id, test)
@@ -105,9 +105,9 @@ export class TestService {
   }
 
   //adding a test object into collection
-  addTest(testDate: Date, patientUsername: string, patientType: string, symptoms: string,
+  addTest(testDate: Date, username: string, patientType: string, symptoms: string,
     testStatus: string, testResults: string, testCentreOfficerUsername:string){
-    const test: Test = {id: null, testDate: testDate, patientUsername: patientUsername, patientType: patientType,
+    const test: Test = {id: null, testDate: testDate, username: username, patientType: patientType,
       symptoms: symptoms, testStatus: testStatus, testResults: testResults,
       testCentreOfficerUsername: testCentreOfficerUsername};
     this.http

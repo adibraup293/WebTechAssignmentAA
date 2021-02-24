@@ -59,20 +59,20 @@ export class AuthService {
 
   //fetching all the patients available in the user collection
   getPatients(){
-    this.http.get<{message: string, patients: any}>('http://localhost:3000/api/patients')
+    this.http.get<{message: string, user: any}>('http://localhost:3000/api/user')
     .pipe(map((patientData) => {
-      return patientData.patients.map(patient => {
+      return patientData.user.map(user => {
         return {
-          id: patient._id,
-          email : patient.email,
-          username : patient.username,
-          password : patient.password,
-          name : patient.name,
-          position : patient.position,
-          type : patient.type,
-          centreId : patient.centreId
+          id: user._id,
+          email : user.email,
+          username : user.username,
+          password : user.password,
+          name : user.name,
+          position : user.position,
+          type : user.type,
+          centreId : user.centreId
         };
-      }).filter(patient => patient.username === patient.username);
+      }).filter(user => user.position === "Patient");
     }))
     .subscribe(transformedPatients => {
       this.patients = transformedPatients;

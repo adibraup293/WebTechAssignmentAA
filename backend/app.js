@@ -359,7 +359,7 @@ app.get("/api/tests",(req, res, next)=>{
 app.post("/api/tests", (req, res, next) => {
   const test = new Test({
     testDate: req.body.testDate,
-    patientUsername: req.body.patientUsername,
+    username: req.body.username,
     patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
@@ -381,7 +381,7 @@ app.put("/api/tests/:id", (req,res,next) => {
   const test = new Test({
     _id: req.body.id,
     testDate: req.body.testDate,
-    patientUsername: req.body.patientUsername,
+    username: req.body.username,
     patientType: req.body.patientType,
     symptoms: req.body.symptoms,
     testStatus: req.body.testStatus,
@@ -404,11 +404,11 @@ app.put("/api/tests/:id", (req,res,next) => {
 
  //-----------------------------------------Patient------------------------------------------------
  //get patient
- app.get("/api/patients",(req, res, next)=>{
-  Patient.find().then(documents => {
+ app.get("/api/user",(req, res, next)=>{
+  User.find().then(documents => {
     res.status(200).json({
       message: 'Patient fetched successfully',
-      patients: documents
+      user: documents
     });
   })
 });

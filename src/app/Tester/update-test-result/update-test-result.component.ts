@@ -34,7 +34,7 @@ export class UpdateTestResultComponent implements OnInit{
     if (form.invalid){
       return;
     }
-    this.testsService.updateTest(this.testId, this.currentDate, this.test.patientUsername, this.test.patientType,
+    this.testsService.updateTest(this.testId, this.currentDate, this.test.username, this.test.patientType,
       form.value.symptoms, "Complete", form.value.testResults, this.test.testCentreOfficerUsername);
     form.resetForm();
   }
