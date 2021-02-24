@@ -3,8 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Test } from 'src/app/Tester/test.model';
 import { TestService } from 'src/app/Tester/test.service';
-import { Patient } from 'src/app/Patient/patient.model';
-import { PatientService } from 'src/app/Patient/patient.service';
+import { AuthData } from "src/app/auth/auth-data.model";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/auth.services';
 @Component({
@@ -23,7 +22,7 @@ export class RecordTestNewComponent implements OnInit{
   }
 
   test: Test;
-  patient: Patient;
+  user: AuthData;
   currentDate = new Date();
   private mode = 'create';
   //this should be taking the patient id from previous page
@@ -35,17 +34,16 @@ export class RecordTestNewComponent implements OnInit{
   showNewTitle: boolean;
   showExistingTitle: boolean;
 
-  constructor(public authService: AuthService, public testService: TestService, public patientService: PatientService,
-    public route: ActivatedRoute) {}
+  constructor(public authService: AuthService, public testService: TestService, public route: ActivatedRoute) {}
 
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if(paramMap.has('patientId')) {
         this.mode = 'edit';
         this.patientId = paramMap.get('patientId');
-        this.patient = this.patientService.getPatient(this.patientId);
+        this.user = this.authService.getPatient(this.patientId);
         this.isDisabled = true;
-        this.ptUsername = this.patient.patientFullName;
+        this.ptUsername = this.user.name;
         this.showNewTitle = false;
         this.showExistingTitle = true;
       } else {
@@ -63,10 +61,10 @@ export class RecordTestNewComponent implements OnInit{
       return;
     }
     else if (this.mode === 'create'){
-      this.patientService.addPatient(form.value.patientUsername, form.value.patientPassword,
-        form.value.patientFullName, "Patient");
+      this.authService.createPatient(form.value.email, form.value.username, form.value.password,
+        form.value.name, "", "Patient", "");
     }
-    this.testService.addTest(this.currentDate, form.value.patientUsername, form.value.patientType,
+    this.testService.addTest(this.currentDate, form.value.username, form.value.patientType,
       form.value.symptoms, "Pending", "", this.testCentreOfficerUsername);
     form.resetForm();
   }

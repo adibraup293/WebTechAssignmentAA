@@ -1,4 +1,3 @@
-import {Patient} from './patient.model';
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 
@@ -7,12 +6,13 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 
 import { Router } from '@angular/router';
+import { AuthData } from '../auth/auth-data.model';
 
 @Injectable({providedIn: 'root'})
 
 export class PatientService {
-  private patients: Patient[] = [];
-  private patientsUpdate = new Subject<Patient[]>();
+  private patients: AuthData[] = [];
+  private patientsUpdate = new Subject<AuthData[]>();
 
   constructor(private http: HttpClient, private router: Router){}
 
@@ -24,15 +24,18 @@ export class PatientService {
 
   //fetching all the patients available in the patient collection
   getPatients(){
-    this.http.get<{message: string, patients: any}>('http://localhost:3000/api/patients/')
+    this.http.get<{message: string, patients: any}>('http://localhost:3000/api/user/')
     .pipe(map((patientData) => {
-      return patientData.patients.map(test => {
+      return patientData.patients.map(patient => {
         return {
-          id: test._id,
-          patientUsername : test.patientUsername,
-          patientPassword : test.patientPassword,
-          patientFullName : test.patientFullName,
-          patientPosition : test.patientPosition
+          id: patient._id,
+          email : patient.email,
+          username : patient.username,
+          password : patient.password,
+          name : patient.name,
+          position : patient.position,
+          type : patient.type,
+          centreId : patient.centreId
         };
       });
     }))
@@ -43,10 +46,10 @@ export class PatientService {
   }
 
   //editing a patient object
-  updatePatient(id: string, patientUsername: string, patientPassword: string, patientFullName: string,
+  updatePatient(id: string, patientEmail:string, patientUsername: string, patientPassword: string, patientFullName: string,
     patientPosition: string){
-    const patient: Patient = {id: id, patientUsername: patientUsername, patientPassword: patientPassword,
-      patientFullName: patientFullName, patientPosition: patientPosition};
+    const patient: AuthData = {id: id, email : patientEmail, username: patientUsername, password: patientPassword,
+      name: patientFullName, position: patientPosition};
     this.http.put('http://localhost:3000/api/patients/' + id, patient)
       .subscribe(response => {
         console.log(response);
@@ -55,10 +58,10 @@ export class PatientService {
   }
 
   //adding a patient object into collection
-  addPatient(patientUsername: string, patientPassword: string, patientFullName: string,
+  addPatient(patientEmail:string, patientUsername: string, patientPassword: string, patientFullName: string,
     patientPosition: string){
-    const patient: Patient = {id: null, patientUsername: patientUsername, patientPassword: patientPassword,
-      patientFullName: patientFullName, patientPosition: patientPosition};
+    const patient: AuthData = {id: null, email: patientEmail, username: patientUsername, password: patientPassword,
+      name: patientFullName, position: patientPosition};
     this.http
     .post<{message:string, patientId: string}> ('http://localhost:3000/api/patients/signup', patient)
     .subscribe((responseData) => {

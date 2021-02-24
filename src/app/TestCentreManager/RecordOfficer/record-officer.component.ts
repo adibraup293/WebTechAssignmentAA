@@ -2,12 +2,12 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { TestCentre } from '../TestCentre/testcentre.model';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { TestCentreOfficer } from './testcentreofficer.model';
 import { AuthService } from '../../auth/auth.services';
 
 import { TestCentreService} from '../TestCentre/testcentre.service';
 import { TestCentreOfficerService} from './testcentreofficer.service';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-manager-registerTestOfficer',
@@ -16,7 +16,15 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 })
 
 export class ManagerRecordTestOfficerComponent implements OnInit{
-  faArrowUp = faArrowUp;
+  faEye = faEye;
+  faEyeSlash = faEyeSlash;
+
+  fieldTextType: boolean;
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
 
   testcentres: TestCentre[] = [];
   testCentreOfficer: TestCentreOfficer;

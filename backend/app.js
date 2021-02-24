@@ -220,10 +220,10 @@ app.get('/api/testcentreofficers/:id', (req,res,next) => {
 //sign up user
 app.post('/api/user/signup', (req,res,next) => {
   bcrypt.hash(req.body.password, 10)
-  .then(hash =>{
+  .then(() =>{
     const user = new User({
       email: req.body.email,
-      password: hash,
+      password: req.body.password,
       username: req.body.username,
       name: req.body.name,
       position: req.body.position,

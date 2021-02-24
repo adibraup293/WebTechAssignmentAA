@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { Patient } from 'src/app/Patient/patient.model';
-import { PatientService } from 'src/app/Patient/patient.service';
+import { AuthData } from "src/app/auth/auth-data.model";
+import { AuthService } from 'src/app/auth/auth.services';
 
 @Component({
   selector: 'app-select-patient',
@@ -10,15 +10,15 @@ import { PatientService } from 'src/app/Patient/patient.service';
 })
 
 export class SelectPatientComponent implements OnInit{
-  patients: Patient[] = [];
+  patients: AuthData[] = [];
   private patientsSub: Subscription;
 
-  constructor(public patientService: PatientService){}
+  constructor(public authService: AuthService){}
 
   ngOnInit(){
-    this.patientService.getPatients();
-    this.patientsSub = this.patientService.getPatientsUpdateListener()
-    .subscribe((patients: Patient[]) => {
+    this.authService.getPatients();
+    this.patientsSub = this.authService.getPatientsUpdateListener()
+    .subscribe((patients: AuthData[]) => {
       this.patients = patients;
     });
   }
