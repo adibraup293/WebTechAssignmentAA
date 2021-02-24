@@ -122,6 +122,14 @@ app.get("/api/testcentres",(req, res, next)=>{
   })
 });
 
+//delete testcentre
+app.delete('/api/testcentres/:id', (req,res,next) => {
+  TestCentre.deleteOne({_id: req.params.id}).then(result => {
+    console.log(result);
+    res.status(200).json({message: "Test Centre deleted"});
+  })
+});
+
 //-----------------------------------------Test Centre Officer------------------------------------------------
 //add tester
 app.post("/api/testcentreofficers/signup", (req, res, next) => {
@@ -220,10 +228,10 @@ app.get('/api/testcentreofficers/:id', (req,res,next) => {
 //sign up user
 app.post('/api/user/signup', (req,res,next) => {
   bcrypt.hash(req.body.password, 10)
-  .then(() =>{
+  .then(hash =>{
     const user = new User({
       email: req.body.email,
-      password: req.body.password,
+      password: hash,
       username: req.body.username,
       name: req.body.name,
       position: req.body.position,

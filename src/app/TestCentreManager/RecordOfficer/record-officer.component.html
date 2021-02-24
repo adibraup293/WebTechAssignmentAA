@@ -104,6 +104,10 @@
               Test Centre name : {{testcentre.testcentrename}}
             </mat-expansion-panel-header>
               Test Centre ID: {{testcentre.id}}
+
+              <mat-action-row>
+                <button mat-button color="warn" (click) = "onDelete(testcentre.id)">DELETE TEST CENTRE</button>
+              </mat-action-row>
           </mat-expansion-panel>
         </mat-accordion>
 

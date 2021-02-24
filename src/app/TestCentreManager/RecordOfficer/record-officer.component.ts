@@ -55,6 +55,10 @@ export class ManagerRecordTestOfficerComponent implements OnInit{
     form.resetForm();
   }
 
+  onDelete(testcentreId: string){
+    this.testcentresService.deleteTestCentre(testcentreId);
+  }
+
   ngOnDestroy(){
     this.testcentresSub.unsubscribe();
   }

@@ -58,5 +58,15 @@ export class TestCentreService {
     return this.testCentresUpdate.asObservable();
   }
 
+  deleteTestCentre(testcentreId: string){
+    this.http.delete('http://localhost:3000/api/testcentres/' + testcentreId)
+    .subscribe(() => {
+      const updatedTestCentres = this.testCentres.filter(testcentre => testcentre.id !== testcentreId);
+      this.testCentres = updatedTestCentres;
+      this.testCentresUpdate.next([...this.testCentres]);
+      console.log('Successfully delete Test Centre');
+    });
+  }
+
 
 }

@@ -118,6 +118,17 @@ export class AuthService {
     });
   }
 
+  loginPatient(email: string, password: string){
+    const user: AuthData = {email:email, password:password};
+    this.http.post <{token: string}> ('http://localhost:3000/api/user/login', user)
+    .subscribe(response => {
+      const token = response.token;
+      this.token = token;
+      this.authStatusListener.next(true);
+      this.router.navigate(['/patient-home']);
+    });
+  }
+
   logout(){
     this.token = null;
     this.authStatusListener.next(false);

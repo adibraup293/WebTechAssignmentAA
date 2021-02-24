@@ -62,7 +62,7 @@ export class RecordTestNewComponent implements OnInit{
     }
     else if (this.mode === 'create'){
       this.authService.createPatient(form.value.email, form.value.username, form.value.password,
-        form.value.name, "", "Patient", "");
+        form.value.name, "Patient", "", "");
     }
     this.testService.addTest(this.currentDate, form.value.username, form.value.patientType,
       form.value.symptoms, "Pending", "", this.testCentreOfficerUsername);
