@@ -10,12 +10,30 @@
             <mat-form-field style="width:800px">
               <input
               matInput
-              name="patientUsername"
+              name="email"
               class="record-test-input"
               type="text"
               placeholder="Enter the patient's username here..."
-              #patientUsername="ngModel"
-              [ngModel]="patient?.patientUsername"
+              #email="ngModel"
+              [ngModel]="user?.email"
+              [disabled]="isDisabled"
+              required>
+              <mat-error>Please enter the email</mat-error>
+              <mat-hint class="hint" *ngIf="this.isDisabled">This textfield cannot be edited</mat-hint>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td class="cell-padding" valign="top">
+            <mat-form-field style="width:800px">
+              <input
+              matInput
+              name="username"
+              class="record-test-input"
+              type="text"
+              placeholder="Enter the patient's username here..."
+              #username="ngModel"
+              [ngModel]="user?.username"
               [disabled]="isDisabled"
               required>
               <mat-error>Please enter the username</mat-error>
@@ -28,12 +46,12 @@
             <mat-form-field style="width:89.5%">
               <input
               matInput
-              name="patientPassword"
+              name="password"
               class="record-test-input"
               [type]="fieldTextType ? 'text' : 'password'"
               placeholder="Enter the patient's password here..."
-              #patientPassword="ngModel"
-              [ngModel]="patient?.patientPassword"
+              #password="ngModel"
+              [ngModel]="user?.password"
               [disabled]="isDisabled"
               required>
               <mat-error>Please enter the password</mat-error>
@@ -56,12 +74,12 @@
             <mat-form-field style="width:800px">
               <input
               matInput
-              name="patientFullName"
+              name="name"
               class="record-test-input"
               type="text"
               placeholder="Enter the patient's full name here..."
-              #patientFullName="ngModel"
-              [ngModel]="patient?.patientFullName"
+              #name="ngModel"
+              [ngModel]="user?.name"
               [disabled]="isDisabled"
               required>
               <mat-error>Please enter the full name</mat-error>
