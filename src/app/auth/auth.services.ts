@@ -118,6 +118,25 @@ export class AuthService {
     });
   }
 
+  loginUniversal(email: string, password: string){
+    const user: AuthData = {email:email, password:password};
+    this.http.post <{token: string}> ('http://localhost:3000/api/user/login', user)
+    .subscribe(response => {
+      const token = response.token;
+      this.token = token;
+      this.authStatusListener.next(true);
+      if(user.position == "Officer" && user.type == "Tester"){
+        this.router.navigate(['/tester-home']);
+      }
+      // else if (user.position == "Officer" && user.type == "Manager"){
+      //   this.router.navigate(['/manager-home']);
+      // }
+      // else if( user.type == "Patient"){
+      //   this.router.navigate(['/patient-home']);
+      // }
+    });
+  }
+
   loginPatient(email: string, password: string){
     const user: AuthData = {email:email, password:password};
     this.http.post <{token: string}> ('http://localhost:3000/api/user/login', user)

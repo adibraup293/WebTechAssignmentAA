@@ -310,6 +310,17 @@ app.post('/api/user/signup', (req,res,next) => {
   })
 })
 
+//get user
+app.get("/api/user",(req, res, next)=>{
+  User.findOne({position: {Patient}})
+  .then(documents => {
+    res.status(200).json({
+      message: 'User fetched successfully',
+      user: documents
+    });
+  })
+});
+
 // app.post('/api/user/login', (req,res,next) => {
 //   let fetchedUser;
 //   User.findOne({email: req.body.email})
