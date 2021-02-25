@@ -26,7 +26,7 @@ export class RecordTestNewComponent implements OnInit{
   currentDate = new Date();
   private mode = 'edit';
   //this should be taking the patient id from previous page
-  private patientId = "";
+  private patientId: string;
   //this should be taking the username from tester home
   private testCentreOfficerUsername = "TCO";//Take out TCO and replce with attr. obtained from prev page
   isDisabled: boolean;
@@ -45,7 +45,6 @@ export class RecordTestNewComponent implements OnInit{
         this.isDisabled = true;
         this.ptname = this.user.name;
         this.ptuname = this.user.username;
-        this.user
         this.showNewTitle = false;
         this.showExistingTitle = true;
       } else {

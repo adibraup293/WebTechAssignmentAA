@@ -1,8 +1,6 @@
 import { Injectable} from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthData } from './auth-data.model';
-import { TestCentreOfficer } from '../TestCentreManager/RecordOfficer/testcentreofficer.model';
-import { Patient } from "../Patient/patient.model";
 import { Subject } from 'rxjs';
 import {map} from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -82,8 +80,14 @@ export class AuthService {
 
   //fetching a single patient based on the id
   getPatient(id: string){
-    //looking for test object in test array
-    return{...this.patients.find(p => p.id === id)}; //check if test id is equal to id parameter
+    //looking for patient object in patient array
+    return{...this.patients.find(p => p.id === id)}; //check if patient id is equal to id parameter
+  }
+
+  //fetching a single patient based on the email
+  getPatientByEmail(email: string){
+    //looking for patient object in patient array
+    return{...this.patients.find(p => p.email === email)}; //check if patient email is equal to email parameter
   }
 
   //updates the array
@@ -141,6 +145,7 @@ export class AuthService {
 
   loginPatient(email: string, password: string){
     const user: AuthData = {email:email, password:password};
+    const patientEmail = user.email;
     this.http.post <{token: string}> ('http://localhost:3000/api/user/login', user)
     .subscribe(response => {
       const token = response.token;

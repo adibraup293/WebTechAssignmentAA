@@ -22,6 +22,12 @@ export class PatientService {
     return{...this.patients.find(p => p.id === id)}; //check if test id is equal to id parameter
   }
 
+  //fetching a single patient based on the email
+  getPatientByEmail(email: string){
+    //looking for test object in test array
+    return{...this.patients.find(p => p.email === email)}; //check if test id is equal to id parameter
+  }
+
   //fetching all the patients available in the patient collection
   getPatients(){
     this.http.get<{message: string, patients: any}>('http://localhost:3000/api/user/')
