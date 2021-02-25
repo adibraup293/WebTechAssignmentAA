@@ -1,9 +1,9 @@
 <div class="loginDiv">
   <mat-card>
     <h1 class="main-title">Welcome to Covid Testing Information System (CTIS)!</h1><br><br>
-    <form (submit) = "onLogin(loginForm)" #loginForm = "ngForm">
+    <form (submit) = "onLoginPatient(loginForm)" #loginForm = "ngForm">
       <div class=page-content>
-        <h2 class="main-title">Login as Tester Center Manager</h2><br>
+        <h2 class="main-title">Login as Patient</h2><br>
         <div style="float:left; margin-top: 35px;">
           <fa-icon [icon]="faAt" size="2x" style="padding-right: 15px;"></fa-icon>
         </div>
@@ -50,18 +50,18 @@
 
           <br><br>
           <br><br>
+          Click here to Login as Manager:
+          <a routerLink="/manager-login">
+            <button
+            mat-raised-button
+            class="login-btn"> Log In as Manager</button></a>
+
+          <br><br>
           Click here to Login as Tester:
           <a routerLink="/tester-login">
             <button
             mat-raised-button
             class="login-btn"> Log In as Tester</button></a>
-
-          <br><br>
-          Click here to Login as Patient:
-          <a routerLink="/patient-login">
-            <button
-            mat-raised-button
-            class="login-btn"> Log In as Patient</button></a>
       </div>
     </form>
   </mat-card>

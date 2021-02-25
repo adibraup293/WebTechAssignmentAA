@@ -33,6 +33,7 @@ import { SelectPatientComponent } from "./Tester/record-new-test/select-patient/
 import { RecordTestNewComponent } from "./Tester/record-new-test/new-patient/record-test-new.component";
 import { UpdateTestKitComponent} from "./TestCentreManager/ManageTestKit/UpdateTestKit/update-kit.component";
 //Routing for patient pages
+import { LoginPatientComponent} from "./auth/loginPatient/loginPatient.component";
 import { PatientHomeComponent} from "./Patient/patient-home.component";
 import { ViewTestingHistoryComponent } from './Patient/view-testing-history/view-testing-history.component';
 
@@ -44,6 +45,7 @@ import { faSquare as farSquare, faCheckSquare as farCheckSquare } from '@fortawe
 const appRoutes:Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'tester-login', component: LoginTesterComponent},
+  {path: 'patient-login', component: LoginPatientComponent},
   {path: 'signup', component: SignupComponent},
   //Routing for manager pages
   {path: 'manager-home', component: ManagerHomeComponent},
@@ -74,6 +76,7 @@ const appRoutes:Routes = [
     AppComponent,
     LoginComponent,
     LoginTesterComponent,
+    LoginPatientComponent,
     SignupComponent,
     MTHomeComponent,
     //Routing for manager pages
