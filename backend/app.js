@@ -310,12 +310,22 @@ app.post('/api/user/signup', (req,res,next) => {
   })
 })
 
-//get user
-app.get("/api/user",(req, res, next)=>{
-  User.findOne({position: {Patient}})
-  .then(documents => {
+// //get user
+// app.get("/api/user",(req, res, next)=>{
+//   User.findOne({position: {Patient}})
+//   .then(documents => {
+//     res.status(200).json({
+//       message: 'User fetched successfully',
+//       user: documents
+//     });
+//   })
+// });
+
+ //get patient
+ app.get("/api/user",(req, res, next)=>{
+  User.find().then(documents => {
     res.status(200).json({
-      message: 'User fetched successfully',
+      message: 'Patient fetched successfully',
       user: documents
     });
   })
@@ -414,15 +424,6 @@ app.put("/api/tests/:id", (req,res,next) => {
 });
 
  //-----------------------------------------Patient------------------------------------------------
- //get patient
- app.get("/api/user",(req, res, next)=>{
-  User.find().then(documents => {
-    res.status(200).json({
-      message: 'Patient fetched successfully',
-      user: documents
-    });
-  })
-});
 
  //create patient
  app.post("/api/patients/signup", (req, res, next) => {
