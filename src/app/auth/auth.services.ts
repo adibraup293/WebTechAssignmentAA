@@ -119,21 +119,23 @@ export class AuthService {
   }
 
   loginUniversal(email: string, password: string){
-    const user: AuthData = {email:email, password:password};
+    const user: AuthData = {email:email, password:password, position, type};
+    var position=user.position, type=user.type;
     this.http.post <{token: string}> ('http://localhost:3000/api/user/login', user)
     .subscribe(response => {
       const token = response.token;
       this.token = token;
       this.authStatusListener.next(true);
+      console.log(user);
       if(user.position == "Officer" && user.type == "Tester"){
         this.router.navigate(['/tester-home']);
       }
-      // else if (user.position == "Officer" && user.type == "Manager"){
-      //   this.router.navigate(['/manager-home']);
-      // }
-      // else if( user.type == "Patient"){
-      //   this.router.navigate(['/patient-home']);
-      // }
+      else if (user.position == "Officer" && user.type == "Manager"){
+        this.router.navigate(['/manager-home']);
+      }
+      else if(user.position == "Patient" && user.type == ""){
+        this.router.navigate(['/patient-home']);
+      }
     });
   }
 
