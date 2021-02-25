@@ -24,13 +24,14 @@ export class RecordTestNewComponent implements OnInit{
   test: Test;
   user: AuthData;
   currentDate = new Date();
-  private mode = 'create';
+  private mode = 'edit';
   //this should be taking the patient id from previous page
   private patientId = "";
   //this should be taking the username from tester home
   private testCentreOfficerUsername = "TCO";//Take out TCO and replce with attr. obtained from prev page
   isDisabled: boolean;
-  ptUsername: string;
+  ptname: string;
+  ptuname: string;
   showNewTitle: boolean;
   showExistingTitle: boolean;
 
@@ -39,11 +40,12 @@ export class RecordTestNewComponent implements OnInit{
   ngOnInit(){
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if(paramMap.has('patientId')) {
-        this.mode = 'edit';
         this.patientId = paramMap.get('patientId');
         this.user = this.authService.getPatient(this.patientId);
         this.isDisabled = true;
-        this.ptUsername = this.user.name;
+        this.ptname = this.user.name;
+        this.ptuname = this.user.username;
+        this.user
         this.showNewTitle = false;
         this.showExistingTitle = true;
       } else {
@@ -66,12 +68,9 @@ export class RecordTestNewComponent implements OnInit{
       this.testService.addTest(this.currentDate, form.value.username, form.value.patientType,
         form.value.symptoms, "Pending", "", this.testCentreOfficerUsername);
     }
-    else if (this.mode === 'edit'){
-      this.testService.addTest(this.currentDate, form.value.username, form.value.patientType,
-        form.value.symptoms, "Pending", "", this.testCentreOfficerUsername);
-    }
     else {
-      return;
+      this.testService.addTest(this.currentDate, this.ptuname, form.value.patientType,
+        form.value.symptoms, "Pending", "", this.testCentreOfficerUsername);
     }
     form.resetForm();
   }

@@ -386,8 +386,7 @@ app.post("/api/tests", (req, res, next) => {
     testStatus: req.body.testStatus,
     testResults: req.body.testResults,
     testCentreOfficerUsername: req.body.testCentreOfficerUsername
-  })
-
+  });
   test.save().then(createdTest => {
     console.log(test)
     res.status(200).json({
