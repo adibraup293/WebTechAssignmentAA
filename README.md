@@ -7,8 +7,8 @@ To run this project, just following the steps under **Connect to MongoDB databas
 
 ## Connect to MongoDB database
 First, access the database at `https://account.mongodb.com/account/login`. The credentials for the MongoDB database are as follows:
-<br> Username: adibdibzie@gmail.com
-<br> Password: adibraup293
+<br> Username: 
+<br> Password: 
 
 Next, go to **Network Access** and select **Add IP Address** (the green button on the right). Then, click the **Add Current IP Address** button and click the **Confirm** button. Your current IP address will be added to the IP access list.
 
